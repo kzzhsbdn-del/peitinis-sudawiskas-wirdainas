@@ -111,6 +111,21 @@ section.active{display:block}
 .card.show-ru .rus{display:block}
 .card.show-ru .rus-lt{display:none}
 
+
+.l-ru,.l-lt{display:contents}
+html.lang-lt .l-ru{display:none!important}
+html.lang-lt .l-lt{display:contents!important}
+html.lang-ru .l-lt{display:none!important}
+html.lang-ru .l-ru{display:contents!important}
+html.lang-lt .note-lt,html.lang-lt .l-lt{display:block!important}
+html.lang-lt .note-ru{display:none!important}
+html.lang-ru .note-lt{display:none!important}
+span.l-ru,span.l-lt{display:inline}
+html.lang-lt span.l-ru{display:none!important}
+html.lang-lt span.l-lt{display:inline!important}
+html.lang-ru span.l-lt{display:none!important}
+html.lang-ru span.l-ru{display:inline!important}
+
 </style>
 </head>
 <body>
@@ -178,6 +193,12 @@ section.active{display:block}
 
   <section id="section-browse">
     <div class="notes">
+    <div class="note-flags">
+      <button type="button" class="flag-btn" onclick="setLang('ru')" title="Русский">🇷🇺</button>
+      <button type="button" class="flag-btn" onclick="setLang('lt')" title="Lietuvių">🇱🇹</button>
+    </div>
+    <p class="lang-hint">Чтобы поменять язык нажмите на флаг / <em>Norėdami pakeisti kalbą, spustelėkite vėliavėlę</em></p>
+
       <h2>Весь словарь</h2>
       <ul>
         <li>Просмотр всех статей по алфавиту. Выберите букву или диапазон.</li>
@@ -221,6 +242,12 @@ section.active{display:block}
 
   <section id="section-extra">
     <div class="notes">
+    <div class="note-flags">
+      <button type="button" class="flag-btn" onclick="setLang('ru')" title="Русский">🇷🇺</button>
+      <button type="button" class="flag-btn" onclick="setLang('lt')" title="Lietuvių">🇱🇹</button>
+    </div>
+    <p class="lang-hint">Чтобы поменять язык нажмите на флаг / <em>Norėdami pakeisti kalbą, spustelėkite vėliavėlę</em></p>
+
       <h2>Дополнительный словарик</h2>
       <ul>
         <li>Современные термины и восполнение пробелов (не из основного корпуса Пашки).</li>
@@ -241,584 +268,513 @@ section.active{display:block}
     <div class="results" id="results-extra"></div>
   </section>
 
+  
   <section id="section-grammar">
-
-<div class="note" id="gram-note">
-<p class="note-ru"><strong>Примечание.</strong> Локатив и инструменталис обычно совпадают с дативом (где нет — отдельно). Правила — адаптация и улучшение, не чистая копия suduva. Датив прилагательных: <code>-asmu/-ismu/-smu</code> по прусской модели или по общей схеме склонений.</p>
-<p class="note-lt" style="display:none"><strong>Pastaba.</strong> Lokatyvas ir instrumentalis dažniausiai sutampa su datyvu (kur nesutampa — atskirai). Taisyklės — adaptacija ir patobulinimas, ne gryna Sūduvos kopija. Būdvardžių datyvas: <code>-asmu/-ismu/-smu</code> pagal prūsų modelį arba pagal bendrą linksniavimo sistemą.</p>
-</div>
-
     <div class="notes">
-      <h2>Gramatika sūdawiskos bilos</h2>
+      <div class="note-flags">
+        <button type="button" class="flag-btn" onclick="setLang('ru')" title="Русский">🇷🇺</button>
+        <button type="button" class="flag-btn" onclick="setLang('lt')" title="Lietuvių">🇱🇹</button>
+      </div>
+      <p class="lang-hint">Чтобы поменять язык нажмите на флаг / <em>Norėdami pakeisti kalbą, spustelėkite vėliavėlę</em></p>
+      <div class="l-ru">
+        <p><strong>Примечание.</strong> Локатив и инструменталис обычно совпадают с дативом (где нет — отдельно). Правила — адаптация и улучшение, не чистая копия suduva. Датив прилагательных: <code>-asmu/-ismu/-smu</code> по прусской модели или по общей схеме склонений.</p>
+      </div>
+      <div class="l-lt" style="display:none">
+        <p><strong>Pastaba.</strong> Lokatyvas (vietininkas) ir instrumentalis (įnagininkas) dažniausiai sutampa su datyvu (naudininku) (kur nesutampa — atskirai). Šios taisyklės nėra identiškos sūduvių kalbai, o yra adaptacija ir patobulinimas. Būdvardžių datyvas: <code>-asmu/-ismu/-smu</code> pagal prūsų modelį arba pagal bendrąją linksniavimo sistemą.</p>
+      </div>
+    </div>
+    <div class="gram-wrap">
 
-<style>
-.gram-wrap { max-width: 960px; }
-.gram-wrap h3 { margin: 1.6rem 0 .6rem; font-size: 1.15rem; border-bottom: 1px solid var(--border, #333); padding-bottom: .3rem; }
-.gram-wrap h4 { margin: 1.1rem 0 .4rem; font-size: 1rem; color: var(--accent, #c9a227); }
-.gram-wrap .note {
-  margin: 0 0 1rem; padding: .85rem 1rem;
-  background: var(--card, #1a1a1a); border-radius: 8px;
-  border-left: 3px solid var(--accent, #c9a227); line-height: 1.45; font-size: .92rem;
-}
-.gram-wrap .reform {
-  margin: 0 0 1.2rem; padding: .85rem 1rem;
-  background: rgba(201,162,39,.1); border-radius: 8px;
-  border-left: 3px solid #c9a227; line-height: 1.45; font-size: .92rem;
-}
-.gram-table {
-  width: 100%; border-collapse: collapse; margin: .4rem 0 1rem;
-  font-size: .9rem; background: var(--card, #1a1a1a); border-radius: 6px; overflow: hidden;
-}
-.gram-table th, .gram-table td {
-  border: 1px solid var(--border, #333); padding: .4rem .65rem; text-align: left; vertical-align: top;
-}
-.gram-table th { background: rgba(201,162,39,.12); font-weight: 600; white-space: nowrap; }
-.gram-table td:first-child { font-weight: 500; color: var(--muted, #aaa); white-space: nowrap; }
-.gram-wrap code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: .88em; background: rgba(255,255,255,.06); padding: .1em .3em; border-radius: 3px;
-}
-.gram-wrap p { margin: .4rem 0 .7rem; line-height: 1.5; font-size: .92rem; }
-.gram-wrap .sub { color: var(--muted, #999); font-size: .85rem; margin-top: -.2rem; }
-</style>
-<div class="gram-wrap">
+<h3><span class="l-ru">1. Склонения</span><span class="l-lt">1. Linksniavimas</span></h3>
 
-<div class="reform">
-<strong>Орфографическая реформа:</strong> в основном словаре окончания <code>-as</code> читайте / переводите как <code>-s</code> (например <em>wīras</em> → <em>wīrs</em>, <em>labas</em> → <em>labs</em>). В грамматических таблицах ниже уже даны формы по новой норме.
-</div>
-
-<div class="note">
-<strong>Примечание.</strong> Локатив и инструменталис обычно совпадают с дативом (где нет — вынесено отдельно). Для прилагательных датив возможен и по прусской модели (<code>-asmu / -ismu / -smu</code>), либо по общей модели склонений. Правила — адаптация и улучшение, не чистая копия suduva.com.
-</div>
-
-<h3>1. Склонения</h3>
-
-<h4>Основа на -u (ср.р.) — «авокадо»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">Основа на -u</span><span class="l-lt">Kamienas -u</span> — awōkadu</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>awōkadu</td><td>awōkadu</td></tr>
-<tr><td>Род.п.</td><td>awōkadus</td><td>awōkadun</td></tr>
-<tr><td>Дат.п.</td><td>awōkadu</td><td>awōkadums</td></tr>
-<tr><td>Вин.п.</td><td>awōkadu</td><td>awōkadu</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>awōkadu</td><td>awōkadu</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>awōkadus</td><td>awōkadun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>awōkadu</td><td>awōkadums</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>awōkadu</td><td>awōkadu</td></tr>
 </tbody></table>
 
-<h4>Основа на -u (ср.р., от прилагательного) — «смелый, отважный»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">Склонение на -u (ср.р., от прилагательного)</span><span class="l-lt">Kamienas -u (bev. g., iš būdvardžio)</span> — dīrsu</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>dīrsu</td><td>dirswai</td></tr>
-<tr><td>Род.п.</td><td>dirswas</td><td>dīrsun</td></tr>
-<tr><td>Дат.п.</td><td>dīrsusmu</td><td>dirsusams</td></tr>
-<tr><td>Вин.п.</td><td>dīrsu</td><td>dīrsuns</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>dīrsu</td><td>dirswai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>dirswas</td><td>dīrsun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>dīrsusmu</td><td>dirsusams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>dīrsu</td><td>dīrsuns</td></tr>
 </tbody></table>
 
-<h4>Основа на -s (муж.р.) — «мужчина»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">Основа на -s</span><span class="l-lt">Kamienas -s</span> — wīrs</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>wīrs</td><td>wīrai</td></tr>
-<tr><td>Род.п.</td><td>wīras</td><td>wīrun</td></tr>
-<tr><td>Дат.п.</td><td>wīru</td><td>wīrams</td></tr>
-<tr><td>Вин.п.</td><td>wīran</td><td>wīrans</td></tr>
-<tr><td>Мест.п.</td><td>wīrai</td><td>wīraisu</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>wīrs</td><td>wīrai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>wīras</td><td>wīrun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>wīru</td><td>wīrams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>wīran</td><td>wīrans</td></tr>
+<tr><td><span class="l-ru">Мест.п.</span><span class="l-lt">Vt. / Loc.</span></td><td>wīrai</td><td>wīraisu</td></tr>
 </tbody></table>
 
-<h4>Основа на -is (муж.р.) — «гость»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">Основа на -is</span><span class="l-lt">Kamienas -is</span> — gastis</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>gastis</td><td>gastjai</td></tr>
-<tr><td>Род.п.</td><td>gastjas</td><td>gastjun</td></tr>
-<tr><td>Дат.п.</td><td>gastei</td><td>gastims</td></tr>
-<tr><td>Вин.п.</td><td>gastin</td><td>gastins</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>gastis</td><td>gastjai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>gastjas</td><td>gastjun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>gastei</td><td>gastims</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>gastin</td><td>gastins</td></tr>
 </tbody></table>
 
-<h4>Основа на -a (жен.р.) — «жена / женщина»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">Основа на -a</span><span class="l-lt">Kamienas -a</span> — gena</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>gena</td><td>genos</td></tr>
-<tr><td>Род.п.</td><td>genos</td><td>genun</td></tr>
-<tr><td>Дат.п.</td><td>genai</td><td>genoms</td></tr>
-<tr><td>Вин.п.</td><td>genan</td><td>genans</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>gena</td><td>genos</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>genos</td><td>genun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>genai</td><td>genoms</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>genan</td><td>genans</td></tr>
 </tbody></table>
 
-<h4>Основа на -an (ср.р.) — «никель»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">Основа на -an</span><span class="l-lt">Kamienas -an</span> — nikkelan</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>nikkelan</td><td>nikelai</td></tr>
-<tr><td>Род.п.</td><td>nikkelas</td><td>nikkelun</td></tr>
-<tr><td>Дат.п.</td><td>nikkelu</td><td>nikelams</td></tr>
-<tr><td>Вин.п.</td><td>nikkelan</td><td>nikkelans</td></tr>
-<tr><td>Мест.п.</td><td>nikkelai</td><td>nikkelaisu</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>nikkelan</td><td>nikelai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>nikkelas</td><td>nikkelun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>nikkelu</td><td>nikelams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>nikkelan</td><td>nikkelans</td></tr>
+<tr><td><span class="l-ru">Мест.п.</span><span class="l-lt">Vt. / Loc.</span></td><td>nikkelai</td><td>nikkelaisu</td></tr>
 </tbody></table>
 
-<h4>Основа на -e (жен.р.) — «земля»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">Основа на -e</span><span class="l-lt">Kamienas -e</span> — zeme</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>zeme</td><td>zemes</td></tr>
-<tr><td>Род.п.</td><td>zemes</td><td>zemjun</td></tr>
-<tr><td>Дат.п.</td><td>zemei</td><td>zemems</td></tr>
-<tr><td>Вин.п.</td><td>zemjen</td><td>zemens</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>zeme</td><td>zemes</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>zemes</td><td>zemjun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>zemei</td><td>zemems</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>zemjen</td><td>zemens</td></tr>
 </tbody></table>
 
-<h4>Основа на -us (муж.р.) — «сын»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">Основа на -us</span><span class="l-lt">Kamienas -us</span> — sūnus</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>sūnus</td><td>sūnaus</td></tr>
-<tr><td>Род.п.</td><td>sūnaus</td><td>sūnun</td></tr>
-<tr><td>Дат.п.</td><td>sūnau</td><td>sūnums</td></tr>
-<tr><td>Вин.п.</td><td>sūnun</td><td>sūnuns</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>sūnus</td><td>sūnaus</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>sūnaus</td><td>sūnun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>sūnau</td><td>sūnums</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>sūnun</td><td>sūnuns</td></tr>
 </tbody></table>
 
-<h4>Основа на -i (жен.р.) — «частица»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">Основа на -i</span><span class="l-lt">Kamienas -i</span> — partīkeli</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>partīkeli</td><td>partīkelis</td></tr>
-<tr><td>Род.п.</td><td>partīkelis</td><td>partīkeljun</td></tr>
-<tr><td>Дат.п.</td><td>partīkelei</td><td>partīkelims</td></tr>
-<tr><td>Вин.п.</td><td>partīkelin</td><td>partīkelins</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>partīkeli</td><td>partīkelis</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>partīkelis</td><td>partīkeljun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>partīkelei</td><td>partīkelims</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>partīkelin</td><td>partīkelins</td></tr>
 </tbody></table>
 
-
-<h4>Склонение прилагательных -isks — «африканский»</h4>
-<table class="gram-table"><thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">Прилагательные -isks</span><span class="l-lt">Būdvardis -isks</span> — afrikisks</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>afrikisks</td><td>afrikiskai</td></tr>
-<tr><td>Род.п.</td><td>afrikiskas</td><td>afrikiskun</td></tr>
-<tr><td>Дат.п.</td><td>afrikiskasmu</td><td>afrikiskams</td></tr>
-<tr><td>Вин.п.</td><td>afrikiskan</td><td>afrikiskans</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>afrikisks</td><td>afrikiskai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>afrikiskas</td><td>afrikiskun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>afrikiskasmu</td><td>afrikiskams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>afrikiskan</td><td>afrikiskans</td></tr>
 </tbody></table>
-<table class="gram-table"><thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>afrikiska</td><td>afrikiskos</td></tr>
-<tr><td>Род.п.</td><td>afrikiskos</td><td>afrikiskun</td></tr>
-<tr><td>Дат.п.</td><td>afrikiskai</td><td>afrikiskoms</td></tr>
-<tr><td>Вин.п.</td><td>afrikiskan</td><td>afrikiskans</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>afrikiska</td><td>afrikiskos</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>afrikiskos</td><td>afrikiskun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>afrikiskai</td><td>afrikiskoms</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>afrikiskan</td><td>afrikiskans</td></tr>
 </tbody></table>
-<table class="gram-table"><thead><tr><th>ср.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>afrikiskan</td><td>afrikiskai</td></tr>
-<tr><td>Род.п.</td><td>afrikiskas</td><td>afrikiskun</td></tr>
-<tr><td>Дат.п.</td><td>afrikiskasmu</td><td>afrikiskams</td></tr>
-<tr><td>Вин.п.</td><td>afrikiskan</td><td>afrikiskans</td></tr>
-</tbody></table>
-
-<h4>Склонение на -ingis — «единый»</h4>
-<table class="gram-table"><thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>ainingis</td><td>ainingjai</td></tr>
-<tr><td>Род.п.</td><td>ainingjas</td><td>ainingjun</td></tr>
-<tr><td>Дат.п.</td><td>ainingjasmu</td><td>ainingjams</td></tr>
-<tr><td>Вин.п.</td><td>ainingjan</td><td>aīningjans</td></tr>
-</tbody></table>
-<table class="gram-table"><thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>ainingi</td><td>ainingis</td></tr>
-<tr><td>Род.п.</td><td>ainingis</td><td>ainingjun</td></tr>
-<tr><td>Дат.п.</td><td>ainingei</td><td>ainingims</td></tr>
-<tr><td>Вин.п.</td><td>ainingin</td><td>ainingins</td></tr>
-</tbody></table>
-<table class="gram-table"><thead><tr><th>ср.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>ainingjan</td><td>ainingjai</td></tr>
-<tr><td>Род.п.</td><td>ainingjas</td><td>ainingjun</td></tr>
-<tr><td>Дат.п.</td><td>ainingjasmu</td><td>ainingjams</td></tr>
-<tr><td>Вин.п.</td><td>ainingjan</td><td>ainingjans</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>afrikiskan</td><td>afrikiskai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>afrikiskas</td><td>afrikiskun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>afrikiskasmu</td><td>afrikiskams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>afrikiskan</td><td>afrikiskans</td></tr>
 </tbody></table>
 
-
-<h4>Склонение на -inis — «деревянный»</h4>
-<table class="gram-table"><thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">Склонение на -ingis</span><span class="l-lt">Kamienas -ingis</span> — ainingis</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>garrinis</td><td>garinjai</td></tr>
-<tr><td>Род.п.</td><td>garinjas</td><td>garinjan</td></tr>
-<tr><td>Дат.п.</td><td>garinjasmu</td><td>garinjams</td></tr>
-<tr><td>Вин.п.</td><td>garinjan</td><td>garinjans</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>ainingis</td><td>ainingjai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>ainingjas</td><td>ainingjun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>ainingjasmu</td><td>ainingjams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>ainingjan</td><td>aīningjans</td></tr>
 </tbody></table>
-<table class="gram-table"><thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>garini</td><td>garinjos</td></tr>
-<tr><td>Род.п.</td><td>garinjos</td><td>garinjun</td></tr>
-<tr><td>Дат.п.</td><td>garinjai</td><td>garinjoms</td></tr>
-<tr><td>Вин.п.</td><td>garinjan</td><td>garinjans</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>ainingi</td><td>ainingis</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>ainingis</td><td>ainingjun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>ainingei</td><td>ainingims</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>ainingin</td><td>ainingins</td></tr>
 </tbody></table>
-<table class="gram-table"><thead><tr><th>ср.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>garini</td><td>garinjai</td></tr>
-<tr><td>Род.п.</td><td>garinjas</td><td>garinjun</td></tr>
-<tr><td>Дат.п.</td><td>garinjasmu</td><td>garinjams</td></tr>
-<tr><td>Вин.п.</td><td>garinjan</td><td>garinjans</td></tr>
-</tbody></table>
-
-<h3>2. Специальные склонения</h3>
-
-<h4>«брат»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>brote</td><td>broteres</td></tr>
-<tr><td>Род.п.</td><td>brotres</td><td>brotun</td></tr>
-<tr><td>Дат.п.</td><td>brotrei</td><td>brotrems</td></tr>
-<tr><td>Вин.п.</td><td>broten</td><td>brotens</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė. / Nom.</span></td><td>ainingjan</td><td>ainingjai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K. / Gen.</span></td><td>ainingjas</td><td>ainingjun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N. / Dat.</span></td><td>ainingjasmu</td><td>ainingjams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G. / Akk.</span></td><td>ainingjan</td><td>ainingjans</td></tr>
 </tbody></table>
 
-<h4>«всё» (ср.р.)</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">Склонение на -inis</span><span class="l-lt">Kamienas -inis</span> — garrinis</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g. / masc</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns. / sg</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs. / pl</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>wisa</td><td>wisas</td></tr>
-<tr><td>Род.п.</td><td>wisesa</td><td>wisun</td></tr>
-<tr><td>Дат.п.</td><td>wisasma</td><td>wisams</td></tr>
-<tr><td>Вин.п.</td><td>wisan</td><td>wisans</td></tr>
-<tr><td>Тв.п.</td><td>wisim</td><td>wisims</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Nom</span></td><td>garrinis</td><td>garinjai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">Gen</span></td><td>garinjas</td><td>garinjan</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">Dat</span></td><td>garinjasmu</td><td>garinjams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">Akk</span></td><td>garinjan</td><td>garinjans</td></tr>
+</tbody></table>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g. / fem</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
+<tbody>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Nom</span></td><td>garini</td><td>garinjos</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">Gen</span></td><td>garinjos</td><td>garinjun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">Dat</span></td><td>garinjai</td><td>garinjoms</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">Akk</span></td><td>garinjan</td><td>garinjans</td></tr>
+</tbody></table>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g. / neut</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
+<tbody>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Nom</span></td><td>garini</td><td>garinjai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">Gen</span></td><td>garinjas</td><td>garinjun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">Dat</span></td><td>garinjasmu</td><td>garinjams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">Akk</span></td><td>garinjan</td><td>garinjans</td></tr>
 </tbody></table>
 
-<h4>«любой» (wiss)</h4>
-<table class="gram-table"><thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h3><span class="l-ru">2. Специальные склонения</span><span class="l-lt">2. Specialūs linksniavimai</span></h3>
+
+<h4><span class="l-ru">«брат»</span><span class="l-lt">«brolis»</span> — brote</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>wiss</td><td>wisai</td></tr>
-<tr><td>Род.п.</td><td>wisse</td><td>wiseisun</td></tr>
-<tr><td>Дат.п.</td><td>wismu</td><td>wiseisams</td></tr>
-<tr><td>Вин.п.</td><td>wisan</td><td>wisans</td></tr>
-<tr><td>Тв.п.</td><td>wisim</td><td>wisims</td></tr>
-</tbody></table>
-<table class="gram-table"><thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>wisa</td><td>wisos</td></tr>
-<tr><td>Род.п.</td><td>wisos</td><td>wisun</td></tr>
-<tr><td>Дат.п.</td><td>wisai</td><td>wisams</td></tr>
-<tr><td>Вин.п.</td><td>wisan</td><td>wisans</td></tr>
-<tr><td>Тв.п.</td><td>wisimi</td><td>wisimis</td></tr>
-</tbody></table>
-<table class="gram-table"><thead><tr><th>ср.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>wisan</td><td>wisai</td></tr>
-<tr><td>Род.п.</td><td>wisse</td><td>wiseisun</td></tr>
-<tr><td>Дат.п.</td><td>wismu</td><td>wiseisams</td></tr>
-<tr><td>Вин.п.</td><td>wisan</td><td>wisans</td></tr>
-<tr><td>Тв.п.</td><td>wisim</td><td>wisims</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>brote</td><td>broteres</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>brotres</td><td>brotun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>brotrei</td><td>brotrems</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>broten</td><td>brotens</td></tr>
 </tbody></table>
 
-<h4>«наш»</h4>
-<table class="gram-table"><thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">«всё»</span><span class="l-lt">«viskas»</span> — wisa</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>nūss</td><td>nūsai</td></tr>
-<tr><td>Род.п.</td><td>nūse</td><td>nūseisun</td></tr>
-<tr><td>Дат.п.</td><td>nūsmu</td><td>nūseisams</td></tr>
-<tr><td>Вин.п.</td><td>nūsan</td><td>nūsans</td></tr>
-<tr><td>Тв.п.</td><td>nūsim</td><td>nūsims</td></tr>
-</tbody></table>
-<table class="gram-table"><thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>nūsa</td><td>nūsos</td></tr>
-<tr><td>Род.п.</td><td>nūses</td><td>nūseisun</td></tr>
-<tr><td>Дат.п.</td><td>nūsai</td><td>nūseisoms</td></tr>
-<tr><td>Вин.п.</td><td>nūsan</td><td>nūsans</td></tr>
-<tr><td>Тв.п.</td><td>nūsimi</td><td>nūsims</td></tr>
-</tbody></table>
-<table class="gram-table"><thead><tr><th>ср.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>nūsan</td><td>nusai</td></tr>
-<tr><td>Род.п.</td><td>nūse</td><td>nūseisun</td></tr>
-<tr><td>Дат.п.</td><td>nūsmu</td><td>nūseisams</td></tr>
-<tr><td>Вин.п.</td><td>nūsan</td><td>nūsans</td></tr>
-<tr><td>Тв.п.</td><td>nūsim</td><td>nūsims</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>wisa</td><td>wisai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>wisesa</td><td>wisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>wisasma</td><td>wisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>wisan</td><td>wisans</td></tr>
 </tbody></table>
 
-<h4>«он / она / оно»</h4>
-<table class="gram-table"><thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">«любой»</span><span class="l-lt">«bet kuris»</span> — wiss</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>tans</td><td>tenai</td></tr>
-<tr><td>Род.п.</td><td>tenesse</td><td>teneisun</td></tr>
-<tr><td>Дат.п.</td><td>tenesmu</td><td>teneisams</td></tr>
-<tr><td>Вин.п.</td><td>tennan</td><td>tennans</td></tr>
-<tr><td>Тв.п.</td><td>tanim</td><td>tanims</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>wiss</td><td>wisai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>wisse</td><td>wiseisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>wismu</td><td>wiseisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>wisan</td><td>wisans</td></tr>
 </tbody></table>
-<table class="gram-table"><thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>tena</td><td>tennos</td></tr>
-<tr><td>Род.п.</td><td>tenesses</td><td>teneisun</td></tr>
-<tr><td>Дат.п.</td><td>tenessai</td><td>teneisoms</td></tr>
-<tr><td>Вин.п.</td><td>tennan</td><td>tennans</td></tr>
-<tr><td>Тв.п.</td><td>tenimi</td><td>tenimis</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>wisa</td><td>wisos</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>wisos</td><td>wisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>wisai</td><td>wisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>wisan</td><td>wisans</td></tr>
 </tbody></table>
-<table class="gram-table"><thead><tr><th>ср.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>tennan</td><td>tenai</td></tr>
-<tr><td>Род.п.</td><td>tenesse</td><td>teneisun</td></tr>
-<tr><td>Дат.п.</td><td>tenesmu</td><td>teneisams</td></tr>
-<tr><td>Вин.п.</td><td>tenan</td><td>tenans</td></tr>
-<tr><td>Тв.п.</td><td>tanim</td><td>tanims</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>wisan</td><td>wisai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>wisse</td><td>wiseisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>wismu</td><td>wiseisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>wisan</td><td>wisans</td></tr>
 </tbody></table>
 
-<h4>«тот / то / та»</h4>
-<table class="gram-table"><thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">«наш»</span><span class="l-lt">«mūsų»</span> — nūss</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>stas</td><td>stai</td></tr>
-<tr><td>Род.п.</td><td>stesse</td><td>steisun</td></tr>
-<tr><td>Дат.п.</td><td>stesmu</td><td>steisams</td></tr>
-<tr><td>Вин.п.</td><td>stan</td><td>stans</td></tr>
-<tr><td>Тв.п.</td><td>stasim</td><td>stasims</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>nūss</td><td>nūsai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>nūse</td><td>nūseisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>nūsmu</td><td>nūseisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>nūsan</td><td>nūsans</td></tr>
 </tbody></table>
-<table class="gram-table"><thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>sta</td><td>stasos</td></tr>
-<tr><td>Род.п.</td><td>stesses</td><td>steisun</td></tr>
-<tr><td>Дат.п.</td><td>stessei</td><td>steisoms</td></tr>
-<tr><td>Вин.п.</td><td>stan</td><td>stans</td></tr>
-<tr><td>Тв.п.</td><td>stasimi</td><td>stasimis</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>nūsa</td><td>nūsos</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>nūses</td><td>nūseisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>nūsai</td><td>nūseisoms</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>nūsan</td><td>nūsans</td></tr>
 </tbody></table>
-<table class="gram-table"><thead><tr><th>ср.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>stan</td><td>stai</td></tr>
-<tr><td>Род.п.</td><td>stesse</td><td>steisun</td></tr>
-<tr><td>Дат.п.</td><td>stesmu</td><td>steisams</td></tr>
-<tr><td>Вин.п.</td><td>stan</td><td>stans</td></tr>
-<tr><td>Тв.п.</td><td>stasim</td><td>stasims</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>nūsan</td><td>nusai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>nūse</td><td>nūseisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>nūsmu</td><td>nūseisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>nūsan</td><td>nūsans</td></tr>
 </tbody></table>
 
-<h4>«это / этот / эта / эти» (šis)</h4>
-<table class="gram-table"><thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">«он, она, оно»</span><span class="l-lt">«jis, ji, jie»</span> — tans</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>šis</td><td>šai</td></tr>
-<tr><td>Род.п.</td><td>šisse</td><td>šeisun</td></tr>
-<tr><td>Дат.п.</td><td>šismu</td><td>šeisams</td></tr>
-<tr><td>Вин.п.</td><td>šin</td><td>šins</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>tans</td><td>tenai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>tenesse</td><td>teneisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>tenesmu</td><td>teneisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>tennan</td><td>tennans</td></tr>
 </tbody></table>
-<table class="gram-table"><thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>ši</td><td>šos</td></tr>
-<tr><td>Род.п.</td><td>šisses</td><td>šeisun</td></tr>
-<tr><td>Дат.п.</td><td>šissei</td><td>šeisoms</td></tr>
-<tr><td>Вин.п.</td><td>šan</td><td>šans</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>tena</td><td>tennos</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>tenesses</td><td>teneisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>tenessai</td><td>teneisoms</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>tennan</td><td>tennans</td></tr>
 </tbody></table>
-<table class="gram-table"><thead><tr><th>ср.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>šin</td><td>šai</td></tr>
-<tr><td>Род.п.</td><td>šisse</td><td>šeisun</td></tr>
-<tr><td>Дат.п.</td><td>šismu</td><td>šeisams</td></tr>
-<tr><td>Вин.п.</td><td>šin</td><td>šins</td></tr>
-</tbody></table>
-
-<h4>«я / мы»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>as</td><td>mes</td></tr>
-<tr><td>Род.п.</td><td>mene</td><td>nūsun</td></tr>
-<tr><td>Дат.п.</td><td>menei</td><td>nūms</td></tr>
-<tr><td>Вин.п.</td><td>men</td><td>mans</td></tr>
-<tr><td>Тв.п.</td><td>menim</td><td>manims</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>tennan</td><td>tenai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>tenesse</td><td>teneisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>tenesmu</td><td>teneisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>tenan</td><td>tenans</td></tr>
 </tbody></table>
 
-<h4>«ты / вы»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">«тот, та, то»</span><span class="l-lt">«tas, ta, tai»</span> — stas</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>tū</td><td>jūs</td></tr>
-<tr><td>Род.п.</td><td>tebe</td><td>jūsun</td></tr>
-<tr><td>Дат.п.</td><td>tebei</td><td>jūms</td></tr>
-<tr><td>Вин.п.</td><td>ten</td><td>wans</td></tr>
-<tr><td>Тв.п.</td><td>tebim</td><td>jūsims</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>stas</td><td>stai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>stesse</td><td>steisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>stesmu</td><td>steisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>stan</td><td>stans</td></tr>
+</tbody></table>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
+<tbody>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>sta</td><td>stasos</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>stesses</td><td>steisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>stessei</td><td>steisoms</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>stan</td><td>stans</td></tr>
+</tbody></table>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
+<tbody>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>stan</td><td>stai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>stesse</td><td>steisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>stesmu</td><td>steisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>stan</td><td>stans</td></tr>
 </tbody></table>
 
-<h4>«вся»</h4>
-<table class="gram-table"><thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">«я, мы»</span><span class="l-lt">«aš, mes»</span></h4>
+<table class="gram-table"><thead><tr><th></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>wisa</td><td>wisos</td></tr>
-<tr><td>Род.п.</td><td>wisos</td><td>wisun</td></tr>
-<tr><td>Дат.п.</td><td>wisai</td><td>wisoms</td></tr>
-<tr><td>Вин.п.</td><td>wisan</td><td>wisans</td></tr>
-<tr><td>Тв.п.</td><td>wisimi</td><td>wisimis</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>as</td><td>mes</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>mene</td><td>nūsun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>menei</td><td>nūms</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>men</td><td>mans</td></tr>
 </tbody></table>
 
-<h4>«один / одна / одно»</h4>
-<table class="gram-table"><thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">«ты, вы»</span><span class="l-lt">«tu, jūs»</span></h4>
+<table class="gram-table"><thead><tr><th></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>ains</td><td>ainai</td></tr>
-<tr><td>Род.п.</td><td>ainasse</td><td>ainun</td></tr>
-<tr><td>Дат.п.</td><td>ainasmu</td><td>ainams</td></tr>
-<tr><td>Вин.п.</td><td>ainan</td><td>ainans</td></tr>
-</tbody></table>
-<table class="gram-table"><thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>aina</td><td>ainos</td></tr>
-<tr><td>Род.п.</td><td>ainasses</td><td>ainun</td></tr>
-<tr><td>Дат.п.</td><td>ainassei</td><td>ainoms</td></tr>
-<tr><td>Вин.п.</td><td>ainan</td><td>ainans</td></tr>
-</tbody></table>
-<table class="gram-table"><thead><tr><th>ср.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>ainan</td><td>ainun</td></tr>
-<tr><td>Род.п.</td><td>ainase</td><td>ainun</td></tr>
-<tr><td>Дат.п.</td><td>ainaismu</td><td>ainams</td></tr>
-<tr><td>Вин.п.</td><td>ainan</td><td>ainans</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>tū</td><td>jūs</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>tebe</td><td>jūsun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>tebei</td><td>jūms</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>ten</td><td>wans</td></tr>
 </tbody></table>
 
-<h4>«два» / «двое»</h4>
-<table class="gram-table"><thead><tr><th>два (муж.)</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">«вся»</span><span class="l-lt">«visa»</span> — wisa</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>dwai</td></tr>
-<tr><td>Род.п.</td><td>dwejun</td></tr>
-<tr><td>Дат.п.</td><td>dwejams</td></tr>
-<tr><td>Вин.п.</td><td>dwai</td></tr>
-</tbody></table>
-<table class="gram-table"><thead><tr><th>двое</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>dwejai</td></tr>
-<tr><td>Род.п.</td><td>dwejun</td></tr>
-<tr><td>Дат.п.</td><td>dwejams</td></tr>
-<tr><td>Вин.п.</td><td>dwejans</td></tr>
-<tr><td>Тв.п.</td><td>dwejims</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>wisa</td><td>wisos</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>wisos</td><td>wisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>wisai</td><td>wisoms</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>wisan</td><td>wisans</td></tr>
 </tbody></table>
 
-<h4>«тройка»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">«один»</span><span class="l-lt">«vienas»</span> — ains</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>treita</td><td>treitos</td></tr>
-<tr><td>Род.п.</td><td>treitos</td><td>treitun</td></tr>
-<tr><td>Дат.п.</td><td>treitai</td><td>treitoms</td></tr>
-<tr><td>Вин.п.</td><td>treitan</td><td>treitans</td></tr>
-<tr><td>Тв.п.</td><td>treitimi</td><td>treitimis</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>ains</td><td>ainai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>ainasse</td><td>ainun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>ainasmu</td><td>ainams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>ainan</td><td>ainans</td></tr>
+</tbody></table>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
+<tbody>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>aina</td><td>ainos</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>ainasses</td><td>ainun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>ainassei</td><td>ainoms</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>ainan</td><td>ainans</td></tr>
+</tbody></table>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
+<tbody>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>ainan</td><td>ainun</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>ainase</td><td>ainun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>ainaismu</td><td>ainams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>ainan</td><td>ainans</td></tr>
 </tbody></table>
 
-<h4>«кто / что»</h4>
-<table class="gram-table"><thead><tr><th></th><th>ед.ч.</th></tr></thead>
+<h4><span class="l-ru">«два» / «двое»</span><span class="l-lt">«du» / «dvejetas</span></h4>
+<table class="gram-table"><thead><tr><th></th><th>dwai</th><th>dwejai</th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>kas</td></tr>
-<tr><td>Род.п.</td><td>kasse</td></tr>
-<tr><td>Дат.п.</td><td>kasmu</td></tr>
-<tr><td>Вин.п.</td><td>kan</td></tr>
-<tr><td>Тв.п.</td><td>kim</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>dwai</td><td>dwejai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>dwejun</td><td>dwejun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>dwejams</td><td>dwejams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>dwai</td><td>dwejans</td></tr>
 </tbody></table>
 
-
-<h4>«другой, иной»</h4>
-<table class="gram-table"><thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
+<h4><span class="l-ru">«тройка»</span><span class="l-lt">«trejetas»</span> — treita</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>kits</td><td>kitai</td></tr>
-<tr><td>Род.п.</td><td>kitse</td><td>kiteisun</td></tr>
-<tr><td>Дат.п.</td><td>kitsmu</td><td>kiteisams</td></tr>
-<tr><td>Вин.п.</td><td>kittan</td><td>kittans</td></tr>
-</tbody></table>
-<table class="gram-table"><thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>kita</td><td>kittos</td></tr>
-<tr><td>Род.п.</td><td>kitses</td><td>kiteisun</td></tr>
-<tr><td>Дат.п.</td><td>kitsei</td><td>kiteisoms</td></tr>
-<tr><td>Вин.п.</td><td>kittan</td><td>kitans</td></tr>
-</tbody></table>
-<table class="gram-table"><thead><tr><th>ср.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
-<tbody>
-<tr><td>Им.п.</td><td>kittan</td><td>kitai</td></tr>
-<tr><td>Род.п.</td><td>kitse</td><td>kiteisun</td></tr>
-<tr><td>Дат.п.</td><td>kitsmu</td><td>kiteisams</td></tr>
-<tr><td>Вин.п.</td><td>kittan</td><td>kittans</td></tr>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>treita</td><td>treitos</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>treitos</td><td>treitun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>treitai</td><td>treitoms</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>treitan</td><td>treitans</td></tr>
 </tbody></table>
 
-<h3>3. Суффиксы</h3>
-<p><strong>Родовые окончания и наречия:</strong></p>
-<table class="gram-table"><thead><tr><th>М.р.</th><th>Ж.р.</th><th>С.р.</th><th>Наречие</th></tr></thead>
+<h4><span class="l-ru">«кто, что»</span><span class="l-lt">«kas»</span> — kas</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th></tr></thead>
+<tbody>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>kas</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>kasse</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>kasmu</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>kan</td></tr>
+</tbody></table>
+
+<h4><span class="l-ru">«этот»</span><span class="l-lt">«šis»</span> — šis</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
+<tbody>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>šis</td><td>šai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>šisse</td><td>šeisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>šismu</td><td>šeisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>šin</td><td>šins</td></tr>
+</tbody></table>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
+<tbody>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>ši</td><td>šos</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>šisses</td><td>šeisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>šissei</td><td>šeisoms</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>šan</td><td>šans</td></tr>
+</tbody></table>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
+<tbody>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>šin</td><td>šai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>šisse</td><td>šeisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>šismu</td><td>šeisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>šin</td><td>šins</td></tr>
+</tbody></table>
+
+<h4><span class="l-ru">«другой»</span><span class="l-lt">«kitas»</span> — kits</h4>
+<table class="gram-table"><thead><tr><th><span class="l-ru">муж.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
+<tbody>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>kits</td><td>kitai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>kitse</td><td>kiteisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>kitsmu</td><td>kiteisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>kittan</td><td>kittans</td></tr>
+</tbody></table>
+<table class="gram-table"><thead><tr><th><span class="l-ru">жен.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
+<tbody>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>kita</td><td>kittos</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>kitses</td><td>kiteisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>kitsei</td><td>kiteisoms</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>kittan</td><td>kitans</td></tr>
+</tbody></table>
+<table class="gram-table"><thead><tr><th><span class="l-ru">ср.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">ед.ч.</span><span class="l-lt">Vns.</span></th><th><span class="l-ru">мн.ч.</span><span class="l-lt">Dgs.</span></th></tr></thead>
+<tbody>
+<tr><td><span class="l-ru">Им.п.</span><span class="l-lt">Vė.</span></td><td>kittan</td><td>kitai</td></tr>
+<tr><td><span class="l-ru">Род.п.</span><span class="l-lt">K.</span></td><td>kitse</td><td>kiteisun</td></tr>
+<tr><td><span class="l-ru">Дат.п.</span><span class="l-lt">N.</span></td><td>kitsmu</td><td>kiteisams</td></tr>
+<tr><td><span class="l-ru">Вин.п.</span><span class="l-lt">G.</span></td><td>kittan</td><td>kittans</td></tr>
+</tbody></table>
+
+<h3><span class="l-ru">3. Суффиксы</span><span class="l-lt">3. Sufiksai</span></h3>
+<table class="gram-table"><thead><tr><th><span class="l-ru">М.р.</span><span class="l-lt">Vyr. g.</span></th><th><span class="l-ru">Ж.р.</span><span class="l-lt">Mot. g.</span></th><th><span class="l-ru">С.р.</span><span class="l-lt">Bev. g.</span></th><th><span class="l-ru">Наречие</span><span class="l-lt">Prieveiksmis</span></th></tr></thead>
 <tbody>
 <tr><td>-s</td><td>-a</td><td>-an</td><td>-ai</td></tr>
 <tr><td>-is</td><td>-e</td><td>-in</td><td>-jai</td></tr>
 <tr><td>-us</td><td>-e</td><td>-u</td><td>-u</td></tr>
-<tr><td>-es</td><td>-e</td><td>-en</td><td>-jai (?)</td></tr>
+<tr><td>-es</td><td>-e</td><td>-en</td><td>-jai(?)</td></tr>
 </tbody></table>
+
+<div class="l-ru">
 <table class="gram-table"><thead><tr><th>Суффикс</th><th>Значение</th><th>Примеры</th></tr></thead>
 <tbody>
-<tr><td><strong>-sna</strong></td><td>абстрактное сущ. / процесс (-ние)</td><td>atverpt → atverpsna; izmigt → izmigsna; mokint → mokinsna</td></tr>
-<tr><td><strong>-senis</strong></td><td>абстрактное сущ. / процесс</td><td>gimt → gimsenis; pavargt → pavargsenis</td></tr>
+<tr><td><strong>-sna</strong></td><td>абстрактное сущ. / процесс</td><td>atverpt → atverpsna; izmigt → izmigsna; mokint → mokinsna</td></tr>
+<tr><td><strong>-senis</strong></td><td>абстрактное сущ. / процесс</td><td>gimt → gimsenis; pavargt → pavargsenis; baudint → baudinsna</td></tr>
 <tr><td><strong>-lis / -le</strong></td><td>инструмент, средство</td><td>adīt → adītlis; peisot → peisole</td></tr>
-<tr><td><strong>-inīkas / -inīks</strong></td><td>человек по занятию (-ник)</td><td>pīvas → pīvinīkas; bit → bitinīkas</td></tr>
-<tr><td><strong>-ojas / -ojs</strong></td><td>деятель от глагола (-тель)</td><td>art → artojas; dimt → dimtojas</td></tr>
-<tr><td><strong>-inis</strong></td><td>относительный</td><td>ranka → rankinis; deina → deininis</td></tr>
-<tr><td><strong>-ingas / -ingis</strong></td><td>качественный</td><td>druwis → druwingas; mīle → mīlingas</td></tr>
-<tr><td><strong>-isks</strong> (стар. -iskas)</td><td>подобие, принадлежность, свойство (-ский / -овый)</td><td>Ainavīdiskas — одиночный, единообразный</td></tr>
-<tr><td><strong>-ība</strong></td><td>абстракция от прилагательного</td><td>Dwai → dwejība</td></tr>
-<tr><td><strong>-īsta</strong></td><td>абстракция от существительного</td><td></td></tr>
+<tr><td><strong>-inīkas/inīks</strong></td><td>человек по занятию</td><td>pīvas → pīvinīkas; bit → bitinīkas</td></tr>
+<tr><td><strong>-ojas/ojs</strong></td><td>деятель от глагола</td><td>art → artojas; aket → aketojas; dimt → dimtojas</td></tr>
+<tr><td><strong>-inis</strong></td><td>относительный</td><td>ranka → rankinis; deina → deininis; Nadēle → nadēlinis</td></tr>
+<tr><td><strong>-ingas/ingis</strong></td><td>качественный</td><td>druwis → druwingas; mīle → mīlingas; aistra → aistringas</td></tr>
+<tr><td><strong>-isks</strong></td><td>относительное прил.</td><td>Ainavīdiskas</td></tr>
+<tr><td><strong>-ība</strong></td><td>абстракция от прил.</td><td>Dwai → dwejība</td></tr>
 <tr><td><strong>-iskan</strong></td><td>общий вариант абстракции</td><td></td></tr>
+<tr><td><strong>-īsta</strong></td><td>абстракция от сущ.</td><td></td></tr>
 </tbody></table>
-<p><strong>Сравнительная степень:</strong> при <code>-s/-as</code> → <code>-ais / -aisis</code>; при <code>-is</code> → <code>jais / jaisis</code>; при <code>-us</code> → <code>-uis / -uisis</code>. Пример: <em>mīls</em> → <em>mīlais</em> → <em>mīlaisis</em>.</p>
+<p><strong>Сравнительная степень:</strong> при -as → -ais/-aisis; при -is → jais/jaisis; при -us → -uis/-uisis. <em>mīls</em> → <em>mīlais</em> → <em>mīlaisis</em>.</p>
+</div>
+<div class="l-lt" style="display:none">
+<table class="gram-table"><thead><tr><th>Sufiksas</th><th>Reikšmė</th><th>Pavyzdžiai</th></tr></thead>
+<tbody>
+<tr><td><strong>-sna</strong></td><td>abstraktus daiktavardis / procesas</td><td>atverpt → atverpsna (atleidimas); izmigt → izmigsna; mokint → mokinsna</td></tr>
+<tr><td><strong>-senis</strong></td><td>abstraktus daiktavardis / procesas</td><td>gimt → gimsenis; pavargt → pavargsenis; baudint → baudinsna</td></tr>
+<tr><td><strong>-lis / -le</strong></td><td>įrankis, priemonė</td><td>adīt → adītlis; peisot → peisole</td></tr>
+<tr><td><strong>-inīkas / inīks</strong></td><td>asmuo pagal užsiėmimą</td><td>pīvas → pīvinīkas; bit → bitinīkas</td></tr>
+<tr><td><strong>-ojas / ojs</strong></td><td>veikėjas iš veiksmažodžio</td><td>art → artojas; aket → aketojas; dimt → dimtojas</td></tr>
+<tr><td><strong>-inis</strong></td><td>santykinis</td><td>ranka → rankinis; deina → deininis; Nadēle → nadēlinis</td></tr>
+<tr><td><strong>-ingas / ingis</strong></td><td>kokybinis</td><td>druwis → druwingas; mīle → mīlingas; aistra → aistringas</td></tr>
+<tr><td><strong>-isks</strong></td><td>santykiniams būdvardžiams</td><td>Ainavīdiskas</td></tr>
+<tr><td><strong>-ība</strong></td><td>abstrakcija iš būdvardžio</td><td>Dwai → dwejība</td></tr>
+<tr><td><strong>-iskan</strong></td><td>bendrasis abstrakcijos variantas</td><td></td></tr>
+<tr><td><strong>-īsta</strong></td><td>abstrakcija iš daiktavardžio</td><td></td></tr>
+</tbody></table>
+<p><strong>Aukštesnysis laipsnis:</strong> su -as → -ais/-aisis; su -is → jais/jaisis; su -us → -uis/-uisis. <em>mīls</em> → <em>mīlais</em> → <em>mīlaisis</em>.</p>
+</div>
 
-<h3>4. Приставки</h3>
+<h3><span class="l-ru">4. Приставки</span><span class="l-lt">4. Priešdėliai</span></h3>
+<div class="l-ru">
 <table class="gram-table"><thead><tr><th>Приставка</th><th>Значение</th><th>Примеры</th></tr></thead>
 <tbody>
-<tr><td><strong>ap-</strong></td><td>круговое / полное (об-)</td><td>jot → apjot; veisint → apveisint</td></tr>
-<tr><td><strong>at-</strong></td><td>назад, результат (от-, про-)</td><td>vert → atvert; baudint → atbaudint</td></tr>
-<tr><td><strong>au-</strong></td><td>прочь, удаление (у-)</td><td>eit → aueit; klept → auklept</td></tr>
-<tr><td><strong>en-</strong></td><td>внутрь (в-)</td><td>migt → enmigt; dēt → endēt</td></tr>
-<tr><td><strong>iz-</strong></td><td>наружу, завершённость (из-, вы-)</td><td>leit → izleit; pret → izpret</td></tr>
-<tr><td><strong>pa-</strong></td><td>под-, после, ослабленное</td><td>augint → pa-augint; likt → palikt</td></tr>
+<tr><td><strong>ap-</strong></td><td>круговое / полное (об-)</td><td>jot → apjot; veisint → apveisint; varīt → apvarīt</td></tr>
+<tr><td><strong>at-</strong></td><td>назад, раскрытие (от-, про-)</td><td>vert → atvert; baudint → atbaudint; skīt → atskīt</td></tr>
+<tr><td><strong>au-</strong></td><td>прочь, удаление (у-)</td><td>eit → aueit; klept → auklept; vert → auvert</td></tr>
+<tr><td><strong>en-</strong></td><td>внутрь (в-)</td><td>migt → enmigt; dēt → endēt; imtun → enimtun</td></tr>
+<tr><td><strong>iz-</strong></td><td>наружу, завершённость (из-, вы-)</td><td>leit → izleit; pret → izpret; rankīt → izrankīt</td></tr>
+<tr><td><strong>pa-</strong></td><td>под-, после, ослабленное</td><td>augint → pa-augint; būt → pabūt; likt → palikt</td></tr>
 <tr><td><strong>per-</strong></td><td>интенсивность (пере-)</td><td>bandot → perbandīt; klantīt → perklantīt</td></tr>
-<tr><td><strong>pra-</strong></td><td>сквозь, начало (про-)</td><td>bilēt → prabilēt; vilt → pravilt</td></tr>
-<tr><td><strong>prei-</strong></td><td>приближение (при-)</td><td>pēstun → preipēstun</td></tr>
-<tr><td><strong>san- / są-</strong></td><td>вместе (с-, со-)</td><td>rist → sanrist; junga → sąjunga</td></tr>
+<tr><td><strong>pra-</strong></td><td>сквозь, начало (про-)</td><td>bilēt → prabilēt; leit → praleit; vilt → pravilt</td></tr>
+<tr><td><strong>prei-</strong></td><td>приближение (при-)</td><td>pēstun → preipēstun; vakīt → preivakīt</td></tr>
+<tr><td><strong>san- / są-</strong></td><td>вместе (с-, со-)</td><td>rist → sanrist; renkt → sanrenkt; junga → sąjunga</td></tr>
 <tr><td><strong>an-</strong></td><td>на поверхность (на-)</td><td>Leit → Anleit</td></tr>
 <tr><td><strong>da-</strong></td><td>до-, вплоть до</td><td></td></tr>
-<tr><td><strong>er-</strong></td><td>усиление</td><td>erderkt; erkīnint</td></tr>
-<tr><td><strong>ne- / ni-</strong></td><td>отрицание</td><td>nepret; niainas</td></tr>
-<tr><td><strong>wōka-</strong></td><td>очень-, сверх-, самый</td><td>vōkalabaisis; vōkapirmas</td></tr>
+<tr><td><strong>er-</strong></td><td>усиление</td><td>erderkt; erkīnint; erpilnint</td></tr>
+<tr><td><strong>ne- / ni-</strong></td><td>отрицание</td><td>nepret; niainas; nienbilēt</td></tr>
+<tr><td><strong>wōka-</strong></td><td>очень-, сверх-</td><td>vōkalabaisis; vōkapirmas</td></tr>
 <tr><td><strong>Wunzei-</strong></td><td>над-</td><td>Vunzeizeidīt</td></tr>
 <tr><td><strong>sur-</strong></td><td>вокруг, о</td><td></td></tr>
 </tbody></table>
-
-<h3>5. Глаголы</h3>
-<p class="sub"><strong>Полные парадигмы</strong> — см. вкладку «Глаголы» (без сокращений).</p>
-<h4>Спряжение (основа gin-)</h4>
-<table class="gram-table"><thead><tr><th>Время</th><th>as (я)</th><th>tu</th><th>es / esa / esan</th><th>mes</th><th>jūs</th><th>tanai / tena / tans / tannan</th></tr></thead>
+</div>
+<div class="l-lt" style="display:none">
+<table class="gram-table"><thead><tr><th>Priešdėlis</th><th>Reikšmė</th><th>Pavyzdžiai</th></tr></thead>
 <tbody>
-<tr><td>Настоящее</td><td>ginu</td><td>gini</td><td>gino</td><td>ginime</td><td>ginite</td><td>gina</td></tr>
-<tr><td>Прошедшее</td><td>ginau</td><td>ginei</td><td>gine</td><td>gineme</td><td>ginete</td><td>ginai</td></tr>
-<tr><td>Будущее</td><td>ginusu</td><td>ginusi</td><td>ginuso</td><td>ginusime</td><td>ginusite</td><td>ginusa</td></tr>
+<tr><td><strong>ap-</strong></td><td>aplink / pilnas (ap-)</td><td>jot → apjot; veisint → apveisint; varīt → apvarīt</td></tr>
+<tr><td><strong>at-</strong></td><td>atgal, atvėrimas (at-)</td><td>vert → atvert; baudint → atbaudint; skīt → atskīt</td></tr>
+<tr><td><strong>au-</strong></td><td>šalin, nutolimas</td><td>eit → aueit; klept → auklept; vert → auvert</td></tr>
+<tr><td><strong>en-</strong></td><td>į vidų (į-)</td><td>migt → enmigt; dēt → endēt; imtun → enimtun</td></tr>
+<tr><td><strong>iz-</strong></td><td>į išorę, užbaigtumas (iš-)</td><td>leit → izleit; pret → izpret; rankīt → izrankīt</td></tr>
+<tr><td><strong>pa-</strong></td><td>po-, susilpnintas</td><td>augint → pa-augint; būt → pabūt; likt → palikt</td></tr>
+<tr><td><strong>per-</strong></td><td>intensyvumas (per-)</td><td>bandot → perbandīt; klantīt → perklantīt</td></tr>
+<tr><td><strong>pra-</strong></td><td>pro / pradžia (pra-)</td><td>bilēt → prabilēt; leit → praleit; vilt → pravilt</td></tr>
+<tr><td><strong>prei-</strong></td><td>prisiartinimas (prie-)</td><td>pēstun → preipēstun; vakīt → preivakīt</td></tr>
+<tr><td><strong>san- / są-</strong></td><td>kartu (su-)</td><td>rist → sanrist; renkt → sanrenkt; junga → sąjunga</td></tr>
+<tr><td><strong>an-</strong></td><td>ant paviršiaus</td><td>Leit → Anleit</td></tr>
+<tr><td><strong>da-</strong></td><td>iki-</td><td></td></tr>
+<tr><td><strong>er-</strong></td><td>sustiprinimas</td><td>erderkt; erkīnint; erpilnint</td></tr>
+<tr><td><strong>ne- / ni-</strong></td><td>neigimas</td><td>nepret; niainas; nienbilēt</td></tr>
+<tr><td><strong>wōka-</strong></td><td>labai, itin</td><td>vōkalabaisis; vōkapirmas</td></tr>
+<tr><td><strong>Wunzei-</strong></td><td>virš-</td><td>Vunzeizeidīt</td></tr>
+<tr><td><strong>sur-</strong></td><td>aplink</td><td></td></tr>
 </tbody></table>
-
-<h4>Спряжение (основа mitī-)</h4>
-<table class="gram-table"><thead><tr><th>Время</th><th>as</th><th>tu</th><th>es / esa / esan</th><th>mes</th><th>jūs</th><th>tanai / tena / tans / tannan</th></tr></thead>
-<tbody>
-<tr><td>Настоящее</td><td>mitīju</td><td>mitīji</td><td>mitījo</td><td>mitījime</td><td>mitījite</td><td>Mitīja</td></tr>
-<tr><td>Прошедшее</td><td>mitīwu</td><td>mitīwi</td><td>mitīwo</td><td>mitīwime</td><td>mitīwite</td><td>mitīwa</td></tr>
-<tr><td>Будущее</td><td>mitīwusu</td><td>mitīwusi</td><td>mitīwuso</td><td>mitīwusime</td><td>mitīwusite</td><td>mitīwusa</td></tr>
-</tbody></table>
-<p class="sub">Короткие основы (до -t &lt; 3 букв) и основы с двумя гласными: <em>jauju / jauwu / jawusu</em>, <em>girbaju / girbauwu / girbawusu</em>.</p>
-
-<h4>Причастия</h4>
-<table class="gram-table"><thead><tr><th>Время</th><th>Актив</th><th>Пассив</th></tr></thead>
-<tbody>
-<tr><td>Настоящее</td><td>Skaitīnts*2</td><td>Skaitams*1</td></tr>
-<tr><td>Прошедшее</td><td>skaitīwens</td><td>skaitīts</td></tr>
-<tr><td>Перевод наст.</td><td>читающий</td><td>читаемый</td></tr>
-<tr><td>Перевод прош.</td><td>читавший</td><td>прочитан</td></tr>
-</tbody></table>
-<p class="sub">*1 также считается отглагольным прилагательным. *2 для глаголов на один гласный есть -nts, для au -wints. Если перед -t согласный → <code>-ams</code>; при ēt/īt/it/at/āt — замена; при длинном (напр. -au) — через <code>-j-</code>; при o → <code>-oms</code>. Для основ на один гласный — <code>-nts</code>; для au — <code>-wints</code> (perwakaut → perwakawints).</p>
-<table class="gram-table"><thead><tr><th>Род / число (наст. акт.)</th><th>Судавский</th><th>Русский</th></tr></thead>
-<tbody>
-<tr><td>м.р.</td><td>Skaitīts</td><td>читающий</td></tr>
-<tr><td>ж.р.</td><td>Skaitīta</td><td>читающая</td></tr>
-<tr><td>ср.р.</td><td>Skaitīti</td><td>читающее</td></tr>
-<tr><td>мн.ч.</td><td>Skaitītjai</td><td>читающие</td></tr>
-</tbody></table>
-<table class="gram-table"><thead><tr><th>Род / число (прош. акт.)</th><th>Судавский</th><th>Русский</th></tr></thead>
-<tbody>
-<tr><td>м.р. ед.</td><td>skaitīwens</td><td>читавший</td></tr>
-<tr><td>ж.р. ед.</td><td>skaitīwusi</td><td>читавшая</td></tr>
-<tr><td>ср.р. ед.</td><td>skaitīwen</td><td>читавшее</td></tr>
-<tr><td>мн. (м.-ж.)</td><td>Skaitīwusis</td><td>читавшие</td></tr>
-</tbody></table>
-
-<h4>Деепричастия</h4>
-<table class="gram-table"><thead><tr><th>Одновременность</th><th>Преждевременность</th></tr></thead>
-<tbody>
-<tr><td>skaitidant — Читая</td><td>Skaitītot — Читав</td></tr>
-</tbody></table>
-
-<h4>Наклонения</h4>
-<p><strong>Повелительное:</strong> <code>-k/-s</code> (bilēk / bilēs); <code>-kite/-ti</code> (bilēkite / bilēti); <code>-ais/-k</code> (ainawīdinais / ainawīdink); <code>-aiti/-kite</code>.</p>
-<p><strong>Сослагательное:</strong> <code>-lai</code> (bilēlai — говорил бы); <code>-litei</code> (говорили бы вы); <code>-limai</code> (говорили бы мы).</p>
-<p><strong>Желательное:</strong> <code>-sei</code> (bilēsei — пусть говорит).</p>
-
 </div>
 
-
-  
+    </div>
   </section>
 
-  
   <section id="section-verbs">
     <div class="notes">
+    <div class="note-flags">
+      <button type="button" class="flag-btn" onclick="setLang('ru')" title="Русский">🇷🇺</button>
+      <button type="button" class="flag-btn" onclick="setLang('lt')" title="Lietuvių">🇱🇹</button>
+    </div>
+    <p class="lang-hint">Чтобы поменять язык нажмите на флаг / <em>Norėdami pakeisti kalbą, spustelėkite vėliavėlę</em></p>
+
       <h2>Глаголы / werbai / verbs</h2>
       <p>Полные парадигмы по типам основ. Без сокращений.</p>
     </div>
@@ -1101,6 +1057,12 @@ section.active{display:block}
   
   <section id="section-prep">
     <div class="notes">
+    <div class="note-flags">
+      <button type="button" class="flag-btn" onclick="setLang('ru')" title="Русский">🇷🇺</button>
+      <button type="button" class="flag-btn" onclick="setLang('lt')" title="Lietuvių">🇱🇹</button>
+    </div>
+    <p class="lang-hint">Чтобы поменять язык нажмите на флаг / <em>Norėdami pakeisti kalbą, spustelėkite vėliavėlę</em></p>
+
       <h2>Предлоги и союзы / Prielinksniai ir jungtukai</h2>
       <p>Падеж указан там, где требуется. Полный список без сокращений.</p>
     </div>
@@ -1180,6 +1142,12 @@ section.active{display:block}
 
   <section id="section-geo">
     <div class="notes">
+    <div class="note-flags">
+      <button type="button" class="flag-btn" onclick="setLang('ru')" title="Русский">🇷🇺</button>
+      <button type="button" class="flag-btn" onclick="setLang('lt')" title="Lietuvių">🇱🇹</button>
+    </div>
+    <p class="lang-hint">Чтобы поменять язык нажмите на флаг / <em>Norėdami pakeisti kalbą, spustelėkite vėliavėlę</em></p>
+
       <h2>Geografija — tautun ir regionun</h2>
       <p>Страны и регионы (дополнение). Всего: <strong id="geo-count">105</strong>.</p>
     </div>
@@ -1188,6 +1156,12 @@ section.active{display:block}
 
   <section id="section-sources">
     <div class="notes">
+    <div class="note-flags">
+      <button type="button" class="flag-btn" onclick="setLang('ru')" title="Русский">🇷🇺</button>
+      <button type="button" class="flag-btn" onclick="setLang('lt')" title="Lietuvių">🇱🇹</button>
+    </div>
+    <p class="lang-hint">Чтобы поменять язык нажмите на флаг / <em>Norėdami pakeisti kalbą, spustelėkite vėliavėlę</em></p>
+
       <h2>Источники грамматики</h2>
       <p>Откуда и почему так сделано.</p>
     </div>
@@ -1547,11 +1521,23 @@ function renderGeo() {
 function setLang(lang) {
   UI_LANG = lang;
   try { localStorage.setItem('ssd_lang', lang); } catch (e) {}
+  document.documentElement.classList.remove('lang-ru', 'lang-lt');
+  document.documentElement.classList.add(lang === 'lt' ? 'lang-lt' : 'lang-ru');
   document.querySelectorAll('.flag-btn').forEach(function(b){ b.classList.remove('active'); });
-  var fb = document.getElementById('flag-' + lang);
-  if (fb) fb.classList.add('active');
+  document.querySelectorAll('.flag-btn').forEach(function(b){
+    if ((lang==='ru' && b.title==='Русский') || (lang==='lt' && b.title==='Lietuvių') || b.id==='flag-'+lang)
+      b.classList.add('active');
+  });
   document.querySelectorAll('.note-ru').forEach(function(el){ el.style.display = lang === 'ru' ? '' : 'none'; });
   document.querySelectorAll('.note-lt').forEach(function(el){ el.style.display = lang === 'lt' ? '' : 'none'; });
+  document.querySelectorAll('.l-ru').forEach(function(el){
+    if (el.tagName === 'SPAN') return;
+    el.style.display = lang === 'ru' ? '' : 'none';
+  });
+  document.querySelectorAll('.l-lt').forEach(function(el){
+    if (el.tagName === 'SPAN') return;
+    el.style.display = lang === 'lt' ? '' : 'none';
+  });
   document.querySelectorAll('.card').forEach(function(el){
     el.classList.remove('show-ru', 'show-lt');
     el.classList.add(lang === 'lt' ? 'show-lt' : 'show-ru');
