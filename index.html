@@ -12,7 +12,7 @@
   --extra:#c77dff; --radius:12px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh}
+body{background:var(--bg);color:var(--text);margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5}
 header{background:linear-gradient(135deg,#1a2a3a,#0f1c2a);border-bottom:1px solid var(--border);padding:1.1rem 1.4rem;position:sticky;top:0;z-index:100;box-shadow:0 4px 24px rgba(0,0,0,.35)}
 .header-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:.9rem;justify-content:space-between}
 h1{font-size:1.25rem;font-weight:650;color:var(--accent);letter-spacing:-.02em}
@@ -126,12 +126,147 @@ html.lang-lt span.l-lt{display:inline!important}
 html.lang-ru span.l-lt{display:none!important}
 html.lang-ru span.l-ru{display:inline!important}
 
+
+/* —— Theme variables —— */
+:root, html.theme-dark {
+  --bg: #0f1419;
+  --surface: #1a2332;
+  --card: #1e2a3a;
+  --border: #2d3a4d;
+  --text: #e7ecf3;
+  --muted: #8b9bb4;
+  --accent: #5b9fd4;
+  --accent2: #c9a227;
+  --table-head: #243044;
+  --table-row: #1a2332;
+  --table-alt: #1e2838;
+  --radius: 10px;
+  --shadow: 0 4px 24px rgba(0,0,0,.35);
+}
+html.theme-light {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --border: #d0d7e2;
+  --text: #1a2332;
+  --muted: #5a6a7e;
+  --accent: #2a6fad;
+  --accent2: #b8860b;
+  --table-head: #e8eef6;
+  --table-row: #ffffff;
+  --table-alt: #f0f4fa;
+  --shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+html.theme-sepia {
+  --bg: #f3e9d7;
+  --surface: #faf3e6;
+  --card: #fff8ec;
+  --border: #d4c4a8;
+  --text: #3d2e1a;
+  --muted: #7a6a50;
+  --accent: #8b5a2b;
+  --accent2: #a67c00;
+  --table-head: #ebe0cc;
+  --table-row: #fff8ec;
+  --table-alt: #f5ecda;
+  --shadow: 0 2px 12px rgba(60,40,10,.1);
+}
+html.theme-forest {
+  --bg: #0d1a12;
+  --surface: #15251b;
+  --card: #1a2e22;
+  --border: #2a4535;
+  --text: #e0efe6;
+  --muted: #7a9a88;
+  --accent: #4caf7a;
+  --accent2: #c9a227;
+  --table-head: #1e3328;
+  --table-row: #15251b;
+  --table-alt: #1a2e22;
+  --shadow: 0 4px 24px rgba(0,0,0,.4);
+}
+body { background: var(--bg); color: var(--text); }
+.gram-wrap, .sources-wrap {
+  max-width: 960px; margin: 0 auto; padding: 0 .5rem 2.5rem;
+}
+.gram-wrap h3 {
+  margin: 1.75rem 0 .85rem;
+  padding-bottom: .4rem;
+  border-bottom: 2px solid var(--accent);
+  font-size: 1.2rem;
+  letter-spacing: .02em;
+  color: var(--accent);
+}
+.gram-wrap h4 {
+  margin: 1.2rem 0 .55rem;
+  font-size: 1.02rem;
+  color: var(--accent2);
+  font-weight: 600;
+}
+.gram-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 0 1.1rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  font-size: .92rem;
+}
+.gram-table thead th {
+  background: var(--table-head);
+  color: var(--accent);
+  font-weight: 600;
+  text-align: left;
+  padding: .55rem .75rem;
+  border-bottom: 1px solid var(--border);
+}
+.gram-table td {
+  padding: .45rem .75rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--table-row);
+  vertical-align: top;
+  line-height: 1.45;
+}
+.gram-table tbody tr:nth-child(even) td { background: var(--table-alt); }
+.gram-table tbody tr:last-child td { border-bottom: none; }
+.gram-table td:first-child { font-weight: 500; color: var(--muted); white-space: nowrap; min-width: 5.5rem; }
+.gram-wrap .sub, .gram-wrap p.sub {
+  font-size: .88rem; color: var(--muted); margin: .2rem 0 .6rem;
+}
+.theme-bar {
+  display: flex; gap: .35rem; align-items: center; flex-wrap: wrap;
+  margin-left: auto;
+}
+.theme-btn {
+  width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border);
+  cursor: pointer; padding: 0; background: #1a2332;
+}
+.theme-btn[data-t="dark"] { background: #1a2332; }
+.theme-btn[data-t="light"] { background: #e8eef6; }
+.theme-btn[data-t="sepia"] { background: #d4c4a8; }
+.theme-btn[data-t="forest"] { background: #2a4535; }
+.theme-btn.active { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.header-row { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
+
+
+.header-inner{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;padding:.75rem 1rem}
+.header-inner h1{margin:0;font-size:1.25rem;flex:1 1 auto}
+.header-inner nav{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:.35rem}
+
 </style>
 </head>
 <body>
 <header>
   <div class="header-inner">
     <h1>Southern Sudovian Dictionary <span>/ южный судавский словарь</span></h1>
+    <div class="theme-bar" title="Расцветка / Theme">
+      <button type="button" class="theme-btn active" data-t="dark" onclick="setTheme('dark')" title="Тёмная"></button>
+      <button type="button" class="theme-btn" data-t="light" onclick="setTheme('light')" title="Светлая"></button>
+      <button type="button" class="theme-btn" data-t="sepia" onclick="setTheme('sepia')" title="Сепия"></button>
+      <button type="button" class="theme-btn" data-t="forest" onclick="setTheme('forest')" title="Лес"></button>
+    </div>
     <nav>
       <button type="button" id="btn-dict" class="active" onclick="showSection('dict')">Словарь</button>
       <button type="button" id="btn-browse" onclick="showSection('browse')">Весь словарь</button>
@@ -140,8 +275,7 @@ html.lang-ru span.l-ru{display:inline!important}
       <button type="button" id="btn-verbs" onclick="showSection('verbs')">Глаголы</button>
       <button type="button" id="btn-prep" onclick="showSection('prep')">Предлоги</button>
       <button type="button" id="btn-geo" onclick="showSection('geo')">География</button>
-      <button type="button" id="btn-sources" onclick="showSection('sources')">Источники</button>
-    </nav>
+      </nav>
   </div>
 </header>
 <main>
@@ -1057,13 +1191,7 @@ html.lang-ru span.l-ru{display:inline!important}
   
   <section id="section-prep">
     <div class="notes">
-    <div class="note-flags">
-      <button type="button" class="flag-btn" onclick="setLang('ru')" title="Русский">🇷🇺</button>
-      <button type="button" class="flag-btn" onclick="setLang('lt')" title="Lietuvių">🇱🇹</button>
-    </div>
-    <p class="lang-hint">Чтобы поменять язык нажмите на флаг / <em>Norėdami pakeisti kalbą, spustelėkite vėliavėlę</em></p>
-
-      <h2>Предлоги и союзы / Prielinksniai ir jungtukai</h2>
+    <h2>Предлоги и союзы / Prielinksniai ir jungtukai</h2>
       <p>Падеж указан там, где требуется. Полный список без сокращений.</p>
     </div>
     <div class="gram-wrap">
@@ -1154,81 +1282,7 @@ html.lang-ru span.l-ru{display:inline!important}
     <div id="geo-results" class="results geo-list"><div class="geo-item"><span class="geo-w">Bulgarija</span><span class="geo-sep"> — </span><span class="geo-r">Болгария</span></div><div class="geo-item"><span class="geo-w">Wālkija</span><span class="geo-sep"> — </span><span class="geo-r">Италия</span></div><div class="geo-item"><span class="geo-w">Čekkija</span><span class="geo-sep"> — </span><span class="geo-r">Чехия</span></div><div class="geo-item"><span class="geo-w">Leitawa</span><span class="geo-sep"> — </span><span class="geo-r">Литва</span></div><div class="geo-item"><span class="geo-w">Latawa</span><span class="geo-sep"> — </span><span class="geo-r">Латвия</span></div><div class="geo-item"><span class="geo-w">Belarus</span><span class="geo-sep"> — </span><span class="geo-r">Беларусь</span></div><div class="geo-item"><span class="geo-w">Rusija</span><span class="geo-sep"> — </span><span class="geo-r">Россия</span></div><div class="geo-item"><span class="geo-w">Ukrajina</span><span class="geo-sep"> — </span><span class="geo-r">Украина</span></div><div class="geo-item"><span class="geo-w">Slowakija</span><span class="geo-sep"> — </span><span class="geo-r">Словакия</span></div><div class="geo-item"><span class="geo-w">Ungrai</span><span class="geo-sep"> — </span><span class="geo-r">Венгрия</span></div><div class="geo-item"><span class="geo-w">Erija</span><span class="geo-sep"> — </span><span class="geo-r">Ирландия</span></div><div class="geo-item"><span class="geo-w">Irans</span><span class="geo-sep"> — </span><span class="geo-r">Иран</span></div><div class="geo-item"><span class="geo-w">Iraks</span><span class="geo-sep"> — </span><span class="geo-r">Ирак</span></div><div class="geo-item"><span class="geo-w">Algerija</span><span class="geo-sep"> — </span><span class="geo-r">Алжир</span></div><div class="geo-item"><span class="geo-w">Rumanija</span><span class="geo-sep"> — </span><span class="geo-r">Румыния</span></div><div class="geo-item"><span class="geo-w">Estantauta</span><span class="geo-sep"> — </span><span class="geo-r">Эстония</span></div><div class="geo-item"><span class="geo-w">Sōmija</span><span class="geo-sep"> — </span><span class="geo-r">Финляндия</span></div><div class="geo-item"><span class="geo-w">Šwedija</span><span class="geo-sep"> — </span><span class="geo-r">Швеция</span></div><div class="geo-item"><span class="geo-w">Jordanija</span><span class="geo-sep"> — </span><span class="geo-r">Иордания</span></div><div class="geo-item"><span class="geo-w">Danija</span><span class="geo-sep"> — </span><span class="geo-r">Дания</span></div><div class="geo-item"><span class="geo-w">Izraels</span><span class="geo-sep"> — </span><span class="geo-r">Израиль</span></div><div class="geo-item"><span class="geo-w">Grecija</span><span class="geo-sep"> — </span><span class="geo-r">Греция</span></div><div class="geo-item"><span class="geo-w">Albanija</span><span class="geo-sep"> — </span><span class="geo-r">Албания</span></div><div class="geo-item"><span class="geo-w">Spanija</span><span class="geo-sep"> — </span><span class="geo-r">Испания</span></div><div class="geo-item"><span class="geo-w">Portugalan</span><span class="geo-sep"> — </span><span class="geo-r">Португалия</span></div><div class="geo-item"><span class="geo-w">Mikskatauta</span><span class="geo-sep"> — </span><span class="geo-r">Германия</span></div><div class="geo-item"><span class="geo-w">Mazurija/Pōli</span><span class="geo-sep"> — </span><span class="geo-r">Польша</span></div><div class="geo-item"><span class="geo-w">Laoss</span><span class="geo-sep"> — </span><span class="geo-r">Лаос</span></div><div class="geo-item"><span class="geo-w">Prankrīki</span><span class="geo-sep"> — </span><span class="geo-r">Франция</span></div><div class="geo-item"><span class="geo-w">Šweici</span><span class="geo-sep"> — </span><span class="geo-r">Швейцария</span></div><div class="geo-item"><span class="geo-w">Kīnija</span><span class="geo-sep"> — </span><span class="geo-r">Китай</span></div><div class="geo-item"><span class="geo-w">Filipīnai</span><span class="geo-sep"> — </span><span class="geo-r">Филиппины</span></div><div class="geo-item"><span class="geo-w">Australija</span><span class="geo-sep"> — </span><span class="geo-r">Австралия</span></div><div class="geo-item"><span class="geo-w">Austrarīki</span><span class="geo-sep"> — </span><span class="geo-r">Австрия</span></div><div class="geo-item"><span class="geo-w">Līchtenšteinan</span><span class="geo-sep"> — </span><span class="geo-r">Лихтенштейн</span></div><div class="geo-item"><span class="geo-w">Kroatija</span><span class="geo-sep"> — </span><span class="geo-r">Хорватия</span></div><div class="geo-item"><span class="geo-w">Srbija</span><span class="geo-sep"> — </span><span class="geo-r">Сербия</span></div><div class="geo-item"><span class="geo-w">Macedonija</span><span class="geo-sep"> — </span><span class="geo-r">Македония</span></div><div class="geo-item"><span class="geo-w">Kirsnagarbija</span><span class="geo-sep"> — </span><span class="geo-r">Черногория</span></div><div class="geo-item"><span class="geo-w">Bosnija</span><span class="geo-sep"> — </span><span class="geo-r">ir Hercegowina Босния и Герцеговина</span></div><div class="geo-item"><span class="geo-w">Slowenija</span><span class="geo-sep"> — </span><span class="geo-r">Словения</span></div><div class="geo-item"><span class="geo-w">Holandija</span><span class="geo-sep"> — </span><span class="geo-r">Голландия</span></div><div class="geo-item"><span class="geo-w">Belgija</span><span class="geo-sep"> — </span><span class="geo-r">Бельгия</span></div><div class="geo-item"><span class="geo-w">Britanija</span><span class="geo-sep"> — </span><span class="geo-r">Британия</span></div><div class="geo-item"><span class="geo-w">Amerikiskai</span><span class="geo-sep"> — </span><span class="geo-r">Perainintai Wālstai США</span></div><div class="geo-item"><span class="geo-w">Kanada</span><span class="geo-sep"> — </span><span class="geo-r">Канада</span></div><div class="geo-item"><span class="geo-w">Meksiku</span><span class="geo-sep"> — </span><span class="geo-r">Мексика</span></div><div class="geo-item"><span class="geo-w">Brazilija</span><span class="geo-sep"> — </span><span class="geo-r">Бразилия</span></div><div class="geo-item"><span class="geo-w">Wenezuela</span><span class="geo-sep"> — </span><span class="geo-r">Венесуэла</span></div><div class="geo-item"><span class="geo-w">Argentīnija</span><span class="geo-sep"> — </span><span class="geo-r">Аргентина</span></div><div class="geo-item"><span class="geo-w">Čīli</span><span class="geo-sep"> — </span><span class="geo-r">Чили</span></div><div class="geo-item"><span class="geo-w">Boliwija</span><span class="geo-sep"> — </span><span class="geo-r">Боливия</span></div><div class="geo-item"><span class="geo-w">Surinams</span><span class="geo-sep"> — </span><span class="geo-r">Суринам</span></div><div class="geo-item"><span class="geo-w">Peru</span><span class="geo-sep"> — </span><span class="geo-r">Перу</span></div><div class="geo-item"><span class="geo-w">Kolumbija</span><span class="geo-sep"> — </span><span class="geo-r">Колумбия</span></div><div class="geo-item"><span class="geo-w">Georgija</span><span class="geo-sep"> — </span><span class="geo-r">Грузия</span></div><div class="geo-item"><span class="geo-w">Norwegija</span><span class="geo-sep"> — </span><span class="geo-r">Норвегия</span></div><div class="geo-item"><span class="geo-w">Luksemburgan</span><span class="geo-sep"> — </span><span class="geo-r">Люксембург</span></div><div class="geo-item"><span class="geo-w">Moldowa</span><span class="geo-sep"> — </span><span class="geo-r">Молдова</span></div><div class="geo-item"><span class="geo-w">Armenija</span><span class="geo-sep"> — </span><span class="geo-r">Армения</span></div><div class="geo-item"><span class="geo-w">Katalonija</span><span class="geo-sep"> — </span><span class="geo-r">Каталония</span></div><div class="geo-item"><span class="geo-w">Prūsija</span><span class="geo-sep"> — </span><span class="geo-r">Пруссия</span></div><div class="geo-item"><span class="geo-w">Sūdawija</span><span class="geo-sep"> — </span><span class="geo-r">Судавия</span></div><div class="geo-item"><span class="geo-w">Lattigala</span><span class="geo-sep"> — </span><span class="geo-r">Латгалия</span></div><div class="geo-item"><span class="geo-w">Zemaitija</span><span class="geo-sep"> — </span><span class="geo-r">Жемайтия</span></div><div class="geo-item"><span class="geo-w">Šlēzija</span><span class="geo-sep"> — </span><span class="geo-r">Силезия</span></div><div class="geo-item"><span class="geo-w">Kašūbai</span><span class="geo-sep"> — </span><span class="geo-r">Кашубия</span></div><div class="geo-item"><span class="geo-w">Morawija</span><span class="geo-sep"> — </span><span class="geo-r">Моравия</span></div><div class="geo-item"><span class="geo-w">Baira</span><span class="geo-sep"> — </span><span class="geo-r">Бавария</span></div><div class="geo-item"><span class="geo-w">Turkija</span><span class="geo-sep"> — </span><span class="geo-r">Турция</span></div><div class="geo-item"><span class="geo-w">Sirija</span><span class="geo-sep"> — </span><span class="geo-r">Сирия</span></div><div class="geo-item"><span class="geo-w">Kazahstans</span><span class="geo-sep"> — </span><span class="geo-r">Казахстан</span></div><div class="geo-item"><span class="geo-w">Afganistans</span><span class="geo-sep"> — </span><span class="geo-r">Афганистан</span></div><div class="geo-item"><span class="geo-w">Turkmenistans</span><span class="geo-sep"> — </span><span class="geo-r">Туркменистан</span></div><div class="geo-item"><span class="geo-w">Pakistans</span><span class="geo-sep"> — </span><span class="geo-r">Пакистан</span></div><div class="geo-item"><span class="geo-w">Indija</span><span class="geo-sep"> — </span><span class="geo-r">Индия</span></div><div class="geo-item"><span class="geo-w">Wjetnāms</span><span class="geo-sep"> — </span><span class="geo-r">Вьетнам</span></div><div class="geo-item"><span class="geo-w">Japonija</span><span class="geo-sep"> — </span><span class="geo-r">Япония</span></div><div class="geo-item"><span class="geo-w">Koreja</span><span class="geo-sep"> — </span><span class="geo-r">Корея</span></div><div class="geo-item"><span class="geo-w">Indonezija</span><span class="geo-sep"> — </span><span class="geo-r">Индонезия</span></div><div class="geo-item"><span class="geo-w">Nauna Zelandija</span><span class="geo-sep"> — </span><span class="geo-r">Новая Зеландия</span></div><div class="geo-item"><span class="geo-w">Pakarpatije</span><span class="geo-sep"> — </span><span class="geo-r">Подкарпатье</span></div><div class="geo-item"><span class="geo-w">Lužica</span><span class="geo-sep"> — </span><span class="geo-r">Лужица</span></div><div class="geo-item"><span class="geo-w">Pirenejai</span><span class="geo-sep"> — </span><span class="geo-r">Пиренеи</span></div><div class="geo-item"><span class="geo-w">Kuba</span><span class="geo-sep"> — </span><span class="geo-r">Куба</span></div><div class="geo-item"><span class="geo-w">Kongu</span><span class="geo-sep"> — </span><span class="geo-r">Конго</span></div><div class="geo-item"><span class="geo-w">Grēnlandan</span><span class="geo-sep"> — </span><span class="geo-r">Грендландия</span></div><div class="geo-item"><span class="geo-w">Flandrai</span><span class="geo-sep"> — </span><span class="geo-r">Фландрия</span></div><div class="geo-item"><span class="geo-w">Gutlandan</span><span class="geo-sep"> — </span><span class="geo-r">Готланд</span></div><div class="geo-item"><span class="geo-w">Semba</span><span class="geo-sep"> — </span><span class="geo-r">Самбия</span></div><div class="geo-item"><span class="geo-w">Škōtija</span><span class="geo-sep"> — </span><span class="geo-r">Шотландия</span></div><div class="geo-item"><span class="geo-w">Sāmjantauta</span><span class="geo-sep"> — </span><span class="geo-r">Лапландия</span></div><div class="geo-item"><span class="geo-w">Welss</span><span class="geo-sep"> — </span><span class="geo-r">Уэльс</span></div><div class="geo-item"><span class="geo-w">Gwineja</span><span class="geo-sep"> — </span><span class="geo-r">Гвинея</span></div><div class="geo-item"><span class="geo-w">Gwatemala</span><span class="geo-sep"> — </span><span class="geo-r">Гватемала</span></div><div class="geo-item"><span class="geo-w">Gwineja Bissau</span><span class="geo-sep"> — </span><span class="geo-r">Гвинея Бисау</span></div><div class="geo-item"><span class="geo-w">Paragwajs</span><span class="geo-sep"> — </span><span class="geo-r">Парагвай</span></div><div class="geo-item"><span class="geo-w">Sala Mans</span><span class="geo-sep"> — </span><span class="geo-r">остров Мэн</span></div><div class="geo-item"><span class="geo-w">Salomonai Соломоновы</span><span class="geo-sep"> — </span><span class="geo-r">острова</span></div><div class="geo-item"><span class="geo-w">Seišellai</span><span class="geo-sep"> — </span><span class="geo-r">Сейшелы</span></div><div class="geo-item"><span class="geo-w">Siberija</span><span class="geo-sep"> — </span><span class="geo-r">Сибирь</span></div><div class="geo-item"><span class="geo-w">Asirija</span><span class="geo-sep"> — </span><span class="geo-r">Ассирия</span></div><div class="geo-item"><span class="geo-w">Fareirai</span><span class="geo-sep"> — </span><span class="geo-r">Фареры</span></div><div class="geo-item"><span class="geo-w">Mauretanija</span><span class="geo-sep"> — </span><span class="geo-r">Мавритания</span></div><div class="geo-item"><span class="geo-w">Maurīciws</span><span class="geo-sep"> — </span><span class="geo-r">Маврикий</span></div></div><div class="geo-item"><span class="geo-w">Wālkija</span><span class="geo-sep"> — </span><span class="geo-r">Италия</span></div><div class="geo-item"><span class="geo-w">Čekkija</span><span class="geo-sep"> — </span><span class="geo-r">Чехия</span></div><div class="geo-item"><span class="geo-w">Leitawa</span><span class="geo-sep"> — </span><span class="geo-r">Литва</span></div><div class="geo-item"><span class="geo-w">Latawa</span><span class="geo-sep"> — </span><span class="geo-r">Латвия</span></div><div class="geo-item"><span class="geo-w">Belarus</span><span class="geo-sep"> — </span><span class="geo-r">Беларусь</span></div><div class="geo-item"><span class="geo-w">Rusija</span><span class="geo-sep"> — </span><span class="geo-r">Россия</span></div><div class="geo-item"><span class="geo-w">Ukrajina</span><span class="geo-sep"> — </span><span class="geo-r">Украина</span></div><div class="geo-item"><span class="geo-w">Slowakija</span><span class="geo-sep"> — </span><span class="geo-r">Словакия</span></div><div class="geo-item"><span class="geo-w">Ungrai</span><span class="geo-sep"> — </span><span class="geo-r">Венгрия</span></div><div class="geo-item"><span class="geo-w">Erija</span><span class="geo-sep"> — </span><span class="geo-r">Ирландия</span></div><div class="geo-item"><span class="geo-w">Irans</span><span class="geo-sep"> — </span><span class="geo-r">Иран</span></div><div class="geo-item"><span class="geo-w">Iraks</span><span class="geo-sep"> — </span><span class="geo-r">Ирак</span></div><div class="geo-item"><span class="geo-w">Algerija</span><span class="geo-sep"> — </span><span class="geo-r">Алжир</span></div><div class="geo-item"><span class="geo-w">Rumanija</span><span class="geo-sep"> — </span><span class="geo-r">Румыния</span></div><div class="geo-item"><span class="geo-w">Estantauta</span><span class="geo-sep"> — </span><span class="geo-r">Эстония</span></div><div class="geo-item"><span class="geo-w">Sōmija</span><span class="geo-sep"> — </span><span class="geo-r">Финляндия</span></div><div class="geo-item"><span class="geo-w">Šwedija</span><span class="geo-sep"> — </span><span class="geo-r">Швеция</span></div><div class="geo-item"><span class="geo-w">Jordanija</span><span class="geo-sep"> — </span><span class="geo-r">Иордания</span></div><div class="geo-item"><span class="geo-w">Danija</span><span class="geo-sep"> — </span><span class="geo-r">Дания</span></div><div class="geo-item"><span class="geo-w">Izraels</span><span class="geo-sep"> — </span><span class="geo-r">Израиль</span></div><div class="geo-item"><span class="geo-w">Grecija</span><span class="geo-sep"> — </span><span class="geo-r">Греция</span></div><div class="geo-item"><span class="geo-w">Albanija</span><span class="geo-sep"> — </span><span class="geo-r">Албания</span></div><div class="geo-item"><span class="geo-w">Spanija</span><span class="geo-sep"> — </span><span class="geo-r">Испания</span></div><div class="geo-item"><span class="geo-w">Portugalan</span><span class="geo-sep"> — </span><span class="geo-r">Португалия</span></div><div class="geo-item"><span class="geo-w">Mikskatauta</span><span class="geo-sep"> — </span><span class="geo-r">Германия</span></div><div class="geo-item"><span class="geo-w">Mazurija/Pōli</span><span class="geo-sep"> — </span><span class="geo-r">Польша</span></div><div class="geo-item"><span class="geo-w">Laoss</span><span class="geo-sep"> — </span><span class="geo-r">Лаос</span></div><div class="geo-item"><span class="geo-w">Prankrīki</span><span class="geo-sep"> — </span><span class="geo-r">Франция</span></div><div class="geo-item"><span class="geo-w">Šweici</span><span class="geo-sep"> — </span><span class="geo-r">Швейцария</span></div><div class="geo-item"><span class="geo-w">Kīnija</span><span class="geo-sep"> — </span><span class="geo-r">Китай</span></div><div class="geo-item"><span class="geo-w">Filipīnai</span><span class="geo-sep"> — </span><span class="geo-r">Филиппины</span></div><div class="geo-item"><span class="geo-w">Australija</span><span class="geo-sep"> — </span><span class="geo-r">Австралия</span></div><div class="geo-item"><span class="geo-w">Austrarīki</span><span class="geo-sep"> — </span><span class="geo-r">Австрия</span></div><div class="geo-item"><span class="geo-w">Līchtenšteinan</span><span class="geo-sep"> — </span><span class="geo-r">Лихтенштейн</span></div><div class="geo-item"><span class="geo-w">Kroatija</span><span class="geo-sep"> — </span><span class="geo-r">Хорватия</span></div><div class="geo-item"><span class="geo-w">Srbija</span><span class="geo-sep"> — </span><span class="geo-r">Сербия</span></div><div class="geo-item"><span class="geo-w">Macedonija</span><span class="geo-sep"> — </span><span class="geo-r">Македония</span></div><div class="geo-item"><span class="geo-w">Kirsnagarbija</span><span class="geo-sep"> — </span><span class="geo-r">Черногория</span></div><div class="geo-item"><span class="geo-w">Bosnija</span><span class="geo-sep"> — </span><span class="geo-r">ir Hercegowina Босния и Герцеговина</span></div><div class="geo-item"><span class="geo-w">Slowenija</span><span class="geo-sep"> — </span><span class="geo-r">Словения</span></div><div class="geo-item"><span class="geo-w">Holandija</span><span class="geo-sep"> — </span><span class="geo-r">Голландия</span></div><div class="geo-item"><span class="geo-w">Belgija</span><span class="geo-sep"> — </span><span class="geo-r">Бельгия</span></div><div class="geo-item"><span class="geo-w">Britanija</span><span class="geo-sep"> — </span><span class="geo-r">Британия</span></div><div class="geo-item"><span class="geo-w">Amerikiskai</span><span class="geo-sep"> — </span><span class="geo-r">Perainintai Wālstai США</span></div><div class="geo-item"><span class="geo-w">Kanada</span><span class="geo-sep"> — </span><span class="geo-r">Канада</span></div><div class="geo-item"><span class="geo-w">Meksiku</span><span class="geo-sep"> — </span><span class="geo-r">Мексика</span></div><div class="geo-item"><span class="geo-w">Brazilija</span><span class="geo-sep"> — </span><span class="geo-r">Бразилия</span></div><div class="geo-item"><span class="geo-w">Wenezuela</span><span class="geo-sep"> — </span><span class="geo-r">Венесуэла</span></div><div class="geo-item"><span class="geo-w">Argentīnija</span><span class="geo-sep"> — </span><span class="geo-r">Аргентина</span></div><div class="geo-item"><span class="geo-w">Čīli</span><span class="geo-sep"> — </span><span class="geo-r">Чили</span></div><div class="geo-item"><span class="geo-w">Boliwija</span><span class="geo-sep"> — </span><span class="geo-r">Боливия</span></div><div class="geo-item"><span class="geo-w">Surinams</span><span class="geo-sep"> — </span><span class="geo-r">Суринам</span></div><div class="geo-item"><span class="geo-w">Peru</span><span class="geo-sep"> — </span><span class="geo-r">Перу</span></div><div class="geo-item"><span class="geo-w">Kolumbija</span><span class="geo-sep"> — </span><span class="geo-r">Колумбия</span></div><div class="geo-item"><span class="geo-w">Georgija</span><span class="geo-sep"> — </span><span class="geo-r">Грузия</span></div><div class="geo-item"><span class="geo-w">Norwegija</span><span class="geo-sep"> — </span><span class="geo-r">Норвегия</span></div><div class="geo-item"><span class="geo-w">Luksemburgan</span><span class="geo-sep"> — </span><span class="geo-r">Люксембург</span></div><div class="geo-item"><span class="geo-w">Moldowa</span><span class="geo-sep"> — </span><span class="geo-r">Молдова</span></div><div class="geo-item"><span class="geo-w">Armenija</span><span class="geo-sep"> — </span><span class="geo-r">Армения</span></div><div class="geo-item"><span class="geo-w">Katalonija</span><span class="geo-sep"> — </span><span class="geo-r">Каталония</span></div><div class="geo-item"><span class="geo-w">Prūsija</span><span class="geo-sep"> — </span><span class="geo-r">Пруссия</span></div><div class="geo-item"><span class="geo-w">Sūdawija</span><span class="geo-sep"> — </span><span class="geo-r">Судавия</span></div><div class="geo-item"><span class="geo-w">Lattigala</span><span class="geo-sep"> — </span><span class="geo-r">Латгалия</span></div><div class="geo-item"><span class="geo-w">Zemaitija</span><span class="geo-sep"> — </span><span class="geo-r">Жемайтия</span></div><div class="geo-item"><span class="geo-w">Šlēzija</span><span class="geo-sep"> — </span><span class="geo-r">Силезия</span></div><div class="geo-item"><span class="geo-w">Kašūbai</span><span class="geo-sep"> — </span><span class="geo-r">Кашубия</span></div><div class="geo-item"><span class="geo-w">Morawija</span><span class="geo-sep"> — </span><span class="geo-r">Моравия</span></div><div class="geo-item"><span class="geo-w">Baira</span><span class="geo-sep"> — </span><span class="geo-r">Бавария</span></div><div class="geo-item"><span class="geo-w">Turkija</span><span class="geo-sep"> — </span><span class="geo-r">Турция</span></div><div class="geo-item"><span class="geo-w">Sirija</span><span class="geo-sep"> — </span><span class="geo-r">Сирия</span></div><div class="geo-item"><span class="geo-w">Kazahstans</span><span class="geo-sep"> — </span><span class="geo-r">Казахстан</span></div><div class="geo-item"><span class="geo-w">Afganistans</span><span class="geo-sep"> — </span><span class="geo-r">Афганистан</span></div><div class="geo-item"><span class="geo-w">Turkmenistans</span><span class="geo-sep"> — </span><span class="geo-r">Туркменистан</span></div><div class="geo-item"><span class="geo-w">Pakistans</span><span class="geo-sep"> — </span><span class="geo-r">Пакистан</span></div><div class="geo-item"><span class="geo-w">Indija</span><span class="geo-sep"> — </span><span class="geo-r">Индия</span></div><div class="geo-item"><span class="geo-w">Wjetnāms</span><span class="geo-sep"> — </span><span class="geo-r">Вьетнам</span></div><div class="geo-item"><span class="geo-w">Japonija</span><span class="geo-sep"> — </span><span class="geo-r">Япония</span></div><div class="geo-item"><span class="geo-w">Koreja</span><span class="geo-sep"> — </span><span class="geo-r">Корея</span></div><div class="geo-item"><span class="geo-w">Indonezija</span><span class="geo-sep"> — </span><span class="geo-r">Индонезия</span></div><div class="geo-item"><span class="geo-w">Nauna Zelandija</span><span class="geo-sep"> — </span><span class="geo-r">Новая Зеландия</span></div><div class="geo-item"><span class="geo-w">Pakarpatije</span><span class="geo-sep"> — </span><span class="geo-r">Подкарпатье</span></div><div class="geo-item"><span class="geo-w">Lužica</span><span class="geo-sep"> — </span><span class="geo-r">Лужица</span></div><div class="geo-item"><span class="geo-w">Pirenejai</span><span class="geo-sep"> — </span><span class="geo-r">Пиренеи</span></div><div class="geo-item"><span class="geo-w">Kuba</span><span class="geo-sep"> — </span><span class="geo-r">Куба</span></div><div class="geo-item"><span class="geo-w">Kongu</span><span class="geo-sep"> — </span><span class="geo-r">Конго</span></div><div class="geo-item"><span class="geo-w">Grēnlandan</span><span class="geo-sep"> — </span><span class="geo-r">Грендландия</span></div><div class="geo-item"><span class="geo-w">Flandrai</span><span class="geo-sep"> — </span><span class="geo-r">Фландрия</span></div><div class="geo-item"><span class="geo-w">Gutlandan</span><span class="geo-sep"> — </span><span class="geo-r">Готланд</span></div><div class="geo-item"><span class="geo-w">Semba</span><span class="geo-sep"> — </span><span class="geo-r">Самбия</span></div><div class="geo-item"><span class="geo-w">Škōtija</span><span class="geo-sep"> — </span><span class="geo-r">Шотландия</span></div><div class="geo-item"><span class="geo-w">Sāmjantauta</span><span class="geo-sep"> — </span><span class="geo-r">Лапландия</span></div><div class="geo-item"><span class="geo-w">Welss</span><span class="geo-sep"> — </span><span class="geo-r">Уэльс</span></div><div class="geo-item"><span class="geo-w">Gwineja</span><span class="geo-sep"> — </span><span class="geo-r">Гвинея</span></div><div class="geo-item"><span class="geo-w">Gwatemala</span><span class="geo-sep"> — </span><span class="geo-r">Гватемала</span></div><div class="geo-item"><span class="geo-w">Gwineja Bissau</span><span class="geo-sep"> — </span><span class="geo-r">Гвинея Бисау</span></div><div class="geo-item"><span class="geo-w">Paragwajs</span><span class="geo-sep"> — </span><span class="geo-r">Парагвай</span></div><div class="geo-item"><span class="geo-w">Sala Mans</span><span class="geo-sep"> — </span><span class="geo-r">остров Мэн</span></div><div class="geo-item"><span class="geo-w">Salomonai Соломоновы</span><span class="geo-sep"> — </span><span class="geo-r">острова</span></div><div class="geo-item"><span class="geo-w">Seišellai</span><span class="geo-sep"> — </span><span class="geo-r">Сейшелы</span></div><div class="geo-item"><span class="geo-w">Siberija</span><span class="geo-sep"> — </span><span class="geo-r">Сибирь</span></div><div class="geo-item"><span class="geo-w">Asirija</span><span class="geo-sep"> — </span><span class="geo-r">Ассирия</span></div><div class="geo-item"><span class="geo-w">Fareirai</span><span class="geo-sep"> — </span><span class="geo-r">Фареры</span></div><div class="geo-item"><span class="geo-w">Mauretanija</span><span class="geo-sep"> — </span><span class="geo-r">Мавритания</span></div><div class="geo-item"><span class="geo-w">Maurīciws</span><span class="geo-sep"> — </span><span class="geo-r">Маврикий</span></div></div>
   </section>
 
-  <section id="section-sources">
-    <div class="notes">
-    <div class="note-flags">
-      <button type="button" class="flag-btn" onclick="setLang('ru')" title="Русский">🇷🇺</button>
-      <button type="button" class="flag-btn" onclick="setLang('lt')" title="Lietuvių">🇱🇹</button>
-    </div>
-    <p class="lang-hint">Чтобы поменять язык нажмите на флаг / <em>Norėdami pakeisti kalbą, spustelėkite vėliavėlę</em></p>
-
-      <h2>Источники грамматики</h2>
-      <p>Откуда и почему так сделано.</p>
-    </div>
-    <div class="gram-wrap sources-wrap">
-
-<div class="note">
-<strong>Источники грамматики</strong> — откуда и почему так сделано.
-</div>
-
-<h3>1. Один / два гласных, меньше трёх букв до -t (гласный перед -t)</h3>
-<p class="sub">Взято из прусской парадигмы (выделено то, что использовано).</p>
-<table class="gram-table">
-<thead><tr><th>Настоящее</th><th>Прошедшее</th></tr></thead>
-<tbody>
-<tr>
-<td>as šaū<strong>ja</strong><br>tū šaūja<br>tāns/tenā/tennan šaūja<br>mes šaūjimai<br>jūs šaūjitei<br>tenēi/tennas šaūja</td>
-<td>as šaū<strong>wa</strong><br>tū šaūwa<br>tāns/tenā/tennan šaūwa<br>mes šaūwamai<br>jūs šaūwatei<br>tenēi/tennas šaūwa</td>
-</tr>
-</tbody>
-</table>
-<table class="gram-table">
-<thead><tr><th>Перфект</th><th>Будущее</th></tr></thead>
-<tbody>
-<tr>
-<td>as asma šaūwuns / šaūwusi<br>tū assei šaūwuns / šaūwusi<br>tāns/tenā ast šaūwuns / šaūwusi<br>tennan ast šaūwus<br>mes asmai šaūwusis / šaūwusjas<br>jūs astei šaūwusis / šaūwusjas<br>tenēi/tennas ast šaūwusis / šaūwusjas</td>
-<td>as wīrst šaūwuns / šaū<strong>wusi</strong><br>tū wīrst šaūwuns / šaūwusi<br>tāns/tenā wīrst šaūwuns / šaūwusi<br>tennan wīrst šaūwus<br>mes wīrstmai šaūwusis / šaūwusjas<br>jūs wīrstei šaūwusis / šaūwusjas<br>tenēi/tennas wīrst šaūwusis / šaūwusjas</td>
-</tr>
-</tbody>
-</table>
-<p>В таблице выделено, что именно взято в модель.</p>
-
-<h3>2. Согласный перед -t</h3>
-<p>Основа — литовская парадигма (настоящее / прошедшее), будущее — из прусского.</p>
-<table class="gram-table">
-<thead>
-<tr><th>Лицо / число</th><th>Настоящее</th><th>Прошедшее</th><th>Будущее (лит.)</th></tr>
-</thead>
-<tbody>
-<tr><td>1 ед. (aš)</td><td>ginu</td><td>gyniau</td><td>ginsiu</td></tr>
-<tr><td>2 ед. (tu)</td><td>gini</td><td>gynei</td><td>ginsi</td></tr>
-<tr><td>3 ед./мн.</td><td><strong>gina</strong></td><td><strong>gynė</strong></td><td><strong>gins</strong></td></tr>
-<tr><td>1 мн. (mes)</td><td>giname</td><td>gynėme</td><td>ginsime</td></tr>
-<tr><td>2 мн. (jūs)</td><td>ginate</td><td>gynėte</td><td>ginsite</td></tr>
-</tbody>
-</table>
-<p class="sub">Будущее в нашей модели — по прусскому образцу (на примере «стареть»):</p>
-<table class="gram-table">
-<thead><tr><th>Настоящее</th><th>Прошедшее</th></tr></thead>
-<tbody>
-<tr>
-<td>as sensta<br>tū sensta<br>tāns/tenā/tennan sensta<br>mes senstimai<br>jūs senstitei<br>tenēi/tennas sensta</td>
-<td>as senna<br>tū senna<br>tāns/tenā/tennan senna<br>mes sennamai<br>jūs sennatei<br>tenēi/tennas senna</td>
-</tr>
-</tbody>
-</table>
-<table class="gram-table">
-<thead><tr><th>Перфект</th><th>Будущее (прус.)</th></tr></thead>
-<tbody>
-<tr>
-<td>as asma sennuns / sennusi<br>tū assei sennuns / sennusi<br>tāns/tenā ast sennuns / sennusi<br>tennan ast sennuus<br>mes asmai sennusis / sennusjas<br>…</td>
-<td>as wīrst sennuns / senn<strong>usi</strong><br>tū wīrst sennuns / sennusi<br>tāns/tenā wīrst sennuns / sennusi<br>tennan wīrst sennuus<br>mes wīrstmai sennusis / sennusjas<br>…</td>
-</tr>
-</tbody>
-</table>
-
-    </div>
-  </section>
+  
 
 
 </main>
@@ -1517,6 +1571,23 @@ function renderGeo() {
   el.innerHTML = html;
 }
 
+
+
+function setTheme(t) {
+  ['dark','light','sepia','forest'].forEach(function(x){
+    document.documentElement.classList.remove('theme-'+x);
+  });
+  document.documentElement.classList.add('theme-'+t);
+  try { localStorage.setItem('ssd_theme', t); } catch(e) {}
+  document.querySelectorAll('.theme-btn').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-t') === t);
+  });
+}
+(function(){
+  var t = 'dark';
+  try { t = localStorage.getItem('ssd_theme') || 'dark'; } catch(e) {}
+  setTheme(t);
+})();
 
 function setLang(lang) {
   UI_LANG = lang;
