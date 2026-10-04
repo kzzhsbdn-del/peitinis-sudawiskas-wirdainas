@@ -87,7 +87,7 @@ section.active{display:block}
 .grammar-content table{width:100%;border-collapse:collapse;margin:.7rem 0 1.1rem;font-size:.86rem}
 .grammar-content th,.grammar-content td{border:1px solid var(--border);padding:.4rem .55rem;text-align:left;vertical-align:top;word-break:break-word}
 .grammar-content th{background:var(--surface2);color:var(--accent)}
-.grammar-content tr:nth-child(even) td{background:rgba(36,48,68,.35)}
+
 .grammar-content code{background:var(--surface2);padding:.08rem .32rem;border-radius:4px;font-size:.88em;color:var(--gold);white-space:nowrap}
 .grammar-content strong{color:var(--text)}
 @media (max-width:640px){h1{font-size:1.05rem}main{padding:.9rem}.card .word{font-size:1.05rem}}
@@ -342,6 +342,125 @@ section:not(#section-extra) .note-lt { display: none !important; }
 .gram-toc a.toc-hidden { display: none; }
 .gram-toc .toc-group { margin-top: .45rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); padding: .2rem .35rem; }
 
+
+.lang-btn{padding:4px 10px;border-radius:6px;border:1px solid var(--border,rgba(128,128,128,0.35));background:transparent;color:inherit;cursor:pointer;font-size:0.9em}
+.lang-btn.active{background:var(--accent,#4a8);color:#fff;border-color:transparent}
+.gram-lang-bar{margin:8px 0 16px}
+.gram-table{width:100%;border-collapse:collapse;margin:0.6em 0}
+.gram-table th,.gram-table td{border:1px solid var(--border,rgba(128,128,128,0.3));padding:6px 10px;text-align:left}
+.gram-table th{background:var(--th-bg,rgba(0,0,0,0.06))}
+.table-wrap{overflow-x:auto;margin:0.8em 0}
+
+
+/* Unified readable tables (all themes) */
+#section-grammar table,
+#section-grammar .gram-table,
+.gram-lang-panel table,
+.grammar-content table,
+table.gram-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0.75rem 0 1.15rem;
+  border-radius: var(--radius, 10px);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  font-size: 0.9rem;
+  background: var(--table-row);
+  color: var(--text);
+}
+#section-grammar table th,
+#section-grammar .gram-table th,
+.gram-lang-panel table th,
+.grammar-content table th,
+table.gram-table th {
+  background: var(--table-head) !important;
+  color: var(--accent) !important;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+#section-grammar table th:last-child,
+.gram-lang-panel table th:last-child {
+  border-right: none;
+}
+#section-grammar table td,
+#section-grammar .gram-table td,
+.gram-lang-panel table td,
+.grammar-content table td,
+table.gram-table td {
+  padding: 0.45rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  background: var(--table-row) !important;
+  color: var(--text) !important;
+  vertical-align: top;
+  line-height: 1.45;
+  white-space: normal;
+  word-break: break-word;
+}
+#section-grammar table td:last-child,
+.gram-lang-panel table td:last-child {
+  border-right: none;
+}
+#section-grammar table tbody tr:nth-child(even) td,
+#section-grammar .gram-table tbody tr:nth-child(even) td,
+.gram-lang-panel table tbody tr:nth-child(even) td,
+.grammar-content table tbody tr:nth-child(even) td {
+  background: var(--table-alt) !important;
+}
+#section-grammar table tbody tr:last-child td,
+.gram-lang-panel table tbody tr:last-child td {
+  border-bottom: none;
+}
+#section-grammar .table-wrap,
+.gram-lang-panel .table-wrap {
+  overflow-x: auto;
+  margin: 0.8em 0;
+  border-radius: var(--radius, 10px);
+}
+#section-grammar h1,
+#section-grammar h2,
+#section-grammar h3,
+#section-grammar h4,
+.gram-lang-panel h1,
+.gram-lang-panel h2,
+.gram-lang-panel h3,
+.gram-lang-panel h4 {
+  color: var(--text);
+  margin: 1.2em 0 0.5em;
+}
+#section-grammar p,
+#section-grammar li,
+.gram-lang-panel p,
+.gram-lang-panel li {
+  color: var(--text);
+  line-height: 1.55;
+}
+#section-grammar strong,
+.gram-lang-panel strong {
+  color: var(--text);
+}
+#section-grammar em,
+.gram-lang-panel em {
+  color: var(--muted);
+}
+/* Ensure LT panel inherits theme */
+#gram-lt, #gram-ru {
+  color: var(--text);
+  background: transparent;
+}
+#gram-lt .gram-note {
+  background: var(--card) !important;
+  border-left: 3px solid var(--accent) !important;
+  color: var(--text);
+  padding: 1rem 1.1rem;
+  border-radius: 8px;
+}
+
 </style>
 </head>
 <body>
@@ -373,19 +492,17 @@ section:not(#section-extra) .note-lt { display: none !important; }
           <li>Локализация и улучшение словаря Джозефа Пашки: <a href="https://www.suduva.com/virdainas/" target="_blank" rel="noopener">https://www.suduva.com/virdainas/</a></li>
           <li>Текст статей полностью, без обрезки. Стили: карточки / как в словаре.</li>
           <li>Числа в бейджах — оценка близости к запросу.</li>
-          <li>Вкладка <strong>«Весь словарь»</strong> — постраничный просмотр по буквам.</li>
         </ul>
       </div>
       <div class="note-lt" data-lang="lt" style="display:none">
         <h2>Pastabos</h2>
         <ul>
-          <li><strong>sh, zh, ch</strong> = š, ž, č.</li>
+          <li><strong>sh, zh, ch</strong> = <strong>ш, ж, ч</strong> (š, ž, č).</li>
           <li><strong>Rašybos reforma:</strong> pagrindiniame žodyne galūnes <code>-as</code> verskite / skaitykite kaip <code>-s</code> (pvz., <em>wīras</em> → <em>wīrs</em>). Tai susiję su nauja norma.</li>
           <li>Tikslią reikšmę tikrinkite pagal <strong>anglišką originalą</strong>.</li>
           <li>Josepho Pashkos žodyno lokalizavimas ir tobulinimas: <a href="https://www.suduva.com/virdainas/" target="_blank" rel="noopener">https://www.suduva.com/virdainas/</a></li>
           <li>Visas straipsnių tekstas, be apkarpymo. Stiliai: kortelės / kaip žodyne.</li>
           <li>Skaičiai ženkliukuose — atitikimo užklausai įvertinimas.</li>
-          <li>Kortelė <strong>«Visas žodynas»</strong> — peržiūra puslapiais pagal raides.</li>
         </ul>
       </div>
     </div>
@@ -493,6 +610,13 @@ section:not(#section-extra) .note-lt { display: none !important; }
   <a href="#p-conj" data-toc="союзы conjunctions">Союзы</a>
   <a href="#p-part" data-toc="частицы particles">Частицы</a>
 </nav>
+<div class="gram-main" style="flex:1;min-width:0">
+<div class="gram-lang-bar" style="display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
+  <span style="font-size:0.9em;opacity:0.85">Язык грамматики / Gramatikos kalba:</span>
+  <button type="button" class="lang-btn active" data-gram-lang="ru" onclick="setGramLang('ru')" title="Русский">🇷🇺 RU</button>
+  <button type="button" class="lang-btn" data-gram-lang="lt" onclick="setGramLang('lt')" title="Lietuvių">🇱🇹 LT</button>
+</div>
+<div id="gram-ru" class="gram-lang-panel">
 <div class="gram-content">
 
 <div class="notes" style="margin-bottom:1rem">
@@ -936,6 +1060,3339 @@ Prezēnti particīpan: wirstants</p>
 </tbody></table>
 
 </div></div>
+</div>
+<p>Žodžio „mūsų“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>nūss</td>
+<td>nūsai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>nūse</td>
+<td>nūseisun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>nūsmu</td>
+<td>nūseisams</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>nūsan</td>
+<td>nūsans</td>
+</tr>
+<tr >
+<td><strong>mot.</strong></td>
+<td><strong>vns.</strong></td>
+<td><strong>dgs.</strong></td>
+</tr>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>nūsa</td>
+<td>nūsos</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>nūses</td>
+<td>nūseisun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>nūsai</td>
+<td>nūseisoms</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>nūsan</td>
+<td>nūsans</td>
+</tr>
+</tbody>
+</table></div>
+<table >
+
+<thead>
+<tr >
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>nūsan</td>
+<td>nusai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>nūse</td>
+<td>nūseisun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>nūsmu</td>
+<td>nūseisams</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>nūsan</td>
+<td>nūsans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „jis, ji, tai“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>tans</td>
+<td>tenai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>tenesse</td>
+<td>teneisun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>tenesmu</td>
+<td>teneisams</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>tennan</td>
+<td>tennans</td>
+</tr>
+<tr >
+<td><strong>mot.</strong></td>
+<td><strong>vns.</strong></td>
+<td><strong>dgs.</strong></td>
+</tr>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>tena</td>
+<td>tennos</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>tenesses</td>
+<td>teneisun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>tenessai</td>
+<td>teneisoms</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>tennan</td>
+<td>tennans</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>tennan</td>
+<td>tenai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>tenesse</td>
+<td>teneisun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>tenesmu</td>
+<td>teneisams</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>tenan</td>
+<td>tenans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „tas, tai, tie, ta“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>stas</td>
+<td>stai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>stesse</td>
+<td>steisun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>stesmu</td>
+<td>steisams</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>stan</td>
+<td>stans</td>
+</tr>
+<tr >
+<td><strong>mot.</strong></td>
+<td><strong>vns.</strong></td>
+<td><strong>dgs.</strong></td>
+</tr>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>sta</td>
+<td>stasos</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>stesses</td>
+<td>steisun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>stessei</td>
+<td>steisoms</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>stan</td>
+<td>stans</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>stan</td>
+<td>stai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>stesse</td>
+<td>steisun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>stesmu</td>
+<td>steisams</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>stan</td>
+<td>stans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „aš, mes“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>as</td>
+<td>mes</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>mene</td>
+<td>nūsun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>menei</td>
+<td>nūms</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>men</td>
+<td>mans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „tu, jūs“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>tū</td>
+<td>jūs</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>tebe</td>
+<td>jūsun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>tebei</td>
+<td>jūms</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>ten</td>
+<td>wans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžio „visa“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>mot.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>wisa</td>
+<td>wisos</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>wisos</td>
+<td>wisun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>wisai</td>
+<td>wisoms</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>wisan</td>
+<td>wisans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „vienas, viena, viena, vieni“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>ains</td>
+<td>ainai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>ainasse</td>
+<td>ainun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>ainasmu</td>
+<td>ainams</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>ainan</td>
+<td>ainans</td>
+</tr>
+<tr >
+<td><strong>mot.</strong></td>
+<td><strong>vns.</strong></td>
+<td><strong>dgs.</strong></td>
+</tr>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>aina</td>
+<td>ainos</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>ainasses</td>
+<td>ainun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>ainassei</td>
+<td>ainoms</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>ainan</td>
+<td>ainans</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>ainan</td>
+<td>ainun</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>ainase</td>
+<td>ainun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>ainaismu</td>
+<td>ainams</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>ainan</td>
+<td>ainans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžio „du“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>dwai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>dwejun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>dwejams</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>dwai</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžio „dviese“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>dwejai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>dwejun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>dwejams</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>dwejans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžio „trejetas“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>mot.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>treita</td>
+<td>treitos</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>treitos</td>
+<td>treitun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>treitai</td>
+<td>treitoms</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>treitan</td>
+<td>treitans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžio „kas, kas“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>kas</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>kasse</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>kasmu</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>kan</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „tai, šis, ši, šie“ linksniavimas</p>
+<table >
+
+<thead>
+<tr >
+<th colspan="2"><strong>vyr.</strong></th>
+<th colspan="2"><strong>vns.</strong></th>
+<th colspan="2"><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td colspan="2"><strong>Vard.</strong></td>
+<td colspan="2">šis</td>
+<td colspan="2">šai</td>
+</tr>
+<tr >
+<td colspan="2"><strong>Kilm.</strong></td>
+<td colspan="2">šisse</td>
+<td colspan="2">šeisun</td>
+</tr>
+<tr >
+<td colspan="2"><strong>Naud</strong></td>
+<td colspan="2">šismu</td>
+<td colspan="2">šeisams</td>
+</tr>
+<tr >
+<td colspan="2"><strong>Gal.</strong></td>
+<td colspan="2">šin</td>
+<td colspan="2">šins</td>
+</tr>
+<tr >
+<td><strong>mot.</strong></td>
+<td colspan="2"><strong>vns.</strong></td>
+<td colspan="2"><strong>dgs.</strong></td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Vard.</strong></td>
+<td colspan="2">ši</td>
+<td colspan="2">šos</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td colspan="2">šisses</td>
+<td colspan="2">šeisun</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td colspan="2">šissei</td>
+<td colspan="2">šeisoms</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td colspan="2">šan</td>
+<td colspan="2">šans</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>šin</td>
+<td>šai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>šisse</td>
+<td>šeisun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>šismu</td>
+<td>šeisams</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>šin</td>
+<td>šins</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „kitas, kitoks“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th colspan="2"><strong>vyr.</strong></th>
+<th colspan="2"><strong>vns.</strong></th>
+<th colspan="2"><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td colspan="2"><strong>Vard.</strong></td>
+<td colspan="2">kits</td>
+<td colspan="2">kitai</td>
+</tr>
+<tr >
+<td colspan="2"><strong>Kilm.</strong></td>
+<td colspan="2">kitse</td>
+<td colspan="2">kiteisun</td>
+</tr>
+<tr >
+<td colspan="2"><strong>Naud</strong></td>
+<td colspan="2">kitsmu</td>
+<td colspan="2">kiteisams</td>
+</tr>
+<tr >
+<td colspan="2"><strong>Gal.</strong></td>
+<td colspan="2">kittan</td>
+<td colspan="2">kittans</td>
+</tr>
+<tr >
+<td><strong>mot.</strong></td>
+<td colspan="2"><strong>vns.</strong></td>
+<td colspan="2"><strong>dgs.</strong></td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Vard.</strong></td>
+<td colspan="2">kita</td>
+<td colspan="2">kittos</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td colspan="2">kitses</td>
+<td colspan="2">kiteisun</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td colspan="2">kitsei</td>
+<td colspan="2">kiteisoms</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td colspan="2">kittan</td>
+<td colspan="2">kitans</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>kittan</td>
+<td>kitai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>kitse</td>
+<td>kiteisun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>kitsmu</td>
+<td>kiteisams</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>kittan</td>
+<td>kittans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „tikras, tikslus, teisingas“ linksniavimas</p>
+<table >
+
+<thead>
+<tr >
+<th colspan="2"><strong>vyr.</strong></th>
+<th colspan="2"><strong>vns.</strong></th>
+<th colspan="2"><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td colspan="2"><strong>Vard.</strong></td>
+<td colspan="2">tikkars</td>
+<td colspan="2">tikrai</td>
+</tr>
+<tr >
+<td colspan="2"><strong>Kilm.</strong></td>
+<td colspan="2">tikras</td>
+<td colspan="2">tikran</td>
+</tr>
+<tr >
+<td colspan="2"><strong>Naud</strong></td>
+<td colspan="2">tikrasmu</td>
+<td colspan="2">tikrams</td>
+</tr>
+<tr >
+<td colspan="2"><strong>Gal.</strong></td>
+<td colspan="2">tikran</td>
+<td colspan="2">tikrans</td>
+</tr>
+<tr >
+<td><strong>mot.</strong></td>
+<td colspan="2"><strong>vns.</strong></td>
+<td colspan="2"><strong>dgs.</strong></td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Vard.</strong></td>
+<td colspan="2">tikra</td>
+<td colspan="2">tikros</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td colspan="2">tikros</td>
+<td colspan="2">tikran</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td colspan="2">tikrai</td>
+<td colspan="2">tikroms</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td colspan="2">tikran</td>
+<td colspan="2">tikrans</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>tikran</td>
+<td>tikrai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>tikras</td>
+<td>tikran</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>tikrasmu</td>
+<td>tikrams</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>tikran</td>
+<td>tikrans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „tikras, tikslus, teisingas“ aukštesniojo laipsnio
+linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>tikkraisis</td>
+<td>tikkraisjai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>tikkraisjas</td>
+<td>tikkraisin</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>tikkraisjasmu</td>
+<td>tikkraisims</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>tikkraisin</td>
+<td>tikkraisins</td>
+</tr>
+</tbody>
+</table></div></th>
+<th><div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>mot.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>tikkraisi</td>
+<td>tikkraisjos</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>tikkraisjos</td>
+<td>tikkraisjun</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>tikkraisjai</td>
+<td>tikkraisjoms</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>tikkraisjan</td>
+<td>tikkraisjans</td>
+</tr>
+</tbody>
+</table></div></th>
+<th><div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>Vard.</strong></td>
+<td>tikkraisi</td>
+<td>tikkraisjai</td>
+</tr>
+<tr >
+<td><strong>Kilm.</strong></td>
+<td>tikkraisjas</td>
+<td>tikkraisin</td>
+</tr>
+<tr >
+<td><strong>Naud</strong></td>
+<td>tikkraisjasmu</td>
+<td>tikkraisims</td>
+</tr>
+<tr >
+<td><strong>Gal.</strong></td>
+<td>tikkraisi</td>
+<td>tikkraisins</td>
+</tr>
+</tbody>
+</table></div></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h2 id="priesagos"><strong>Priesagos</strong></h2>
+<p>Pagal giminės priesagas:</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th>vyr.</th>
+<th>mot.</th>
+<th>bev.</th>
+<th>Priev.</th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td>-s</td>
+<td>-a</td>
+<td>-an</td>
+<td>-ai</td>
+</tr>
+<tr >
+<td>-is</td>
+<td>-e/-i</td>
+<td>-in</td>
+<td>-jai</td>
+</tr>
+<tr >
+<td>-us</td>
+<td>-e</td>
+<td>-u</td>
+<td>-u</td>
+</tr>
+<tr >
+<td>-es</td>
+<td>-e</td>
+<td>-en</td>
+<td>-jai(?)</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>Priesaga</strong></th>
+<th><strong>Reikšmė/</strong></th>
+<th><strong>Pavyzdžiai</strong></th>
+</tr>
+<tr >
+<th><strong>-sna</strong></th>
+<th>abstraktus daiktavardis / veiksmo pavadinimas / procesas</th>
+<th>atverpt → atverpsna (atleidimas)<br />
+izmigt → izmigsna (užmigimas)<br />
+mokint → mokinsna (mokymasis, doktrina)</th>
+</tr>
+<tr >
+<th><strong>-senis</strong></th>
+<th>abstraktus daiktavardis / veiksmo pavadinimas / procesas /
+aktas</th>
+<th>gimt → gimsenis (gimimas)<br />
+pavargt → pavargsenis (kančia)<br />
+baudint → baudinsna (pabudimas)</th>
+</tr>
+<tr >
+<th><strong>-lis / -le. Taip pat tuwe</strong></th>
+<th>įrankis, priemonė</th>
+<th>adīt → adītlis (mezgimo virbalas)<br />
+peisot → peisole (rankraštis / rašymo įrankis)</th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>-inīks</strong></td>
+<td>žmogus pagal veiklą / santykį</td>
+<td><em>pīvas → pīvinīks (alaus virėjas)<br />
+bit → bitinīks (bitininkas)</em></td>
+</tr>
+<tr >
+<td><strong>-ojs</strong></td>
+<td>veikėjas, sudarytas iš veiksmažodžio</td>
+<td><em>art → artojs (artojas)<br />
+aket → aketojs (akėtojas)<br />
+dimt → dimtojs (statybininkas, stalius)</em></td>
+</tr>
+<tr >
+<td><strong>-inis</strong></td>
+<td>santykinis (ryšys, medžiaga, laikas)</td>
+<td><em>ranka → rankinis (rankinis)<br />
+deina → deininis (dieninis)<br />
+Nadēle → nadēlinis (savaitinis)<br />
+pirmas → pirminis (pirminis)</em></td>
+</tr>
+<tr >
+<td><strong>-ingis</strong></td>
+<td>kokybinis (savybės pilnumas, gausa)</td>
+<td><em>druwis → druwingas (ištikimas, tikintis)<br />
+mīle → mīlingas (mylintis, gailestingas)<br />
+aistra → aistringas (aistringas)<br />
+labas → labatingas (klestintis)</em></td>
+</tr>
+<tr >
+<td><strong>-isks</strong></td>
+<td>sudaro santykinius būdvardžius, reiškiančius panašumą, priklausymą
+arba savybę</td>
+<td>Ainavīdiskas (vienetinis, vienodas)</td>
+</tr>
+<tr >
+<td><strong>-ība</strong></td>
+<td>Daiktavardis iš būdvardžio, abstrakcija</td>
+<td><em>Dwai –– dwejība (dvilypumas)</em></td>
+</tr>
+<tr >
+<td><strong>-iskan</strong></td>
+<td>bendras abstrakcijos variantas</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>-īsta</strong></td>
+<td>abstrakcija iš daiktavardžio</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>-int</strong></td>
+<td>Veiksmažodinis, kauzatyvumas –– reiškia vertimą, skatinimą veikti
+arba objekto būsenos keitimą. Atsako į klausimą „daryti taip, kad...“
+arba „paversti į...“</td>
+<td></td>
+</tr>
+<tr >
+<td><strong>-īt/-it</strong></td>
+<td>Dažnai kaip analogas lietuviškoms -uoti/-ėti</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="aukštesnysis-laipsnis"><strong><br />
+Aukštesnysis laipsnis</strong></h4>
+<p>Prie -as pridedama -ais / -aisis; prie -is → jais/jaisis; prie -us →
+-uis/-uisis. mīls → mīlais → mīlaisis.</p>
+<h2 id="priešdėliai"><strong>Priešdėliai</strong> </h2>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><blockquote>
+<p><strong>ap-</strong></p>
+</blockquote></th>
+<th>žiedinis / visiškas veiksmas (ap-, apie-)</th>
+<th><em>jot → apjot (apvažiuoti, klaidžioti)<br />
+veisint → apveisint (apvaisinti)<br />
+varīt → apvarīt (įveikti)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>at-</strong></td>
+<td>kryptis atgal, atvėrimas, rezultatas (at-, pra-)</td>
+<td><em>vert → atvert (atidaryti)<br />
+baudint → atbaudint (pažadinti)<br />
+skīt → atskīt (prikelti)<br />
+verptun → atverptun (atleisti)</em></td>
+</tr>
+<tr >
+<td><strong>au-</strong></td>
+<td>šalin, pašalinimas, u- (nu-, at-)</td>
+<td><em>eit → aueit (išeiti)<br />
+klept → auklept (pavogti, paslėpti)<br />
+l'aut → aul'aut (mirti)<br />
+vert → auvert (uždaryti)</em></td>
+</tr>
+<tr >
+<td><strong>en-</strong></td>
+<td>judėjimas į vidų (į-)</td>
+<td><em>migt → enmigt (užmigti)<br />
+dēt → endēt (įdėti)<br />
+imtun → enimtun (priimti)<br />
+kopt → enkopt (palaidoti / pasodinti)</em></td>
+</tr>
+<tr >
+<td><strong>iz-</strong></td>
+<td>judėjimas į išorę, užbaigtumas (iš-, iš-)</td>
+<td><em>leit → izleit (išlieti)<br />
+migt → izmigt (giliai užmigti)<br />
+pret → izpret (suprasti)<br />
+rankīt → izrankīt (išgelbėti, išvaduoti)</em></td>
+</tr>
+<tr >
+<td><strong>pa-</strong></td>
+<td>po-, po to, susilpnintas arba užbaigtas veiksmas</td>
+<td><em>augint → pa-augint (užauginti)<br />
+būt → pabūt (pabūti)<br />
+girt → pagirt (pagirti)<br />
+likt → palikt (pasilikti)</em></td>
+</tr>
+<tr >
+<td><strong>per-</strong></td>
+<td>intensyvumas, perteklius, per-</td>
+<td><em>bandot → perbandīt (išbandyti, gundyti)<br />
+rist → per-rist (perrišti)<br />
+klantīt → perklantīt (prakeikti)<br />
+spīt → perspīt (perspėti)</em></td>
+</tr>
+<tr >
+<td><strong>pra-</strong></td>
+<td>skvarba, veiksmo pradžia (pra-)</td>
+<td><em>bilēt → prabilēt (prabilti)<br />
+leit → praleit (pralieti)<br />
+vilt → pravilt (išduoti)</em></td>
+</tr>
+<tr >
+<td><strong>prei-</strong></td>
+<td>priartėjimas, pridėjimas (pri-)</td>
+<td><em>pēstun → preipēstun (atnešti, pristatyti)<br />
+vakīt → preivakīt (pašaukti)</em></td>
+</tr>
+<tr >
+<td><strong>san-</strong> / <strong>są(san)-</strong></td>
+<td>sujungimas, kartu (su-, są-)</td>
+<td><em>rist → sanrist (surišti kartu)<br />
+renkt → sanrenkt (surinkti)<br />
+junga → sąjunga (sąjunga)<br />
+l'ūba → sąl'ūba (santuoka)</em></td>
+</tr>
+<tr >
+<td><strong>Na-</strong></td>
+<td>į paviršių (ant-/virš-)</td>
+<td><em>Leit –– Naleit (pripilti)</em></td>
+</tr>
+<tr >
+<td><strong>da-</strong></td>
+<td>iki-, ligi</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Reti, bet vartojami</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr >
+<th><strong>er-</strong></th>
+<th>net, iki pat, sustiprinimas</th>
+<th><em>erderkt (apnuodyti), erkīnint (išlaisvinti), erpilnint
+(pripildyti), erzvaigzdint (nušviesti)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td><strong>ne-</strong> / <strong>ni-</strong></td>
+<td>neigimas</td>
+<td><em>nepret (nesuprasti), nevinaut (būti nekaltam), niainas (nė
+vienas), nienbilēt (tylėti)</em></td>
+</tr>
+<tr >
+<td><strong>wōka- (v dažnai susilpnėja)</strong></td>
+<td>labai-, virš-, pats aukščiausias laipsnis</td>
+<td><em>vōkalabaisis (geriausias), vōkasventaisis (švenčiausiasis),
+vōkapirmas (Kūrėjas), vōkamazaisis (mažiausias)</em></td>
+</tr>
+<tr >
+<td><strong>Wunzei-</strong></td>
+<td>Virš-</td>
+<td><em>Vunzeizeidīt antstatyti</em></td>
+</tr>
+<tr >
+<td><strong>sur-</strong></td>
+<td>aplink, apie</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+
+</div>
+
+</div>
+<div id="gram-lt" class="gram-lang-panel" style="display:none">
+<p><strong>Gramatika sūdawiskos bilos</strong></p>
+<p><em>Lt. Pastaba –– vietininkas ir įnagininkas paprastai sutampa su
+naudininku (kur nesutampa, tai pateikta atskirai). Taip pat svarbu
+pažymėti, kad šios taisyklės nėra grynai tokios kaip suduvoje, o yra
+pritaikytos ir patobulintos. Taip pat yra vienas niuansas dėl būdvardžių
+naudininko –– galima vartoti ir -asmu/-ismu/-usmu (žr. lenteles) pagal
+prūsų modelį arba pagal bendrą linksniavimo modelį</em></p>
+<h2 id="linksniavimas"><strong>Linksniavimas</strong></h2>
+<p>Pagrindas su -u. Pavyzdys: žodis „avokadas“</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>awōkadu</td>
+<td>awōkadu</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>awōkadus</td>
+<td>awōkadun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>awōkadu</td>
+<td>awōkadums</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>awōkadu</td>
+<td>awōkadu</td>
+</tr>
+</tbody>
+</table></div>
+<p>Linksniavimas su -u (bevardė giminė, iš būdvardžio). Pavyzdys:
+„drąsus, narsus“</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>dīrsu</td>
+<td>dirswai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>dirswas</td>
+<td>dīrsun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>dīrsusmu</td>
+<td>dirsusams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>dīrsu</td>
+<td>dīrsuns</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pagrindas su -s. Pavyzdys: žodis „vyras“</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>wīrs</td>
+<td>wīrai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>wīras</td>
+<td>wīrun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>wīru</td>
+<td>wīrams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>wīran</td>
+<td>wīrans</td>
+</tr>
+<tr>
+<td><strong>Viet.</strong></td>
+<td>wīrai</td>
+<td>wīraisu</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pagrindas su -is. Pavyzdys: žodis „svečias“</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>gastis</td>
+<td>gastjai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>gastjas</td>
+<td>gastjun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>gastei</td>
+<td>gastims</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>gastin</td>
+<td>gastins</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pagrindas su -a. Pavyzdys: „žmona/moteris“</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>mot.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>gena</td>
+<td>genos</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>genos</td>
+<td>genun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>genai</td>
+<td>genoms</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>genan</td>
+<td>genans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pagrindas su -an. Pavyzdys: žodis „nikelis“</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>nikkelan</td>
+<td>nikelai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>nikkelas</td>
+<td>nikkelun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>nikkelu</td>
+<td>nikelams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>nikkelan</td>
+<td>nikkelans</td>
+</tr>
+<tr>
+<td><strong>Viet.</strong></td>
+<td>nikkelai</td>
+<td>nikkelaisu</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pagrindas su -e. Pavyzdys: „žemė, dirvožemis, ariamoji žemė“</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>mot.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>zeme</td>
+<td>zemes</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>zemes</td>
+<td>zemjun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>zemei</td>
+<td>zemems</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>zemjen</td>
+<td>zemens</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pagrindas su -us. Pavyzdys: žodis „sūnus“</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>sūnus</td>
+<td>sūnaus</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>sūnaus</td>
+<td>sūnun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>sūnau</td>
+<td>sūnums</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>sūnun</td>
+<td>sūnuns</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pagrindas su -i. Pavyzdys: žodis „dalelytė“</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>mot.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>partīkeli</td>
+<td>partīkelis</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>partīkelis</td>
+<td>partīkelin</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>partīkelei</td>
+<td>partīkelims</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>partīkelin</td>
+<td>partīkelins</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="būdvardžių-linksniavimas"><em><strong>Būdvardžių
+linksniavimas</strong></em> </h3>
+<p>Būdvardžių linksniavimas -isks (taip pat visų su -s), pavyzdys:
+„afrikietiškas“</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>afrikisks</td>
+<td>afrikiskai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>afrikiskas</td>
+<td>afrikiskun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>afrikiskasmu</td>
+<td>afrikiskams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>afrikiskan</td>
+<td>afrikiskans</td>
+</tr>
+<tr>
+<td><strong>mot.</strong></td>
+<td><strong>vns.</strong></td>
+<td><strong>dgs.</strong></td>
+</tr>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>afrikiska</td>
+<td>afrikiskos</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>afrikiskos</td>
+<td>afrikiskun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>afrikiskai</td>
+<td>afrikiskoms</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>afrikiskan</td>
+<td>afrikiskans</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>afrikiskan</td>
+<td>afrikiskai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>afrikiskas</td>
+<td>afrikiskun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>afrikiskasmu</td>
+<td>afrikiskams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>afrikiskan</td>
+<td>afrikiskans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Linksniavimas su -ingis, pavyzdys: „vieningas“</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>ainingis</td>
+<td>ainingjai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>ainingjas</td>
+<td>ainingjun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>ainingjasmu</td>
+<td>ainingjams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>ainingjan</td>
+<td>aīningjans</td>
+</tr>
+<tr>
+<td><strong>mot.</strong></td>
+<td><strong>vns.</strong></td>
+<td><strong>dgs.</strong></td>
+</tr>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>ainingi</td>
+<td>ainingis</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>ainingis</td>
+<td>ainingjun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>ainingei</td>
+<td>ainingims</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>ainingin</td>
+<td>ainingins</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>ainingjan</td>
+<td>ainingjai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>ainingjas</td>
+<td>ainingjun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>ainingjasmu</td>
+<td>ainingjams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>ainingjan</td>
+<td>ainingjans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Linksniavimas su -inis, pavyzdys: „medinis“</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>garrinis</td>
+<td>garinjai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>garinjas</td>
+<td>garinjan</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>garinjasmu</td>
+<td>garinjams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>garinjan</td>
+<td>garinjans</td>
+</tr>
+<tr>
+<td><strong>mot.</strong></td>
+<td><strong>vns.</strong></td>
+<td><strong>dgs.</strong></td>
+</tr>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>garini</td>
+<td>garinjos</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>garinjos</td>
+<td>garinjun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>garinjai</td>
+<td>garinjoms</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>garinjan</td>
+<td>garinjans</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>garini</td>
+<td>garinjai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>garinjas</td>
+<td>garinjun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>garinjasmu</td>
+<td>garinjams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>garinjan</td>
+<td>garinjans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pagrindas -us, pavyzdys: „drąsus“</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>dīrsus</td>
+<td>dīrswai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>dīrswas</td>
+<td>dīrsun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>dīrsusmu</td>
+<td>dirsums</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>dīrsun</td>
+<td>dīrsuns</td>
+</tr>
+<tr>
+<td><strong>mot.</strong></td>
+<td><strong>vns.</strong></td>
+<td><strong>dgs.</strong></td>
+</tr>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>dīrsi</td>
+<td>dīrsjos</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>dīrsjos</td>
+<td>dīrsjun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>dīrsjai</td>
+<td>dīrsjoms</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>dīrsjan</td>
+<td>dīrsjans</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>dīrsu</td>
+<td>dirswai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>dīrswas</td>
+<td>dīrsun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>dīrsusmu</td>
+<td>dīrsums</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>dīrsu</td>
+<td>dīrsuns</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="specialiosios-linksniuotės"><strong>Specialiosios
+linksniuotės</strong></h2>
+<p>Žodžio „brolis“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>brote</td>
+<td>broteres</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>brotres</td>
+<td>brotun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>brotrei</td>
+<td>brotrems</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>broten</td>
+<td>brotens</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžio „viskas“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>wisa</td>
+<td>wisai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>wisesa</td>
+<td>wisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>wisasma</td>
+<td>wisams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>wisan</td>
+<td>wisans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžio „bet kuris“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>wiss</td>
+<td>wisai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>wisse</td>
+<td>wiseisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>wismu</td>
+<td>wiseisams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>wisan</td>
+<td>wisans</td>
+</tr>
+<tr>
+<td><strong>mot.</strong></td>
+<td><strong>vns.</strong></td>
+<td><strong>dgs.</strong></td>
+</tr>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>wisa</td>
+<td>wisos</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>wisos</td>
+<td>wisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>wisai</td>
+<td>wisams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>wisan</td>
+<td>wisans</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>wisan</td>
+<td>wisai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>wisse</td>
+<td>wiseisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>wismu</td>
+<td>wiseisams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>wisan</td>
+<td>wisans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžio „mūsų“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>nūss</td>
+<td>nūsai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>nūse</td>
+<td>nūseisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>nūsmu</td>
+<td>nūseisams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>nūsan</td>
+<td>nūsans</td>
+</tr>
+<tr>
+<td><strong>mot.</strong></td>
+<td><strong>vns.</strong></td>
+<td><strong>dgs.</strong></td>
+</tr>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>nūsa</td>
+<td>nūsos</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>nūses</td>
+<td>nūseisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>nūsai</td>
+<td>nūseisoms</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>nūsan</td>
+<td>nūsans</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>nūsan</td>
+<td>nusai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>nūse</td>
+<td>nūseisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>nūsmu</td>
+<td>nūseisams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>nūsan</td>
+<td>nūsans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „jis, ji, tai“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>tans</td>
+<td>tenai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>tenesse</td>
+<td>teneisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>tenesmu</td>
+<td>teneisams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>tennan</td>
+<td>tennans</td>
+</tr>
+<tr>
+<td><strong>mot.</strong></td>
+<td><strong>vns.</strong></td>
+<td><strong>dgs.</strong></td>
+</tr>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>tena</td>
+<td>tennos</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>tenesses</td>
+<td>teneisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>tenessai</td>
+<td>teneisoms</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>tennan</td>
+<td>tennans</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>tennan</td>
+<td>tenai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>tenesse</td>
+<td>teneisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>tenesmu</td>
+<td>teneisams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>tenan</td>
+<td>tenans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „tas, tai, tie, ta“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>stas</td>
+<td>stai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>stesse</td>
+<td>steisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>stesmu</td>
+<td>steisams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>stan</td>
+<td>stans</td>
+</tr>
+<tr>
+<td><strong>mot.</strong></td>
+<td><strong>vns.</strong></td>
+<td><strong>dgs.</strong></td>
+</tr>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>sta</td>
+<td>stasos</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>stesses</td>
+<td>steisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>stessei</td>
+<td>steisoms</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>stan</td>
+<td>stans</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>stan</td>
+<td>stai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>stesse</td>
+<td>steisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>stesmu</td>
+<td>steisams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>stan</td>
+<td>stans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „aš, mes“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>as</td>
+<td>mes</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>mene</td>
+<td>nūsun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>menei</td>
+<td>nūms</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>men</td>
+<td>mans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „tu, jūs“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>tū</td>
+<td>jūs</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>tebe</td>
+<td>jūsun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>tebei</td>
+<td>jūms</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>ten</td>
+<td>wans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžio „visa“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>mot.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>wisa</td>
+<td>wisos</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>wisos</td>
+<td>wisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>wisai</td>
+<td>wisoms</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>wisan</td>
+<td>wisans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „vienas, viena, viena, vieni“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>ains</td>
+<td>ainai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>ainasse</td>
+<td>ainun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>ainasmu</td>
+<td>ainams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>ainan</td>
+<td>ainans</td>
+</tr>
+<tr>
+<td><strong>mot.</strong></td>
+<td><strong>vns.</strong></td>
+<td><strong>dgs.</strong></td>
+</tr>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>aina</td>
+<td>ainos</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>ainasses</td>
+<td>ainun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>ainassei</td>
+<td>ainoms</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>ainan</td>
+<td>ainans</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>ainan</td>
+<td>ainun</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>ainase</td>
+<td>ainun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>ainaismu</td>
+<td>ainams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>ainan</td>
+<td>ainans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžio „du“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>dwai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>dwejun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>dwejams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>dwai</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžio „dviese“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>dwejai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>dwejun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>dwejams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>dwejans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžio „trejetas“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>mot.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>treita</td>
+<td>treitos</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>treitos</td>
+<td>treitun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>treitai</td>
+<td>treitoms</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>treitan</td>
+<td>treitans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžio „kas, kas“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>kas</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>kasse</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>kasmu</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>kan</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „tai, šis, ši, šie“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th colspan="2"><strong>vyr.</strong></th>
+<th colspan="2"><strong>vns.</strong></th>
+<th colspan="2"><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2"><strong>Vard.</strong></td>
+<td colspan="2">šis</td>
+<td colspan="2">šai</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Kilm.</strong></td>
+<td colspan="2">šisse</td>
+<td colspan="2">šeisun</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Naud</strong></td>
+<td colspan="2">šismu</td>
+<td colspan="2">šeisams</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Gal.</strong></td>
+<td colspan="2">šin</td>
+<td colspan="2">šins</td>
+</tr>
+<tr>
+<td><strong>mot.</strong></td>
+<td colspan="2"><strong>vns.</strong></td>
+<td colspan="2"><strong>dgs.</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Vard.</strong></td>
+<td colspan="2">ši</td>
+<td colspan="2">šos</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td colspan="2">šisses</td>
+<td colspan="2">šeisun</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td colspan="2">šissei</td>
+<td colspan="2">šeisoms</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td colspan="2">šan</td>
+<td colspan="2">šans</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>šin</td>
+<td>šai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>šisse</td>
+<td>šeisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>šismu</td>
+<td>šeisams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>šin</td>
+<td>šins</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „kitas, kitoks“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th colspan="2"><strong>vyr.</strong></th>
+<th colspan="2"><strong>vns.</strong></th>
+<th colspan="2"><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2"><strong>Vard.</strong></td>
+<td colspan="2">kits</td>
+<td colspan="2">kitai</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Kilm.</strong></td>
+<td colspan="2">kitse</td>
+<td colspan="2">kiteisun</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Naud</strong></td>
+<td colspan="2">kitsmu</td>
+<td colspan="2">kiteisams</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Gal.</strong></td>
+<td colspan="2">kittan</td>
+<td colspan="2">kittans</td>
+</tr>
+<tr>
+<td><strong>mot.</strong></td>
+<td colspan="2"><strong>vns.</strong></td>
+<td colspan="2"><strong>dgs.</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Vard.</strong></td>
+<td colspan="2">kita</td>
+<td colspan="2">kittos</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td colspan="2">kitses</td>
+<td colspan="2">kiteisun</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td colspan="2">kitsei</td>
+<td colspan="2">kiteisoms</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td colspan="2">kittan</td>
+<td colspan="2">kitans</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>kittan</td>
+<td>kitai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>kitse</td>
+<td>kiteisun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>kitsmu</td>
+<td>kiteisams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>kittan</td>
+<td>kittans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „tikras, tikslus, teisingas“ linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th colspan="2"><strong>vyr.</strong></th>
+<th colspan="2"><strong>vns.</strong></th>
+<th colspan="2"><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2"><strong>Vard.</strong></td>
+<td colspan="2">tikkars</td>
+<td colspan="2">tikrai</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Kilm.</strong></td>
+<td colspan="2">tikras</td>
+<td colspan="2">tikran</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Naud</strong></td>
+<td colspan="2">tikrasmu</td>
+<td colspan="2">tikrams</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Gal.</strong></td>
+<td colspan="2">tikran</td>
+<td colspan="2">tikrans</td>
+</tr>
+<tr>
+<td><strong>mot.</strong></td>
+<td colspan="2"><strong>vns.</strong></td>
+<td colspan="2"><strong>dgs.</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Vard.</strong></td>
+<td colspan="2">tikra</td>
+<td colspan="2">tikros</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td colspan="2">tikros</td>
+<td colspan="2">tikran</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td colspan="2">tikrai</td>
+<td colspan="2">tikroms</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td colspan="2">tikran</td>
+<td colspan="2">tikrans</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>tikran</td>
+<td>tikrai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>tikras</td>
+<td>tikran</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>tikrasmu</td>
+<td>tikrams</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>tikran</td>
+<td>tikrans</td>
+</tr>
+</tbody>
+</table></div>
+<p>Žodžių „tikras, tikslus, teisingas“ aukštesniojo laipsnio
+linksniavimas</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>vyr.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>tikkraisis</td>
+<td>tikkraisjai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>tikkraisjas</td>
+<td>tikkraisin</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>tikkraisjasmu</td>
+<td>tikkraisims</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>tikkraisin</td>
+<td>tikkraisins</td>
+</tr>
+</tbody>
+</table></div></th>
+<th><div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>mot.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>tikkraisi</td>
+<td>tikkraisjos</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>tikkraisjos</td>
+<td>tikkraisjun</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>tikkraisjai</td>
+<td>tikkraisjoms</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>tikkraisjan</td>
+<td>tikkraisjans</td>
+</tr>
+</tbody>
+</table></div></th>
+<th><div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>bev.</strong></th>
+<th><strong>vns.</strong></th>
+<th><strong>dgs.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vard.</strong></td>
+<td>tikkraisi</td>
+<td>tikkraisjai</td>
+</tr>
+<tr>
+<td><strong>Kilm.</strong></td>
+<td>tikkraisjas</td>
+<td>tikkraisin</td>
+</tr>
+<tr>
+<td><strong>Naud</strong></td>
+<td>tikkraisjasmu</td>
+<td>tikkraisims</td>
+</tr>
+<tr>
+<td><strong>Gal.</strong></td>
+<td>tikkraisi</td>
+<td>tikkraisins</td>
+</tr>
+</tbody>
+</table></div></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h2 id="priesagos"><strong>Priesagos</strong></h2>
+<p>Pagal giminės priesagas:</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th>vyr.</th>
+<th>mot.</th>
+<th>bev.</th>
+<th>Priev.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-s</td>
+<td>-a</td>
+<td>-an</td>
+<td>-ai</td>
+</tr>
+<tr>
+<td>-is</td>
+<td>-e/-i</td>
+<td>-in</td>
+<td>-jai</td>
+</tr>
+<tr>
+<td>-us</td>
+<td>-e</td>
+<td>-u</td>
+<td>-u</td>
+</tr>
+<tr>
+<td>-es</td>
+<td>-e</td>
+<td>-en</td>
+<td>-jai(?)</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>Priesaga</strong></th>
+<th><strong>Reikšmė/</strong></th>
+<th><strong>Pavyzdžiai</strong></th>
+</tr>
+<tr>
+<th><strong>-sna</strong></th>
+<th>abstraktus daiktavardis / veiksmo pavadinimas / procesas</th>
+<th>atverpt → atverpsna (atleidimas)<br />
+izmigt → izmigsna (užmigimas)<br />
+mokint → mokinsna (mokymasis, doktrina)</th>
+</tr>
+<tr>
+<th><strong>-senis</strong></th>
+<th>abstraktus daiktavardis / veiksmo pavadinimas / procesas /
+aktas</th>
+<th>gimt → gimsenis (gimimas)<br />
+pavargt → pavargsenis (kančia)<br />
+baudint → baudinsna (pabudimas)</th>
+</tr>
+<tr>
+<th><strong>-lis / -le. Taip pat tuwe</strong></th>
+<th>įrankis, priemonė</th>
+<th>adīt → adītlis (mezgimo virbalas)<br />
+peisot → peisole (rankraštis / rašymo įrankis)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>-inīks</strong></td>
+<td>žmogus pagal veiklą / santykį</td>
+<td><em>pīvas → pīvinīks (alaus virėjas)<br />
+bit → bitinīks (bitininkas)</em></td>
+</tr>
+<tr>
+<td><strong>-ojs</strong></td>
+<td>veikėjas, sudarytas iš veiksmažodžio</td>
+<td><em>art → artojs (artojas)<br />
+aket → aketojs (akėtojas)<br />
+dimt → dimtojs (statybininkas, stalius)</em></td>
+</tr>
+<tr>
+<td><strong>-inis</strong></td>
+<td>santykinis (ryšys, medžiaga, laikas)</td>
+<td><em>ranka → rankinis (rankinis)<br />
+deina → deininis (dieninis)<br />
+Nadēle → nadēlinis (savaitinis)<br />
+pirmas → pirminis (pirminis)</em></td>
+</tr>
+<tr>
+<td><strong>-ingis</strong></td>
+<td>kokybinis (savybės pilnumas, gausa)</td>
+<td><em>druwis → druwingas (ištikimas, tikintis)<br />
+mīle → mīlingas (mylintis, gailestingas)<br />
+aistra → aistringas (aistringas)<br />
+labas → labatingas (klestintis)</em></td>
+</tr>
+<tr>
+<td><strong>-isks</strong></td>
+<td>sudaro santykinius būdvardžius, reiškiančius panašumą, priklausymą
+arba savybę</td>
+<td>Ainavīdiskas (vienetinis, vienodas)</td>
+</tr>
+<tr>
+<td><strong>-ība</strong></td>
+<td>Daiktavardis iš būdvardžio, abstrakcija</td>
+<td><em>Dwai –– dwejība (dvilypumas)</em></td>
+</tr>
+<tr>
+<td><strong>-iskan</strong></td>
+<td>bendras abstrakcijos variantas</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-īsta</strong></td>
+<td>abstrakcija iš daiktavardžio</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-int</strong></td>
+<td>Veiksmažodinis, kauzatyvumas –– reiškia vertimą, skatinimą veikti
+arba objekto būsenos keitimą. Atsako į klausimą „daryti taip, kad...“
+arba „paversti į...“</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-īt/-it</strong></td>
+<td>Dažnai kaip analogas lietuviškoms -uoti/-ėti</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="aukštesnysis-laipsnis"><strong><br />
+Aukštesnysis laipsnis</strong></h4>
+<p>Prie -as pridedama -ais / -aisis; prie -is → jais/jaisis; prie -us →
+-uis/-uisis. mīls → mīlais → mīlaisis.</p>
+<h2 id="priešdėliai"><strong>Priešdėliai</strong> </h2>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>ap-</strong></p>
+</blockquote></th>
+<th>žiedinis / visiškas veiksmas (ap-, apie-)</th>
+<th><em>jot → apjot (apvažiuoti, klaidžioti)<br />
+veisint → apveisint (apvaisinti)<br />
+varīt → apvarīt (įveikti)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>at-</strong></td>
+<td>kryptis atgal, atvėrimas, rezultatas (at-, pra-)</td>
+<td><em>vert → atvert (atidaryti)<br />
+baudint → atbaudint (pažadinti)<br />
+skīt → atskīt (prikelti)<br />
+verptun → atverptun (atleisti)</em></td>
+</tr>
+<tr>
+<td><strong>au-</strong></td>
+<td>šalin, pašalinimas, u- (nu-, at-)</td>
+<td><em>eit → aueit (išeiti)<br />
+klept → auklept (pavogti, paslėpti)<br />
+l'aut → aul'aut (mirti)<br />
+vert → auvert (uždaryti)</em></td>
+</tr>
+<tr>
+<td><strong>en-</strong></td>
+<td>judėjimas į vidų (į-)</td>
+<td><em>migt → enmigt (užmigti)<br />
+dēt → endēt (įdėti)<br />
+imtun → enimtun (priimti)<br />
+kopt → enkopt (palaidoti / pasodinti)</em></td>
+</tr>
+<tr>
+<td><strong>iz-</strong></td>
+<td>judėjimas į išorę, užbaigtumas (iš-, iš-)</td>
+<td><em>leit → izleit (išlieti)<br />
+migt → izmigt (giliai užmigti)<br />
+pret → izpret (suprasti)<br />
+rankīt → izrankīt (išgelbėti, išvaduoti)</em></td>
+</tr>
+<tr>
+<td><strong>pa-</strong></td>
+<td>po-, po to, susilpnintas arba užbaigtas veiksmas</td>
+<td><em>augint → pa-augint (užauginti)<br />
+būt → pabūt (pabūti)<br />
+girt → pagirt (pagirti)<br />
+likt → palikt (pasilikti)</em></td>
+</tr>
+<tr>
+<td><strong>per-</strong></td>
+<td>intensyvumas, perteklius, per-</td>
+<td><em>bandot → perbandīt (išbandyti, gundyti)<br />
+rist → per-rist (perrišti)<br />
+klantīt → perklantīt (prakeikti)<br />
+spīt → perspīt (perspėti)</em></td>
+</tr>
+<tr>
+<td><strong>pra-</strong></td>
+<td>skvarba, veiksmo pradžia (pra-)</td>
+<td><em>bilēt → prabilēt (prabilti)<br />
+leit → praleit (pralieti)<br />
+vilt → pravilt (išduoti)</em></td>
+</tr>
+<tr>
+<td><strong>prei-</strong></td>
+<td>priartėjimas, pridėjimas (pri-)</td>
+<td><em>pēstun → preipēstun (atnešti, pristatyti)<br />
+vakīt → preivakīt (pašaukti)</em></td>
+</tr>
+<tr>
+<td><strong>san-</strong> / <strong>są(san)-</strong></td>
+<td>sujungimas, kartu (su-, są-)</td>
+<td><em>rist → sanrist (surišti kartu)<br />
+renkt → sanrenkt (surinkti)<br />
+junga → sąjunga (sąjunga)<br />
+l'ūba → sąl'ūba (santuoka)</em></td>
+</tr>
+<tr>
+<td><strong>Na-</strong></td>
+<td>į paviršių (ant-/virš-)</td>
+<td><em>Leit –– Naleit (pripilti)</em></td>
+</tr>
+<tr>
+<td><strong>da-</strong></td>
+<td>iki-, ligi</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Reti, bet vartojami</p>
+<div class="table-wrap"><table class="gram-table">
+
+<thead>
+<tr>
+<th><strong>er-</strong></th>
+<th>net, iki pat, sustiprinimas</th>
+<th><em>erderkt (apnuodyti), erkīnint (išlaisvinti), erpilnint
+(pripildyti), erzvaigzdint (nušviesti)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ne-</strong> / <strong>ni-</strong></td>
+<td>neigimas</td>
+<td><em>nepret (nesuprasti), nevinaut (būti nekaltam), niainas (nė
+vienas), nienbilēt (tylėti)</em></td>
+</tr>
+<tr>
+<td><strong>wōka- (v dažnai susilpnėja)</strong></td>
+<td>labai-, virš-, pats aukščiausias laipsnis</td>
+<td><em>vōkalabaisis (geriausias), vōkasventaisis (švenčiausiasis),
+vōkapirmas (Kūrėjas), vōkamazaisis (mažiausias)</em></td>
+</tr>
+<tr>
+<td><strong>Wunzei-</strong></td>
+<td>Virš-</td>
+<td><em>Vunzeizeidīt antstatyti</em></td>
+</tr>
+<tr>
+<td><strong>sur-</strong></td>
+<td>aplink, apie</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+
+</div>
+</div>
+</div>
 </section>
 
   
@@ -1314,6 +4771,9 @@ function showSection(name) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+
+(function(){ try { var g = localStorage.getItem('gramLang'); if (g === 'lt' || g === 'ru') setGramLang(g); } catch(e) {} })();
+
   const qEl = document.getElementById('q');
   const qExtra = document.getElementById('q-extra');
   let t1 = null, t2 = null;
@@ -1341,6 +4801,18 @@ window.setLang = setLang;
 window.filterGramToc = filterGramToc;
 window.browseApply = browseApply;
 window.rebuildLetterBar = rebuildLetterBar;
+
+function setGramLang(lang) {
+  var ru = document.getElementById('gram-ru');
+  var lt = document.getElementById('gram-lt');
+  if (ru) ru.style.display = lang === 'ru' ? '' : 'none';
+  if (lt) lt.style.display = lang === 'lt' ? '' : 'none';
+  document.querySelectorAll('[data-gram-lang]').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-gram-lang') === lang);
+  });
+  try { localStorage.setItem('gramLang', lang); } catch(e) {}
+}
+
 </script>
 </body>
 </html>
