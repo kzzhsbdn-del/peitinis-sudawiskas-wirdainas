@@ -50,16 +50,33 @@ section.active{display:block}
 .card .rus{color:var(--muted);margin-top:.15rem}
 .card .badge{float:right;font-size:.72rem;padding:.12rem .45rem;border-radius:5px;background:var(--surface2);color:var(--muted)}
 .card.extra-card .badge{background:rgba(199,125,255,.15);color:var(--extra)}
-.results.linear{gap:.15rem}
-.results.linear .card{background:transparent;border:none;border-bottom:1px solid var(--border);border-radius:0;padding:.4rem .35rem;display:block;overflow:visible;word-break:break-word;white-space:normal}
-.results.linear .card:hover{background:rgba(91,159,212,.07)}
+.results.linear{gap:0;display:block}
+.results.linear .card{
+  background:transparent;border:none;border-radius:0;
+  padding:.55rem 0;display:block;overflow:visible;
+  word-break:break-word;white-space:normal;
+  border-bottom:1px dashed var(--border);
+  margin:0;
+}
+.results.linear .card:first-child{border-top:1px dashed var(--border)}
+.results.linear .card:hover{background:rgba(91,159,212,.06)}
 .results.linear .card .badge{display:none}
-.results.linear .card .word,.results.linear .card .eng,.results.linear .card .rus{display:inline;font-size:.95rem;font-family:inherit;font-weight:400;color:var(--text);word-break:break-word;white-space:normal}
-.results.linear .card .word{font-weight:650;color:var(--accent)}
+.results.linear .card .word{
+  display:block;font-size:1.05rem;font-weight:700;
+  color:var(--accent);font-family:Georgia,'Times New Roman',serif;
+  margin-bottom:.15rem;letter-spacing:.01em;
+}
 .results.linear .card.extra-card .word{color:var(--extra)}
-.results.linear .card .eng::before{content:" "}
-.results.linear .card .rus::before{content:" — ";color:var(--muted)}
-.results.linear .card .rus{color:var(--muted)}
+.results.linear .card .eng{
+  display:block;font-size:.92rem;color:var(--text);
+  margin-bottom:.08rem;line-height:1.4;
+}
+.results.linear .card .rus{
+  display:block;font-size:.9rem;color:var(--muted);
+  line-height:1.4;
+}
+.results.linear .card .eng::before{content:""}
+.results.linear .card .rus::before{content:""}
 .empty{color:var(--muted);padding:2rem 1rem;text-align:center}
 
 /* BROWSE mode */
@@ -613,8 +630,7 @@ table.gram-table td {
 <div class="gram-main" style="flex:1;min-width:0">
 <div class="gram-lang-bar" style="display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
   <span style="font-size:0.9em;opacity:0.85">Язык грамматики / Gramatikos kalba:</span>
-  <button type="button" class="lang-btn active" data-gram-lang="ru" onclick="setGramLang('ru')" title="Русский">🇷🇺 RU</button>
-  <button type="button" class="lang-btn" data-gram-lang="lt" onclick="setGramLang('lt')" title="Lietuvių">🇱🇹 LT</button>
+  <!-- LT translation removed from grammar per request -->
 </div>
 <div id="gram-ru" class="gram-lang-panel">
 <div class="gram-content">
@@ -4773,7 +4789,7 @@ function showSection(name) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-(function(){ try { var g = localStorage.getItem('gramLang'); if (g === 'lt' || g === 'ru') setGramLang(g); } catch(e) {} })();
+(function(){ var lt = document.getElementById('gram-lt'); if (lt) lt.style.display = 'none'; var ru = document.getElementById('gram-ru'); if (ru) ru.style.display = ''; })();
 
   const qEl = document.getElementById('q');
   const qExtra = document.getElementById('q-extra');
