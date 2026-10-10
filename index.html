@@ -357,6 +357,15 @@ section:not(#section-extra) .note-lt { display: none !important; }
   font-size: .85rem;
 }
 .gram-toc a.toc-hidden { display: none; }
+.toc-flash {
+  animation: tocFlash 1.1s ease;
+}
+@keyframes tocFlash {
+  0% { background: color-mix(in srgb, var(--accent) 35%, transparent); }
+  100% { background: transparent; }
+}
+.gram-content h3, .gram-content h4 { scroll-margin-top: 1.25rem; }
+
 .gram-toc .toc-group { margin-top: .45rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); padding: .2rem .35rem; }
 
 
@@ -873,7 +882,7 @@ table.gram-table td {
 
 <h3 id="g-spec">2. Специальные склонения</h3>
 
-<h4>«брат»</h4>
+<h4 id="g-brote">«брат»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -883,7 +892,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>broten</td><td>brotens</td></tr>
 </tbody></table></div>
 
-<h4>«всё»</h4>
+<h4 id="g-wisa">«всё»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th>ср.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -893,7 +902,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>wisan</td><td>wisans</td></tr>
 </tbody></table></div>
 
-<h4>«любой»</h4>
+<h4 id="g-wisa-any">«любой»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -917,7 +926,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>wisan</td><td>wisans</td></tr>
 </tbody></table></div>
 
-<h4>«наш»</h4>
+<h4 id="g-nuss">«наш»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -941,7 +950,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>nūsan</td><td>nūsans</td></tr>
 </tbody></table></div>
 
-<h4>«он, она, оно»</h4>
+<h4 id="g-tans">«он, она, оно»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -965,7 +974,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>tennan</td><td>tennans</td></tr>
 </tbody></table></div>
 
-<h4>«тот, то, те, та»</h4>
+<h4 id="g-stas">«тот, то, те, та»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -989,7 +998,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>stan</td><td>stans</td></tr>
 </tbody></table></div>
 
-<h4>«я, мы»</h4>
+<h4 id="g-as">«я, мы»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -999,7 +1008,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>men</td><td>mans</td></tr>
 </tbody></table></div>
 
-<h4>«ты, вы»</h4>
+<h4 id="g-tu">«ты, вы»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -1009,7 +1018,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>ten</td><td>wans</td></tr>
 </tbody></table></div>
 
-<h4>«вся»</h4>
+<h4 id="g-wisa-f">«вся»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -1019,7 +1028,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>wisan</td><td>wisans</td></tr>
 </tbody></table></div>
 
-<h4>«один, одна, одно, одни»</h4>
+<h4 id="g-ains">«один, одна, одно, одни»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -1043,7 +1052,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>ainan</td><td>ainans</td></tr>
 </tbody></table></div>
 
-<h4>«два»</h4>
+<h4 id="g-dwai">«два»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -1053,7 +1062,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>dwai</td></tr>
 </tbody></table></div>
 
-<h4>«двое»</h4>
+<h4 id="g-dwejai">«двое»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -1063,7 +1072,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>dwejans</td></tr>
 </tbody></table></div>
 
-<h4>«Тройка»</h4>
+<h4 id="g-treita">«Тройка»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -1073,7 +1082,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>treitan</td><td>treitans</td></tr>
 </tbody></table></div>
 
-<h4>«кто, что»</h4>
+<h4 id="g-kas">«кто, что»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th>муж.р.</th><th>ед.ч.</th></tr></thead>
 <tbody>
@@ -1083,7 +1092,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>kan</td></tr>
 </tbody></table></div>
 
-<h4>«это, этот, эта, эти»</h4>
+<h4 id="g-sis">«это, этот, эта, эти»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -1107,7 +1116,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>šin</td><td>šins</td></tr>
 </tbody></table></div>
 
-<h4>«другой, иной»</h4>
+<h4 id="g-kits">«другой, иной»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -1131,7 +1140,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>kittan</td><td>kittans</td></tr>
 </tbody></table></div>
 
-<h4>«настоящий, точный, верный» (tikkars)</h4>
+<h4 id="g-tikkars">«настоящий, точный, верный» (tikkars)</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
@@ -1155,7 +1164,7 @@ table.gram-table td {
 <tr><td><strong>Вин.п.</strong></td><td>tikran</td><td>tikrans</td></tr>
 </tbody></table></div>
 
-<h4>Сравнительная степень «настоящий, точный, верный»</h4>
+<h4 id="g-comp">Сравнительная степень «настоящий, точный, верный»</h4>
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>sg</th><th>pl</th></tr></thead>
 <tbody>
@@ -4005,6 +4014,39 @@ function filterGramToc(q) {
       next = next.nextElementSibling;
     }
     g.style.display = (!q || any) ? '' : 'none';
+  });
+}
+
+function scrollToGramTarget(id) {
+  if (!id) return;
+  var el = document.getElementById(id);
+  if (!el) return;
+  // ensure grammar section is visible
+  var sec = document.getElementById('section-grammar');
+  if (sec && !sec.classList.contains('active')) {
+    if (typeof showSection === 'function') showSection('grammar');
+  }
+  setTimeout(function() {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // highlight briefly
+    el.classList.add('toc-flash');
+    setTimeout(function() { el.classList.remove('toc-flash'); }, 1200);
+  }, 30);
+}
+
+function initGramTocClicks() {
+  var toc = document.getElementById('gram-toc');
+  if (!toc) return;
+  toc.addEventListener('click', function(ev) {
+    var a = ev.target.closest('a[href^="#"]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.charAt(0) !== '#') return;
+    var id = href.slice(1);
+    if (!id) return;
+    ev.preventDefault();
+    history.replaceState(null, '', '#' + id);
+    scrollToGramTarget(id);
   });
 }
 
