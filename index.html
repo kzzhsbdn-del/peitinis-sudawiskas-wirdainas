@@ -338,21 +338,10 @@ a:hover { color: #000; border-bottom-color: #000; }
   color: var(--muted);
 }
 .gram-content ul { padding-left: 1.2rem; }
-.table-wrap {
-  overflow-x: auto;
-  margin: .55rem 0 .9rem;
-  border: 1px solid var(--table-border);
-  border-radius: 2px;
-}
-.gram-content table, .gram-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: .85rem;
-  font-family: "Source Sans 3", system-ui, sans-serif;
-  margin: 0;
-}
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: .55rem 0 .9rem; border: 1px solid var(--border); border-radius: 2px; max-width: 100%; }
+.gram-content table, .gram-table { width: max-content; min-width: 100%; border-collapse: collapse; font-size: .9rem; margin: 0; }
 .gram-content th, .gram-content td,
-.gram-table th, .gram-table td {
+.gram-table th, .gram-table td { white-space: nowrap;
   border: 1px solid var(--table-border);
   padding: .38rem .5rem;
   text-align: left;
@@ -571,7 +560,7 @@ a:hover { color: #000; border-bottom-color: #000; }
 
 <h3 
 <h3 id="g-u">Основа на -u. На примере слова «авокадо»</h3>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th>ср.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
 <tr><td>Им.п.</td><td>awōkadu</td><td>awōkadu</td></tr>
@@ -579,10 +568,10 @@ a:hover { color: #000; border-bottom-color: #000; }
 <tr><td>Дат.п.</td><td>awōkadu</td><td>awōkadums</td></tr>
 <tr><td>Вин.п.</td><td>awōkadu</td><td>awōkadu</td></tr>
 <tr><td>Зв.п</td><td>awōkadu</td><td>awōkadus</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3 id="g-s">Основа на -s. На примере слова «мужчина»</h3>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
 <tr><td>Им.п.</td><td>wīrs</td><td>wīrai</td></tr>
@@ -591,10 +580,10 @@ a:hover { color: #000; border-bottom-color: #000; }
 <tr><td>Вин.п.</td><td>wīran</td><td>wīrans</td></tr>
 <tr><td>Мест.п</td><td>wīrai</td><td>wīraisu</td></tr>
 <tr><td>Зв.п</td><td>wīre!</td><td>wīrai!</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3 id="g-is">Основа на -is. На примере слова «гость»</h3>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
 <tr><td>Им.п.</td><td>gastis</td><td>gastes</td></tr>
@@ -602,10 +591,10 @@ a:hover { color: #000; border-bottom-color: #000; }
 <tr><td>Дат.п.</td><td>gastei</td><td>gastims</td></tr>
 <tr><td>Вин.п.</td><td>gastin</td><td>gastins</td></tr>
 <tr><td>Зв.п</td><td>gasti!</td><td>gastes!</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3 id="g-a">Основа на -a. На примере слова «жена/женщина»</h3>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
 <tr><td>Им.п.</td><td>gena</td><td>genos</td></tr>
@@ -613,10 +602,10 @@ a:hover { color: #000; border-bottom-color: #000; }
 <tr><td>Дат.п.</td><td>genai</td><td>genoms</td></tr>
 <tr><td>Вин.п.</td><td>genan</td><td>genans</td></tr>
 <tr><td>Зв.п</td><td>gena!</td><td>genos!</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3 id="g-an">Основа на -an. На примере слова «никель»</h3>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th>ср.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
 <tr><td>Им.п.</td><td>nikkelan</td><td>nikelai</td></tr>
@@ -624,10 +613,10 @@ a:hover { color: #000; border-bottom-color: #000; }
 <tr><td>Дат.п.</td><td>nikkelu</td><td>nikelams</td></tr>
 <tr><td>Вин.п.</td><td>nikkelan</td><td>nikkelans</td></tr>
 <tr><td>Мест.п</td><td>nikkelai</td><td>nikkelaisu</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3 id="g-e">Основа на -e. На примере слова «земля, почва, пашня»</h3>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
 <tr><td>Им.п.</td><td>zeme</td><td>zemes</td></tr>
@@ -635,10 +624,10 @@ a:hover { color: #000; border-bottom-color: #000; }
 <tr><td>Дат.п.</td><td>zemei</td><td>zemems</td></tr>
 <tr><td>Вин.п.</td><td>zemien</td><td>zemens</td></tr>
 <tr><td>Зв.п</td><td>zeme!</td><td>zemes!</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3 id="g-us">Основа на -us. На примере слова «сын»</h3>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
 <tr><td>Им.п.</td><td>sūnus</td><td>sūnaus</td></tr>
@@ -646,31 +635,31 @@ a:hover { color: #000; border-bottom-color: #000; }
 <tr><td>Дат.п.</td><td>sūnau</td><td>sūnums</td></tr>
 <tr><td>Вин.п.</td><td>sūnun</td><td>sūnuns</td></tr>
 <tr><td>Зв.п</td><td>sūnau!</td><td>sūnaus!</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3 id="g-i">Основа на -i. На примере слова «частица»</h3>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
 <tr><td>Им.п.</td><td>partīkeli</td><td>partīkelis</td></tr>
 <tr><td>Род.п.</td><td>partīkelis</td><td>partīkelin</td></tr>
 <tr><td>Дат.п.</td><td>partīkelei</td><td>partīkelims</td></tr>
 <tr><td>Вин.п.</td><td>partīkelin</td><td>partīkelins</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3 id="g-ms">Основа на -ms. На примере слова «аноним»</h3>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th>муж.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
 <tr><td>Им.п.</td><td>anonīms</td><td>anonīmai</td></tr>
 <tr><td>Род.п.</td><td>anonīmas</td><td>anonīmun</td></tr>
 <tr><td>Дат.п.</td><td>anonīmu</td><td>anonīmams</td></tr>
 <tr><td>Вин.п.</td><td>anonīman</td><td>anonīmans</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3 id="g-adj">Склонение прилагательных</h3>
 <p class="sub">-isks (и все на -s), пример «африканский»</p>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
 <tr><td colspan="3"><strong>муж.р.</strong></td></tr>
@@ -688,10 +677,10 @@ a:hover { color: #000; border-bottom-color: #000; }
 <tr><td>Род.п.</td><td>afrikiskas</td><td>afrikiskun</td></tr>
 <tr><td>Дат.п.</td><td>afrikiskasma</td><td>afrikiskams</td></tr>
 <tr><td>Вин.п.</td><td>afrikiskan</td><td>afrikiskans</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p class="sub">-ingis, пример «единый»</p>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
 <tr><td colspan="3"><strong>муж.р.</strong></td></tr>
@@ -709,10 +698,10 @@ a:hover { color: #000; border-bottom-color: #000; }
 <tr><td>Род.п.</td><td>aininges</td><td>ainingiun</td></tr>
 <tr><td>Дат.п.</td><td>ainingisma</td><td>ainingims</td></tr>
 <tr><td>Вин.п.</td><td>ainingin</td><td>ainingins</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p class="sub">-ins, пример «деревянный»</p>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>sg</th><th>pl</th></tr></thead>
 <tbody>
 <tr><td colspan="3"><strong>masc</strong></td></tr>
@@ -730,10 +719,10 @@ a:hover { color: #000; border-bottom-color: #000; }
 <tr><td>Gen</td><td>garinas</td><td>garinun</td></tr>
 <tr><td>Dat</td><td>garinasma</td><td>garinams</td></tr>
 <tr><td>Akk</td><td>garinan</td><td>garinans</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p class="sub">Основа -us, пример «смелый»</p>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
 <tr><td colspan="3"><strong>муж.р.</strong></td></tr>
@@ -751,10 +740,10 @@ a:hover { color: #000; border-bottom-color: #000; }
 <tr><td>Род.п.</td><td>dīrsaus</td><td>dīrsun</td></tr>
 <tr><td>Дат.п.</td><td>dīrsusma</td><td>dīrsums</td></tr>
 <tr><td>Вин.п.</td><td>dīrsu</td><td>dīrsuns</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p class="sub">-ims(-īms), пример «анонимный»</p>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
 <tr><td colspan="3"><strong>муж.р.</strong></td></tr>
@@ -772,7 +761,7 @@ a:hover { color: #000; border-bottom-color: #000; }
 <tr><td>Род.п.</td><td>anonīmas</td><td>anonīmun</td></tr>
 <tr><td>Дат.п.</td><td>anonīmasma</td><td>anonīmams</td></tr>
 <tr><td>Вин.п.</td><td>anonīman</td><td>anonīmans</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3 id="g-spec">Специальные склонения</h3>
 <h4 id="g-brote">Склонение «брат»</h4>
@@ -1123,15 +1112,15 @@ a:hover { color: #000; border-bottom-color: #000; }
 <h3 id="v-group"><p class="sub">Примечание: -wusi — аналитическая конструкция для женского рода.</p>Глаголы</h3>
 
 <h3 id="v-it">1. Основа на -it/-īt</h3>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
-<tbody><tr><td>as turi<br>tū turi<br>tans/tena/tennan turi<br>mes turimai<br>jūs turitei<br>tenei/tennos turi</td><td>as turēi<br>tū turēi<br>tans/tena/tennan turēi<br>mes turēimai<br>jūs turēitei<br>tenei/tennos turēi</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
-<tbody><tr><td>as asma turīwuns / turīwusi<br>tū assei turīwuns / turīwusi<br>tans/tena ast turīwuns / turīwusi<br>tennan ast turīwus<br>mes asmai turīwusis / turīwusjos<br>jūs astei turīwusis / turīwusjos<br>tenei/tennos ast turīwusis / turīwusi</td><td>as wirst turīwuns / turīwusi<br>tū wirst turīwuns / turīwusi<br>tans/tena wirst turīwuns / turīwusi<br>tennan wirst turīwus<br>mes wirstmai turīwusis / turīwusjos<br>jūs wirstei turīwusis / turīwusjos<br>tenei/tennos wirst turīwusis / turīwusi</td></tr></tbody></table>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<tbody><tr><td>as turi<br>tū turi<br>tans/tena/tennan turi<br>mes turimai<br>jūs turitei<br>tenei/tennos turi</td><td>as turēi<br>tū turēi<br>tans/tena/tennan turēi<br>mes turēimai<br>jūs turēitei<br>tenei/tennos turēi</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<tbody><tr><td>as asma turīwuns / turīwusi<br>tū assei turīwuns / turīwusi<br>tans/tena ast turīwuns / turīwusi<br>tennan ast turīwus<br>mes asmai turīwusis / turīwusjos<br>jūs astei turīwusis / turīwusjos<br>tenei/tennos ast turīwusis / turīwusi</td><td>as wirst turīwuns / turīwusi<br>tū wirst turīwuns / turīwusi<br>tans/tena wirst turīwuns / turīwusi<br>tennan wirst turīwus<br>mes wirstmai turīwusis / turīwusjos<br>jūs wirstei turīwusis / turīwusjos<br>tenei/tennos wirst turīwusis / turīwusi</td></tr></tbody></table></div>
 
 <p class="sub"><em>Infinitiws — turīt</em></p>
 
 <h3 id="v-zit">2. Если до -īt/-it идёт -z-</h3>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
 <tbody>
 <tr>
@@ -1161,74 +1150,74 @@ tenēi/tennas wīrst mazīwusis / mazīwusi
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="sub"><em>Infinitiws — mazīt</em></p>
 <p class="sub"><em>Optatiws — mazīsei · Imperatīws: (tū) mazzis · (jūs) mazziti</em></p>
 
 <h3 id="v-at">2. Основа на -at/-āt</h3>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
-<tbody><tr><td>as bija<br>tū bija<br>tans/tena/tennan bija<br>mes bijimai<br>jūs bijitei<br>tenei/tennos bija</td><td>as bijai<br>tū bijai<br>tans/tena/tennan bijai<br>mes bijaimai<br>jūs bijaitei<br>tenei/tennos bijai</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
-<tbody><tr><td>as asma bijawuns / bijawusi<br>tū assei bijawuns / bijawusi<br>tans/tena ast bijawuns / bijawusi<br>tennan ast bijawus<br>mes asmai bijawusis / bijawusjos<br>jūs astei bijawusis / bijawusjos<br>tenei/tennos ast bijawusis / bijawusjos</td><td>as wirst bijawuns / bijawusi<br>tū wirst bijawuns / bijawusi<br>tans/tena wirst bijawuns / bijawusi<br>tennan wirst bijawus<br>mes wirstmai bijawusis / bijawusjos<br>jūs wirstei bijawusis / bijawusjos<br>tenei/tennos wirst bijawusis / bijawusjos</td></tr></tbody></table>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<tbody><tr><td>as bija<br>tū bija<br>tans/tena/tennan bija<br>mes bijimai<br>jūs bijitei<br>tenei/tennos bija</td><td>as bijai<br>tū bijai<br>tans/tena/tennan bijai<br>mes bijaimai<br>jūs bijaitei<br>tenei/tennos bijai</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<tbody><tr><td>as asma bijawuns / bijawusi<br>tū assei bijawuns / bijawusi<br>tans/tena ast bijawuns / bijawusi<br>tennan ast bijawus<br>mes asmai bijawusis / bijawusjos<br>jūs astei bijawusis / bijawusjos<br>tenei/tennos ast bijawusis / bijawusjos</td><td>as wirst bijawuns / bijawusi<br>tū wirst bijawuns / bijawusi<br>tans/tena wirst bijawuns / bijawusi<br>tennan wirst bijawus<br>mes wirstmai bijawusis / bijawusjos<br>jūs wirstei bijawusis / bijawusjos<br>tenei/tennos wirst bijawusis / bijawusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — bijot/bijāt/bijat</em></p>
 
 <h4 id="v-dot">Короткие слова на -at/-ot (dōt)</h4>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
 <tbody><tr>
 <td>as dōma<br>tū dōsei<br>tans/tena/tennan dōst<br>mes dōmai<br>jūs dōstei<br>tenei/tennos dōst</td>
 <td>as dōi<br>tū dōi<br>tans/tena/tennan dōi<br>mes dōimai<br>jūs dōitei<br>tenei/tennos dōi</td>
-</tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+</tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
 <tbody><tr>
 <td>as asma dōwuns / dōwusi<br>tū assei dōwuns / dōwusi<br>tans/tena ast dōwuns / dōwusi<br>tennan ast dōwus<br>mes asmai dōwusis / dōwusjos<br>jūs astei dōwusis / dōwusjos<br>tenei/tennos ast dōwusis / dōwusi</td>
 <td>as wirst dōwuns / dōwusi<br>tū wirst dōwuns / dōwusi<br>tans/tena wirst dōwuns / dōwusi<br>tennan wirst dōwus<br>mes wirstmai dōwusis / dōwusjos<br>jūs wirstei dōwusis / dōwusjos<br>tenei/tennos wirst dōwusis / dōwusi</td>
-</tr></tbody></table>
+</tr></tbody></table></div>
 <p class="sub">Infinitīwan – dōt. Для на -at просто заменить -o- на -a-</p>
 <h3 id="v-et">3. Основа на -ēt/-et</h3>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
-<tbody><tr><td>as dēma<br>tū dēsei<br>tans/tena/tennan dēt<br>mes dēmai<br>jūs dētei<br>tenei/tennos dēt</td><td>as dēja<br>tū dēja<br>tans/tena/tennan dēja<br>mes dējai<br>jūs dējatei<br>tenei/tennos dēja</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
-<tbody><tr><td>as asma dēwuns / dēwusi<br>tū assei dēwuns / dēwusi<br>tans/tena ast dēwuns / dēwusi<br>tennan ast dēwus<br>mes asmai dēwusis / dēwusjos<br>jūs astei dēwusis / dēwusjos<br>tenei/tennos ast dēwusis / dēwusjos</td><td>as wirst dēwuns / dēwusi<br>tū wirst dēwuns / dēwusi<br>tans/tena wirst dēwuns / dēwusi<br>tennan wirst dēwus<br>mes wirstmai dēwusis / dēwusjos<br>jūs wirstei dēwusis / dēwusjos<br>tenei/tennos wirst dēwusis / dēwusjos</td></tr></tbody></table>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<tbody><tr><td>as dēma<br>tū dēsei<br>tans/tena/tennan dēt<br>mes dēmai<br>jūs dētei<br>tenei/tennos dēt</td><td>as dēja<br>tū dēja<br>tans/tena/tennan dēja<br>mes dējai<br>jūs dējatei<br>tenei/tennos dēja</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<tbody><tr><td>as asma dēwuns / dēwusi<br>tū assei dēwuns / dēwusi<br>tans/tena ast dēwuns / dēwusi<br>tennan ast dēwus<br>mes asmai dēwusis / dēwusjos<br>jūs astei dēwusis / dēwusjos<br>tenei/tennos ast dēwusis / dēwusjos</td><td>as wirst dēwuns / dēwusi<br>tū wirst dēwuns / dēwusi<br>tans/tena wirst dēwuns / dēwusi<br>tennan wirst dēwus<br>mes wirstmai dēwusis / dēwusjos<br>jūs wirstei dēwusis / dēwusjos<br>tenei/tennos wirst dēwusis / dēwusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — dēt</em></p>
 <h3 id="v-au">4. Основа на -au/-ut</h3>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
-<tbody><tr><td>as šauja<br>tū šauja<br>tans/tena/tennan šauja<br>mes šaujimai<br>jūs šaujitei<br>tenei/tennos šauja</td><td>as šauwa<br>tū šauwa<br>tans/tena/tennan šauwa<br>mes šauwamai<br>jūs šauwatei<br>tenei/tennos šauwa</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
-<tbody><tr><td>as asma šauwuns / šauwusi<br>tū assei šauwuns / šauwusi<br>tans/tena ast šauwuns / šauwusi<br>tennan ast šauwus<br>mes asmai šauwusis / šauwusjos<br>jūs astei šauwusis / šauwusjos<br>tenei/tennos ast šauwusis / šauwusjos</td><td>as wirst šauwuns / šauwusi<br>tū wirst šauwuns / šauwusi<br>tans/tena wirst šauwuns / šauwusi<br>tennan wirst šauwus<br>mes wirstmai šauwusis / šauwusjos<br>jūs wirstei šauwusis / šauwusjos<br>tenei/tennos wirst šauwusis / šauwusjos</td></tr></tbody></table>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<tbody><tr><td>as šauja<br>tū šauja<br>tans/tena/tennan šauja<br>mes šaujimai<br>jūs šaujitei<br>tenei/tennos šauja</td><td>as šauwa<br>tū šauwa<br>tans/tena/tennan šauwa<br>mes šauwamai<br>jūs šauwatei<br>tenei/tennos šauwa</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<tbody><tr><td>as asma šauwuns / šauwusi<br>tū assei šauwuns / šauwusi<br>tans/tena ast šauwuns / šauwusi<br>tennan ast šauwus<br>mes asmai šauwusis / šauwusjos<br>jūs astei šauwusis / šauwusjos<br>tenei/tennos ast šauwusis / šauwusjos</td><td>as wirst šauwuns / šauwusi<br>tū wirst šauwuns / šauwusi<br>tans/tena wirst šauwuns / šauwusi<br>tennan wirst šauwus<br>mes wirstmai šauwusis / šauwusjos<br>jūs wirstei šauwusis / šauwusjos<br>tenei/tennos wirst šauwusis / šauwusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — šaut</em></p>
 <h3 id="v-nt">5. Основа на -nt/-st/-gt/-pt и т.д.</h3>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
-<tbody><tr><td>as ainawīdina<br>tū ainawīdina<br>tans/tena/tennan ainawīdina<br>mes ainawīdinimai<br>jūs ainawīdinitei<br>tenei/tennos ainawīdina</td><td>as ainawīdino<br>tū ainawīdino<br>tans/tena/tennan ainawīdino<br>mes ainawīdinimai<br>jūs ainawīdinitei<br>tenei/tennos ainawīdino</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
-<tbody><tr><td>as asma ainawīdinuns / ainawīdinusi<br>tū assei ainawīdinuns / ainawīdinusi<br>tans/tena ast ainawīdinuns / ainawīdinusi<br>tennan ast ainawīdinus<br>mes asmai ainawīdinusis / ainawīdinusjos<br>jūs astei ainawīdinusis / ainawīdinusjos<br>tenei/tennos ast ainawīdinusis / ainawīdinusjos</td><td>as wirst ainawīdinuns / ainawīdinusi<br>tū wirst ainawīdinuns / ainawīdinusi<br>tans/tena wirst ainawīdinuns / ainawīdinusi<br>tennan wirst ainawīdinus<br>mes wirstmai ainawīdinusis / ainawīdinusjos<br>jūs wirstei ainawīdinusis / ainawīdinusjos<br>tenei/tennos wirst ainawīdinusis / ainawīdinusjos</td></tr></tbody></table>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<tbody><tr><td>as ainawīdina<br>tū ainawīdina<br>tans/tena/tennan ainawīdina<br>mes ainawīdinimai<br>jūs ainawīdinitei<br>tenei/tennos ainawīdina</td><td>as ainawīdino<br>tū ainawīdino<br>tans/tena/tennan ainawīdino<br>mes ainawīdinimai<br>jūs ainawīdinitei<br>tenei/tennos ainawīdino</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<tbody><tr><td>as asma ainawīdinuns / ainawīdinusi<br>tū assei ainawīdinuns / ainawīdinusi<br>tans/tena ast ainawīdinuns / ainawīdinusi<br>tennan ast ainawīdinus<br>mes asmai ainawīdinusis / ainawīdinusjos<br>jūs astei ainawīdinusis / ainawīdinusjos<br>tenei/tennos ast ainawīdinusis / ainawīdinusjos</td><td>as wirst ainawīdinuns / ainawīdinusi<br>tū wirst ainawīdinuns / ainawīdinusi<br>tans/tena wirst ainawīdinuns / ainawīdinusi<br>tennan wirst ainawīdinus<br>mes wirstmai ainawīdinusis / ainawīdinusjos<br>jūs wirstei ainawīdinusis / ainawīdinusjos<br>tenei/tennos wirst ainawīdinusis / ainawīdinusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — ainawīdint</em></p>
 <h3 id="v-st">6. Основа на -st/-gt/-pt и т.д.</h3>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
-<tbody><tr><td>as endwēsja<br>tū endwēsja<br>tans/tena/tennan endwēsja<br>mes endwēsjamai<br>jūs endwēsjatei<br>tenei/tennos endwēsja</td><td>as endwēsi<br>tū endwēsi<br>tans/tena/tennan endwēsi<br>mes endwēsimai<br>jūs endwēsusjosi<br>tenei/tennos endwēsi</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
-<tbody><tr><td>as asma endwēsuns / endwēsusi<br>tū assei endwēsuns / endwēsusi<br>tans/tena ast endwēsuns / endwēsusi<br>tennan ast endwēsus<br>mes asmai endwēsusis / endwēsusjos<br>jūs astei endwēsusis / endwēsusjos<br>tenei/tennos ast endwēsusis / endwēsusjos</td><td>as wirst endwēsuns / endwēsusi<br>tū wirst endwēsuns / endwēsusi<br>tans/tena wirst endwēsuns / endwēsusi<br>tennan wirst endwēsus<br>mes wirstmai endwēsusis / endwēsusjos<br>jūs wirstei endwēsusis / endwēsusjos<br>tenei/tennos wirst endwēsusis / endwēsusjos</td></tr></tbody></table>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<tbody><tr><td>as endwēsja<br>tū endwēsja<br>tans/tena/tennan endwēsja<br>mes endwēsjamai<br>jūs endwēsjatei<br>tenei/tennos endwēsja</td><td>as endwēsi<br>tū endwēsi<br>tans/tena/tennan endwēsi<br>mes endwēsimai<br>jūs endwēsusjosi<br>tenei/tennos endwēsi</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<tbody><tr><td>as asma endwēsuns / endwēsusi<br>tū assei endwēsuns / endwēsusi<br>tans/tena ast endwēsuns / endwēsusi<br>tennan ast endwēsus<br>mes asmai endwēsusis / endwēsusjos<br>jūs astei endwēsusis / endwēsusjos<br>tenei/tennos ast endwēsusis / endwēsusjos</td><td>as wirst endwēsuns / endwēsusi<br>tū wirst endwēsuns / endwēsusi<br>tans/tena wirst endwēsuns / endwēsusi<br>tennan wirst endwēsus<br>mes wirstmai endwēsusis / endwēsusjos<br>jūs wirstei endwēsusis / endwēsusjos<br>tenei/tennos wirst endwēsusis / endwēsusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — endwēst</em></p>
 
 <h3 id="v-rt">Основа на -rt</h3>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
 <tbody><tr><td>as arja<br>tū arja<br>tans/tena/tennan arja<br>mes arrjamai<br>jūs arrjatei<br>tenei/tennos arrja</td>
-<td>as ari<br>tū ari<br>tans/tena/tennan ari<br>mes arimai<br>jūs aritei<br>tenei/tennos ari</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<td>as ari<br>tū ari<br>tans/tena/tennan ari<br>mes arimai<br>jūs aritei<br>tenei/tennos ari</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
 <tbody><tr><td>as asma aruns / arusi<br>tū assei aruns / arusi<br>tans/tene ast aruns / arusi<br>tennan ast arus<br>mes asmai aruns / arusjos<br>jūs astei aruns / arusjos<br>tenei/tennos ast aruns / arusjos</td>
-<td>as wirst aruns / arusi<br>tū wirst aruns / arusi<br>tans/tena wirst aruns / arusi<br>tennan wirst arus<br>mes wirstmai aruns / arusjos<br>jūs wirstei aruns / arusjos<br>tenei/tennos wirst arruns / arusjos</td></tr></tbody></table>
+<td>as wirst aruns / arusi<br>tū wirst aruns / arusi<br>tans/tena wirst aruns / arusi<br>tennan wirst arus<br>mes wirstmai aruns / arusjos<br>jūs wirstei aruns / arusjos<br>tenei/tennos wirst arruns / arusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — art</em> · Imperatīws: (tū) arjais · (jūs) arjaiti</p>
 
 <h3 id="v-kt">Основа на -kt</h3>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
 <tbody><tr><td>as aulānkja<br>tū aulānkja<br>tans/tena/tennan aulānkja<br>mes aulānkjamai<br>jūs aulānkjatei<br>tenei/tennos aulānkja</td>
-<td>as aulānki<br>tū aulānki<br>tans/tena/tennan aulānki<br>mes aulānkimai<br>jūs aulānkitei<br>tenei/tennos aulānki</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<td>as aulānki<br>tū aulānki<br>tans/tena/tennan aulānki<br>mes aulānkimai<br>jūs aulānkitei<br>tenei/tennos aulānki</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
 <tbody><tr><td>as asma aulānkuns / aulānkusi<br>tū assei aulānkuns / aulānkusi<br>tans/tena ast aulānkuns / aulānkusi<br>tennan ast aulānkus<br>mes asmai aulānkusis / aulānkusjos<br>jūs astei aulānkusis / aulānkusjos<br>tenei/tennos ast aulānkusis / aulānkusjos</td>
-<td>as wirst aulānkuns / aulānkusi<br>tū wirst aulānkuns / aulānkusi<br>tans/tena wirst aulānkuns / aulānkusi<br>tennan wirst aulānkus<br>mes wirstmai aulānkusis / aulānkusjos<br>jūs wirstei aulānkusis / aulānkusjos<br>tenei/tennos wirst aulānkusis / aulānkusjos</td></tr></tbody></table>
+<td>as wirst aulānkuns / aulānkusi<br>tū wirst aulānkuns / aulānkusi<br>tans/tena wirst aulānkuns / aulānkusi<br>tennan wirst aulānkus<br>mes wirstmai aulānkusis / aulānkusjos<br>jūs wirstei aulānkusis / aulānkusjos<br>tenei/tennos wirst aulānkusis / aulānkusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — aulānkt</em></p>
 
 <h3 id="v-lt">3. Основа на -lt</h3>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
 <tbody>
 <tr>
@@ -1258,11 +1247,11 @@ tenēi/tennas wīrst aupallusis / aupallusjos
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="sub"><em>Infinitiws — aupalt</em></p>
 
 <h3 id="v-zt">4. Основа на -zt</h3>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
 <tbody>
 <tr>
@@ -1292,7 +1281,7 @@ tenēi/tennas wīrst drazzusis / drazzusjos
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="sub"><em>Infinitiws — drazt</em></p>
 <p class="sub"><em>Imperatīws: (tū) drazzais · (jūs) drazzaiti</em></p>
 
@@ -1305,21 +1294,21 @@ tenēi/tennas wīrst drazzusis / drazzusjos
 <h3 as wirst bijowuns / bijowusi<br>tū wirst bijowuns / bijowusi<br>tans/tena wirst bijowuns / bijowusi<br>tennan wirst bijowus<br>mes wirstmai bijowusis / bijowusjos<br>jūs wirstei bijowusis / bijowusjos<br>tenei/tennos wirst bijowusis / bijowusjos</td></tr></tbody></table>
 <p class="sub"><em>Infinitiws — bijot/bijāt/bijat</em></p>
 <h3 id="v-ait">8. Основа на -ait/-eit</h3>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
-<tbody><tr><td>as saja<br>tū saja<br>tans/tena/tennan saja<br>mes sajimai<br>jūs sajitei<br>tenei/tennos saja</td><td>as sīja<br>tū sīja<br>tans/tena/tennan sīja<br>mes sījamai<br>jūs sījatei<br>tenei/tennos sīja</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
-<tbody><tr><td>as asma sījuns / sījusi<br>tū assei sījuns / sījusi<br>tans/tena ast sījuns / sījusi<br>tennan ast sījus<br>mes asmai sījusis / sījusjos<br>jūs astei sījusis / sījusjos<br>tenei/tennos ast sījusis / sījusjos</td><td>as wirst sījuns / sījusi<br>tū wirst sījuns / sījusi<br>tans/tena wirst sījuns / sījusi<br>tennan wirst sījus<br>mes wirstmai sījusis / sījusjos<br>jūs wirstei sījusis / sījusjos<br>tenei/tennos wirst sījusis / sījusjos</td></tr></tbody></table>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<tbody><tr><td>as saja<br>tū saja<br>tans/tena/tennan saja<br>mes sajimai<br>jūs sajitei<br>tenei/tennos saja</td><td>as sīja<br>tū sīja<br>tans/tena/tennan sīja<br>mes sījamai<br>jūs sījatei<br>tenei/tennos sīja</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<tbody><tr><td>as asma sījuns / sījusi<br>tū assei sījuns / sījusi<br>tans/tena ast sījuns / sījusi<br>tennan ast sījus<br>mes asmai sījusis / sījusjos<br>jūs astei sījusis / sījusjos<br>tenei/tennos ast sījusis / sījusjos</td><td>as wirst sījuns / sījusi<br>tū wirst sījuns / sījusi<br>tans/tena wirst sījuns / sījusi<br>tennan wirst sījus<br>mes wirstmai sījusis / sījusjos<br>jūs wirstei sījusis / sījusjos<br>tenei/tennos wirst sījusis / sījusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — sait.</em> -ei-/-ai- в pretēritan → ī; в prezēnti остаются -aj-/-ej-.</p>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
-<tbody><tr><td>as leja<br>tū leja<br>tans/tena/tennan leja<br>mes lejimai<br>jūs lejitei<br>tenei/tennos leja</td><td>as līja<br>tū līja<br>tans/tena/tennan līja<br>mes lījamai<br>jūs lījatei<br>tenei/tennos līja</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
-<tbody><tr><td>as asma lījuns / lījusi<br>tū assei lījuns / lījusi<br>tans/tena ast lījuns / lījusi<br>tennan ast lījus<br>mes asmai lījusis / lījusjos<br>jūs astei lījusis / lījusjos<br>tenei/tennos ast lījusis / lījusjos</td><td>as wirst lījuns / lījusi<br>tū wirst lījuns / lījusi<br>tans/tena wirst lījuns / lījusi<br>tennan wirst lījus<br>mes wirstmai lījusis / lījusjos<br>jūs wirstei lījusis / lījusjos<br>tenei/tennos wirst lījusis / lījusjos</td></tr></tbody></table>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<tbody><tr><td>as leja<br>tū leja<br>tans/tena/tennan leja<br>mes lejimai<br>jūs lejitei<br>tenei/tennos leja</td><td>as līja<br>tū līja<br>tans/tena/tennan līja<br>mes lījamai<br>jūs lījatei<br>tenei/tennos līja</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<tbody><tr><td>as asma lījuns / lījusi<br>tū assei lījuns / lījusi<br>tans/tena ast lījuns / lījusi<br>tennan ast lījus<br>mes asmai lījusis / lījusjos<br>jūs astei lījusis / lījusjos<br>tenei/tennos ast lījusis / lījusjos</td><td>as wirst lījuns / lījusi<br>tū wirst lījuns / lījusi<br>tans/tena wirst lījuns / lījusi<br>tennan wirst lījus<br>mes wirstmai lījusis / lījusjos<br>jūs wirstei lījusis / lījusjos<br>tenei/tennos wirst lījusis / lījusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — leit</em></p>
 <h3 id="v-add"><p class="sub">Примечание: для будущего времени среднего рода можно использовать оба варианта — «tanan wirst -wus» и просто форму будущего времени 3 лица.</p>
 9. Дополнительная информация</h3>
 <p class="sub">Для глаголов на один гласный — «-nts»; для «-au-» — -wints (perwakaut → perwakawints). Для «читавший» — -wuns; на -au-: perwakaut → perwakawuns.</p>
-<table class="gram-table"><thead><tr><th>Одновременность</th><th>Преждевременность</th></tr></thead>
-<tbody><tr><td>skaitīdant<br>Читая</td><td>Skaitītot<br>Читав</td></tr></tbody></table>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Одновременность</th><th>Преждевременность</th></tr></thead>
+<tbody><tr><td>skaitīdant<br>Читая</td><td>Skaitītot<br>Читав</td></tr></tbody></table></div>
 <h4>Повелительное наклонение</h4>
 <p class="sub">-s bilēs · -ti bilēti · -īs/is (tū) amputīs · -īti/iti (jūs) amputīti · -ais ainawīdinais · -aiti ainawīdinaiti</p>
 <h4>Сослагательное наклонение</h4>
@@ -1328,70 +1317,70 @@ tenēi/tennas wīrst drazzusis / drazzusjos
 <p class="sub">-sei bilēsei (пусть говорит)</p>
 <h3 id="v-spec">Спец-спряжения</h3>
 <h4 id="v-eit">«идти»</h4>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
-<tbody><tr><td>as eima<br>tū eisei<br>tans/tena/tennan eit<br>mes eimai<br>jūs eitei<br>tenei/tennos eit</td><td>as gūbi<br>tū gūbi<br>tans/tena/tennan gūbi<br>mes gūbimai<br>jūs gūbitei<br>tenei/tennos gūbi</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
-<tbody><tr><td>as asma gūbuns / gūbusi<br>tū assei gūbuns / gūbusi<br>tans/tene ast gūbuns / gūbusi<br>tennan ast gūbus<br>mes asmai gūbusis / gūbusjos<br>jūs astei gūbusis / gūbusjos<br>tenei/tennos ast gūbusis / gūbusjos</td><td>as wirst gūbuns / gūbusi<br>tū wirst gūbuns / gūbusi<br>tans/tena wirst gūbuns / gūbusi<br>tennan wirst gūbus<br>mes wirstmai gūbusis / gūbusjos<br>jūs wirstei gūbusis / gūbusjos<br>tenei/tennos wirst gūbusis / gūbusjos</td></tr></tbody></table>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<tbody><tr><td>as eima<br>tū eisei<br>tans/tena/tennan eit<br>mes eimai<br>jūs eitei<br>tenei/tennos eit</td><td>as gūbi<br>tū gūbi<br>tans/tena/tennan gūbi<br>mes gūbimai<br>jūs gūbitei<br>tenei/tennos gūbi</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<tbody><tr><td>as asma gūbuns / gūbusi<br>tū assei gūbuns / gūbusi<br>tans/tene ast gūbuns / gūbusi<br>tennan ast gūbus<br>mes asmai gūbusis / gūbusjos<br>jūs astei gūbusis / gūbusjos<br>tenei/tennos ast gūbusis / gūbusjos</td><td>as wirst gūbuns / gūbusi<br>tū wirst gūbuns / gūbusi<br>tans/tena wirst gūbuns / gūbusi<br>tennan wirst gūbus<br>mes wirstmai gūbusis / gūbusjos<br>jūs wirstei gūbusis / gūbusjos<br>tenei/tennos wirst gūbusis / gūbusjos</td></tr></tbody></table></div>
 <h3 id="v-but">Спряжение «быть» (būt)</h3>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
 <tbody><tr>
 <td>as asmu/esmu<br>tū asi/esi<br>tans/tena/tennan ast/est<br>mes asme/esme<br>jūs aste/este<br>tenei/tennos ast</td>
 <td>as bēi<br>tū bēi<br>tans/tena/tennan bēi<br>mes bēime<br>jūs bēitei<br>tenei/tennos bēi</td>
-</tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+</tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
 <tbody><tr>
 <td>as asma būwuns / būwusi<br>tū assei būwuns / būwusi<br>tans/tena ast būwuns / būwusi<br>tennan ast būwus<br>mes asmai būwusis / būwusjos<br>jūs astei būwusis / būwusjos<br>tenei/tennos ast būwusis / būwusi</td>
 <td>as wirst būwuns / būwusi<br>tū wirst būwuns / būwusi<br>tans/tena wirst būwuns / būwusi<br>tennan wirst būwus<br>mes wirstmai būwusis / būwusjos<br>jūs wirstei būwusis / būwusjos<br>tenei/tennos wirst būwusis / būwusi</td>
-</tr></tbody></table>
+</tr></tbody></table></div>
 <p class="sub">Infinitīwan – būt</p>
 
 <p class="sub"><em>Infinitiws — eit</em></p>
 <h4 id="v-imt">«брать» (imt)</h4>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
-<tbody><tr><td>as imma<br>tū imma<br>tans/tenā/tennan imma<br>mes immamai<br>jūs immatei<br>tenēi/tennas imma</td><td>as immi<br>tū immi<br>tāns/tenā/tennan immi<br>mes immimai<br>jūs immitei<br>tenēi/tennas immi</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
-<tbody><tr><td>as asma immuns / immusi<br>tū assei immuns / immusi<br>tāns/tenā ast immuns / immusi<br>tennan ast immus<br>mes asmai immusis / immusjos<br>jūs astei immusis / immusjos<br>tenēi/tennas ast immusis / immusjos</td><td>as wirst immuns / immusi<br>tū wirst immuns / immusi<br>tāns/tenā wirst immuns / immusi<br>tennan wirst immus<br>mes wirstmai immusis / immusjos<br>jūs wirstei immusis / immusjos<br>tenēi/tennas wirst immusis / immusjos</td></tr></tbody></table>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<tbody><tr><td>as imma<br>tū imma<br>tans/tenā/tennan imma<br>mes immamai<br>jūs immatei<br>tenēi/tennas imma</td><td>as immi<br>tū immi<br>tāns/tenā/tennan immi<br>mes immimai<br>jūs immitei<br>tenēi/tennas immi</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<tbody><tr><td>as asma immuns / immusi<br>tū assei immuns / immusi<br>tāns/tenā ast immuns / immusi<br>tennan ast immus<br>mes asmai immusis / immusjos<br>jūs astei immusis / immusjos<br>tenēi/tennas ast immusis / immusjos</td><td>as wirst immuns / immusi<br>tū wirst immuns / immusi<br>tāns/tenā wirst immuns / immusi<br>tennan wirst immus<br>mes wirstmai immusis / immusjos<br>jūs wirstei immusis / immusjos<br>tenēi/tennas wirst immusis / immusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — imt · Optatiws — imsei · Imperatīws — immais (tū), immaiti (jūs)</em></p>
 
 <h4 id="v-wit">wīt</h4>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
 <tbody><tr><td>as weja<br>tū weja<br>tans/tena/tennan weja<br>mes wejimai<br>jūs wejitei<br>tenei/tennos weja</td>
-<td>as wija<br>tū wija<br>tans/tena/tennan wija<br>mes wijamai<br>jūs wijatei<br>tenei/tennos wija</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<td>as wija<br>tū wija<br>tans/tena/tennan wija<br>mes wijamai<br>jūs wijatei<br>tenei/tennos wija</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
 <tbody><tr><td>as asma wijuns / wijusi<br>tū assei wijuns / wijusi<br>tans/tena ast wijuns / wijusi<br>tennan ast wijus<br>mes asmai wijusis / wijusjos<br>jūs astei wijusis / wijusjos<br>tenei/tennos ast wijusis / wijusjos</td>
-<td>as wirst wijuns / wijusi<br>tū wirst wijuns / wijusi<br>tans/tena wirst wijuns / wijusi<br>tennan wirst wijus<br>mes wirstmai wijusis / wijusjos<br>jūs wirstei wijusis / wijusjos<br>tenei/tennos wirst wijusis / wijusjos</td></tr></tbody></table>
+<td>as wirst wijuns / wijusi<br>tū wirst wijuns / wijusi<br>tans/tena wirst wijuns / wijusi<br>tennan wirst wijus<br>mes wirstmai wijusis / wijusjos<br>jūs wirstei wijusis / wijusjos<br>tenei/tennos wirst wijusis / wijusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — wīt</em> · Imperatīws: (tū) wejais · (jūs) wejaiti · Prezēnte: wejants · Pretēritan: wijuns</p>
 
 <h4 id="v-zut">zūt</h4>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
 <tbody><tr><td>as zauja<br>tū zauja<br>tans/tena/tennan zauja<br>mes zaujimai<br>jūs zaujitei<br>tenei/tennos zauja</td>
-<td>as zuwwa<br>tū zuwwa<br>tans/tena/tennan zuwwa<br>mes zuwwamai<br>jūs zuwwatei<br>tenei/tennos zuwwa</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<td>as zuwwa<br>tū zuwwa<br>tans/tena/tennan zuwwa<br>mes zuwwamai<br>jūs zuwwatei<br>tenei/tennos zuwwa</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
 <tbody><tr><td>as asma zuwwuns / zuwwusi<br>tū assei zuwwuns / zuwwusi<br>tans/tena ast zuwwuns / zuwwusi<br>tennan ast zuwwus<br>mes asmai zuwwusis / zuwwusjos<br>jūs astei zuwwusis / zuwwusjos<br>tenei/tennos ast zuwwusis / zuwwusjos</td>
-<td>as wirst zuwwuns / zuwwusi<br>tū wirst zuwwuns / zuwwusi<br>tans/tena wirst zuwwuns / zuwwusi<br>tennan wirst zuwwus<br>mes wirstmai zuwwusis / zuwwusjos<br>jūs wirstei zuwwusis / zuwwusjos<br>tenei/tennos wirst zuwwusis / zuwwusjos</td></tr></tbody></table>
+<td>as wirst zuwwuns / zuwwusi<br>tū wirst zuwwuns / zuwwusi<br>tans/tena wirst zuwwuns / zuwwusi<br>tennan wirst zuwwus<br>mes wirstmai zuwwusis / zuwwusjos<br>jūs wirstei zuwwusis / zuwwusjos<br>tenei/tennos wirst zuwwusis / zuwwusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — zūt</em> · Imperatīws: (tū) zaujais · (jūs) zaujaiti · Prezēnte: zāujants · Pretēritan: zuwwuns</p>
 
 <h4 id="v-lit">līt</h4>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
 <tbody><tr><td>as līma<br>tū līsei<br>tans/tena/tennan līt<br>mes līmai<br>jūs lītei<br>tenei/tennos līt</td>
-<td>as līja<br>tū līja<br>tans/tena/tennan līja<br>mes līmai<br>jūs lītei<br>tenei/tennos līja</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<td>as līja<br>tū līja<br>tans/tena/tennan līja<br>mes līmai<br>jūs lītei<br>tenei/tennos līja</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
 <tbody><tr><td>as asma līwuns / līwusi<br>tū assei līwuns / līwusi<br>tans/tena ast līwuns / līwusi<br>tennan ast līwus<br>mes asmai līwusis / līwusjos<br>jūs astei līwusis / līwusjos<br>tenei/tennos ast līwusis / līwusjos</td>
-<td>as wirst līwuns / līwusi<br>tū wirst līwuns / līwusi<br>tans/tena wirst līwuns / līwusi<br>tennan wirst līwus<br>mes wirstmai līwusis / līwusjos<br>jūs wirstei līwusis / līwusjos<br>tenei/tennos wirst līwusis / līwusjos</td></tr></tbody></table>
+<td>as wirst līwuns / līwusi<br>tū wirst līwuns / līwusi<br>tans/tena wirst līwuns / līwusi<br>tennan wirst līwus<br>mes wirstmai līwusis / līwusjos<br>jūs wirstei līwusis / līwusjos<br>tenei/tennos wirst līwusis / līwusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — līt</em> · Imperatīws: (jūs) līti</p>
 
 <h4 id="v-wirst">wirst</h4>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
 <tbody><tr><td>as wirst<br>tū wirst<br>tans/tena/tennan wirst<br>mes wirstmai<br>jūs wirstei<br>tenei/tennos wirst</td>
-<td>as wirta<br>tū wirta<br>tans/tena/tennan wirta<br>mes wirtamai<br>jūs wirtatei<br>tenei/tennos wirta</td></tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+<td>as wirta<br>tū wirta<br>tans/tena/tennan wirta<br>mes wirtamai<br>jūs wirtatei<br>tenei/tennos wirta</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
 <tbody><tr><td>as asma wirtuns / wirtusi<br>tū assei wirtuns / wirtusi<br>tans/tena ast wirtuns / wirtusi<br>tennan ast wirtus<br>mes asmai wirtusis / wirtusjos<br>jūs astei wirtusis / wirtusjos<br>tenei/tennos ast wirtusis / wirtusjos</td>
-<td>as wirst wirtuns / wirtusi<br>tū wirst wirtuns / wirtusi<br>tans/tena wirst wirtuns / wirtusi<br>tennan wirst wirtus<br>mes wirstmai wirtusis / wirtusjos<br>jūs wirstei wirtusis / wirtusjos<br>tenei/tennos wirst wirtusis / wirtusjos</td></tr></tbody></table>
+<td>as wirst wirtuns / wirtusi<br>tū wirst wirtuns / wirtusi<br>tans/tena wirst wirtuns / wirtusi<br>tennan wirst wirtus<br>mes wirstmai wirtusis / wirtusjos<br>jūs wirstei wirtusis / wirtusjos<br>tenei/tennos wirst wirtusis / wirtusjos</td></tr></tbody></table></div>
 <p class="sub"><em>Infinitiws — wirst</em> · Optatiws: Wirtsei · Imperatīws: (tū) wirstais · (jūs) wirstaiti<br>
 Konjuktīws: as/tū/tans wirstlai · mes wirstlimai · jūs wirstlitei · tenei wirstlai<br>
 Prezēnte particīpan: wirstants</p>
 <p class="sub">«Читающий» Prezēnte</p>
-<table class="gram-table"><thead><tr><th></th><th>sg</th><th>pl</th></tr></thead>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th></th><th>sg</th><th>pl</th></tr></thead>
 <tbody>
 <tr><td colspan="3"><strong>masc</strong></td></tr>
 <tr><td>Nom</td><td>skaitīnts</td><td>skaitīntjai</td></tr>
@@ -1408,7 +1397,7 @@ Prezēnte particīpan: wirstants</p>
 <tr><td>Gen</td><td>skaitīntis</td><td>skaitīntin</td></tr>
 <tr><td>Dat</td><td>skaitīntismu</td><td>skaitīntims</td></tr>
 <tr><td>Akk</td><td>skaitīntin</td><td>skaitīntins</td></tr>
-</tbody></table>
+</tbody></table></div>
 <p class="sub">«читавший» Pretēritan</p>
 
 <p class="sub">«читаемый» Полные парадигмы причастий (по файлу «Глаголы»), включая средний род.</p>
@@ -1418,126 +1407,126 @@ Prezēnte particīpan: wirstants</p>
 
 
 <h3 id="v-tikt">Спряжение tikt</h3>
-<table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Prezēnte</th><th>Pretēritan</th></tr></thead>
 <tbody><tr>
 <td>as tīnka<br>tū tīnka<br>tans/tena/tennan tīnka<br>mes tīnkimai<br>jūs tīnkitei<br>tenei/tennos tīnka</td>
 <td>as tikka<br>tū tikka<br>tans/tena/tennan tikka<br>mes tikkamai<br>jūs tikkatei<br>tenei/tennos tikka</td>
-</tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
+</tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Perfektan</th><th>Futūran</th></tr></thead>
 <tbody><tr>
 <td>as asma tikkuns / tikkusi<br>tū assei tikkuns / tikkusi<br>tans/tena ast tikkuns / tikkusi<br>tennan ast tikkus<br>mes asmai tikkusis / tikkusjos<br>jūs astei tikkusis / tikkusjos<br>tenei/tennos ast tikkusis / tikkusjos</td>
 <td>as wirst tikkuns / tikkusi<br>tū wirst tikkuns / tikkusi<br>tans/tena wirst tikkuns / tikkusi<br>tennan wirst tikkus<br>mes wirstmai tikkusis / tikkusjos<br>jūs wirstei tikkusis / tikkusjos<br>tenei/tennos wirst tikkusis / tikkusjos</td>
-</tr></tbody></table>
+</tr></tbody></table></div>
 <p class="sub">Infinitīwan – tikt · Particīpai: Tīnkants (prezēnte), Tikkuns (pretēritan)</p>
 
 <h3 id="v-sklait">Спряжение sklait</h3>
-<table class="gram-table"><thead><tr><th>Настоящее</th><th>Прошедшее</th></tr></thead>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Настоящее</th><th>Прошедшее</th></tr></thead>
 <tbody><tr>
 <td>as sklaja<br>tū sklajja<br>tāns/tenā/tennan sklaja<br>mes sklajimai<br>jūs sklajitei<br>tenēi/tennas sklaja</td>
 <td>as sklīja<br>tū sklīja<br>tāns/tenā/tennan sklīja<br>mes sklījamai<br>jūs sklījatei<br>tenēi/tennas sklīja</td>
-</tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Перфект</th><th>Будущее</th></tr></thead>
+</tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Перфект</th><th>Будущее</th></tr></thead>
 <tbody><tr>
 <td>as asma sklījuns / sklījusi<br>tū assei sklījuns / sklījusi<br>tāns/tenā ast sklījuns / sklījusi<br>tennan ast sklījus<br>mes asmai sklījusis / sklījusjos<br>jūs astei sklījusis / sklījsite<br>tenēi/tennas ast sklījusis / sklījusi</td>
 <td>as wīrst sklījuns / sklījusi<br>tū wīrst sklījuns / sklījusi<br>tāns/tenā wīrst sklījuns / sklījusi<br>tennan wīrst sklījus<br>mes wīrstmai sklījusis / sklījusjos<br>jūs wīrstei sklījusis / sklījsite<br>tenēi/tennas wīrst sklījusis / sklījusi</td>
-</tr></tbody></table>
+</tr></tbody></table></div>
 <p class="sub">Infinitīwan – sklait</p>
 
 
 <h3 id="v-jot">Спряжение jot</h3>
-<table class="gram-table"><thead><tr><th>Настоящее</th><th>Прошедшее</th></tr></thead>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Настоящее</th><th>Прошедшее</th></tr></thead>
 <tbody><tr>
 <td>as joma<br>tū josei<br>tāns/tenā/tennan jot<br>mes jomai<br>jūs jotei<br>tenēi/tennas jot</td>
 <td>as joja<br>tū joja<br>tāns/tenā/tennan joja<br>mes jojamai<br>jūs jojatei<br>tenēi/tennas joja</td>
-</tr></tbody></table>
-<table class="gram-table"><thead><tr><th>Перфект</th><th>Будущее</th></tr></thead>
+</tr></tbody></table></div>
+<div class="table-wrap"><table class="gram-table"><thead><tr><th>Перфект</th><th>Будущее</th></tr></thead>
 <tbody><tr>
 <td>as asma jowuns / jowusi<br>tū assei jowuns / jowusi<br>tāns/tenā ast jowuns / jowusi<br>tennan ast jowus<br>mes asmai jowusis / jowusjos<br>jūs astei jowusis / jowusjos<br>tenēi/tennas ast jowusis / jowusjos</td>
 <td>as wīrst jowuns / jowusi<br>tū wīrst jowuns / jowusi<br>tāns/tenā wīrst jowuns / jowusi<br>tennan wīrst jowus<br>mes wīrstmai jowusis / jowusjos<br>jūs wīrstei jowusis / jowusjos<br>tenēi/tennas wīrst jowusis / jowusjos</td>
-</tr></tbody></table>
+</tr></tbody></table></div>
 <p class="sub">Infinitīwan – jot · Причастия: jonts (наст.), jowuns (прош.)</p>
 <section id="participles" class="grammar-section">
 <h3>1. Основные виды</h3>
 
 <p class="sub">«Читающий» Prezēnte. -ints ставится, если глагол на -īt/-it</p>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>masc sg / pl</th><th>fem sg / pl</th><th>neut sg / pl</th></tr></thead>
 <tbody>
 <tr><td>Nom</td><td>skaitīnts / skaitīntjai</td><td>skaitīnti / skaitīntjos</td><td>skaitīnti / skaitīntjai</td></tr>
 <tr><td>Gen</td><td>skaitīntis / skaitīntin</td><td>skaitīntjos / skaitīntjun</td><td>skaitīntis / skaitīntin</td></tr>
 <tr><td>Dat</td><td>skaitīntisma / skaitīntims</td><td>skaitīntjai / skaitīntjoms</td><td>skaitīntisma / skaitīntims</td></tr>
 <tr><td>Akk</td><td>skaitīntin / skaitīntins</td><td>skaitīntjan / skaitīntjans</td><td>skaitīntin / skaitīntins</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p class="sub">«читавший» Pretēritan. Основа на гласный до -t</p>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>masc sg / pl</th><th>fem sg / pl</th><th>neut sg / pl</th></tr></thead>
 <tbody>
 <tr><td>Nom</td><td>skaitīwuns / skaitīwusis</td><td>skaitīsai / skaitīwusjos</td><td>skaitīwus / skaitīwus</td></tr>
 <tr><td>Gen</td><td>skaitīwusjas / skaitīwusin</td><td>skaitīwusjos / skaitīwusjun</td><td>skaitīwusjos / skaitīwusin</td></tr>
 <tr><td>Dat</td><td>skaitīwusjosma / skaitīwusims</td><td>skaitīwusjai / skaitīwusjoms</td><td>skaitīwusjosma / skaitīwusims</td></tr>
 <tr><td>Akk</td><td>skaitīwusin / skaitīwusins</td><td>skaitīwusjan / skaitīwusjans</td><td>skaitīwus / skaitīwus</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p class="sub">«читаемый» Pasīws (адъективация). Ставится -ms по 3 лицу настоящего времени</p>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>masc sg / pl</th><th>fem sg / pl</th><th>neut sg / pl</th></tr></thead>
 <tbody>
 <tr><td>Nom</td><td>skaitīms / skaitīmai</td><td>skaitīma / skaitīmos</td><td>skaitīman / skaitīmai</td></tr>
 <tr><td>Gen</td><td>skaitīmas / skaitīmun</td><td>skaitīmos / skaitīmun</td><td>skaitīmas / skaitīmun</td></tr>
 <tr><td>Dat</td><td>skaitīmasma / skaitīmams</td><td>skaitīmai / skaitīmams</td><td>skaitīmasma / skaitīmams</td></tr>
 <tr><td>Akk</td><td>skaitīman / skaitīmans</td><td>skaitīman / skaitīmans</td><td>skaitīman / skaitīmans</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p class="sub">«Прочитан» страдательное причастие (без подразделения на краткое/полное)</p>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>masc sg / pl</th><th>fem sg / pl</th><th>neut sg / pl</th></tr></thead>
 <tbody>
 <tr><td>Nom</td><td>skaitīts / skaitītai</td><td>skaitīta / skaitītos</td><td>skaitītan / skaitītai</td></tr>
 <tr><td>Gen</td><td>skaitītas / skaitītun</td><td>skaitītos / skaitītun</td><td>skaitītas / skaitītun</td></tr>
 <tr><td>Dat</td><td>skaitītasma / skaitītams</td><td>skaitītai / skaitītams</td><td>skaitītasma / skaitītams</td></tr>
 <tr><td>Akk</td><td>skaitītan / skaitītans</td><td>skaitītan / skaitītans</td><td>skaitītan / skaitītans</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p class="sub">«моющий» Prezēnte (инфинитив mūt). Для слов, где после -t гласный, но всё слово из 3 букв</p>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>masc sg / pl</th><th>fem sg / pl</th><th>neut sg / pl</th></tr></thead>
 <tbody>
 <tr><td>Nom</td><td>mūjants / mūjantjai</td><td>mūjanti / mūjantjos</td><td>mūjanti / mūjantjai</td></tr>
 <tr><td>Gen</td><td>mūjantis / mūjantin</td><td>mūjantjos / mūjantjun</td><td>mūjantis / mūjantin</td></tr>
 <tr><td>Dat</td><td>mūjantisma / mūjantims</td><td>mūjantjai / mūjantjoms</td><td>mūjantisma / mūjantims</td></tr>
 <tr><td>Akk</td><td>mūjantin / mūjantins</td><td>mūjantjan / mūjantjans</td><td>mūjantin / mūjantins</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p class="sub">«Унифицирующий» Prezēnte. Для глаголов на -int и согласный до -t</p>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>masc sg / pl</th><th>fem sg / pl</th><th>neut sg / pl</th></tr></thead>
 <tbody>
 <tr><td>Nom</td><td>ainawīdinants / ainawīdinantjai</td><td>ainawīdinanti / ainawīdinantjos</td><td>ainawīdinanti / ainawīdinantjai</td></tr>
 <tr><td>Gen</td><td>ainawīdinantis / ainawīdinantin</td><td>ainawīdinantjos / ainawīdinantjun</td><td>ainawīdinantis / ainawīdinantin</td></tr>
 <tr><td>Dat</td><td>ainawīdinantisma / ainawīdinantims</td><td>ainawīdinantjai / ainawīdinantjoms</td><td>ainawīdinantisma / ainawīdinantims</td></tr>
 <tr><td>Akk</td><td>ainawīdinantin / ainawīdinantins</td><td>ainawīdinantjan / ainawīdinantjans</td><td>ainawīdinantin / ainawīdinantins</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p class="sub">Получающий в долг (стандарт для глаголов на -au-)</p>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>masc sg / pl</th><th>fem sg / pl</th><th>neut sg / pl</th></tr></thead>
 <tbody>
 <tr><td>Nom</td><td>aušaūjants / aušaūjantjai</td><td>aušaujantī / aušaūjantjos</td><td>aušaūjanti / aušaūjantjai</td></tr>
 <tr><td>Gen</td><td>aušaūjantis / aušaūjantin</td><td>aušaūjantjos / aušaūjantjun</td><td>aušaūjantis / aušaūjantin</td></tr>
 <tr><td>Dat</td><td>aušaūjantisma / aušaujantims</td><td>aušaūjantjai / aušaujantjoms</td><td>aušaūjantisma / aušaujantims</td></tr>
 <tr><td>Akk</td><td>aušaūjantin / aušaūjantins</td><td>aušaūjantjan / aušaūjantjans</td><td>aušaūjantin / aušaūjantins</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p class="sub">Основа на согласный до -t (Pretēritan)</p>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead><tr><th></th><th>masc sg / pl</th><th>fem sg / pl</th><th>neut sg / pl</th></tr></thead>
 <tbody>
 <tr><td>Nom</td><td>antrinuns / antrinusis</td><td>antrinusi / antrinusjos</td><td>antrinus / antrinus</td></tr>
 <tr><td>Gen</td><td>antrinusjos / antrinusin</td><td>antrinusjos / antrinusjun</td><td>antrinusjos / antrinusin</td></tr>
 <tr><td>Dat</td><td>antrinusjosma / antrinusims</td><td>antrinusjai / antrinusjoms</td><td>antrinusjosma / antrinusims</td></tr>
 <tr><td>Akk</td><td>antrinusin / antrinusins</td><td>antrinusjan / antrinusjans</td><td>antrinus / antrinus</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3>2. Наклонения</h3>
 <p class="sub">Повелительное для основы на -it/-īt, -es/-ēs:</p>
@@ -1570,7 +1559,7 @@ Prezēnte particīpan: wirstants</p>
 <h3 id="p-main">1. Основные виды</h3>
 
 <h4>«Читающий» Prezēnte. -ints ставится, если глагол на -īt/-it</h4>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead>
 <tr><th></th><th colspan="2">masc</th><th colspan="2">fem</th><th colspan="2">neut</th></tr>
 <tr><th></th><th>sg</th><th>pl</th><th>sg</th><th>pl</th><th>sg</th><th>pl</th></tr>
@@ -1581,10 +1570,10 @@ Prezēnte particīpan: wirstants</p>
 <tr><td><b>Dat</b></td><td>skaitīntisma</td><td>skaitīntims</td><td>skaitīntjai</td><td>skaitīntjoms</td><td>skaitīntisma</td><td>skaitīntims</td></tr>
 <tr><td><b>Akk</b></td><td>skaitīntin</td><td>skaitīntins</td><td>skaitīntjan</td><td>skaitīntjans</td><td>skaitīntin</td><td>skaitīntins</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h4>«читавший» Pretēritan. Основа на гласный до -t</h4>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead>
 <tr><th></th><th colspan="2">masc</th><th colspan="2">fem</th><th colspan="2">neut</th></tr>
 <tr><th></th><th>sg</th><th>pl</th><th>sg</th><th>pl</th><th>sg</th><th>pl</th></tr>
@@ -1595,10 +1584,10 @@ Prezēnte particīpan: wirstants</p>
 <tr><td><b>Dat</b></td><td>skaitīwusjasma</td><td>skaitīwusims</td><td>skaitīwusjai</td><td>skaitīwusjoms</td><td>skaitīwusjasma</td><td>skaitīwusims</td></tr>
 <tr><td><b>Akk</b></td><td>skaitīwusin</td><td>skaitīwusins</td><td>skaitīwusjan</td><td>skaitīwusjans</td><td>skaitīwus</td><td>skaitīwus</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h4>«читаемый» Pasīws (адъективация). -ms по 3 лицу настоящего времени</h4>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead>
 <tr><th></th><th colspan="2">masc</th><th colspan="2">fem</th><th colspan="2">neut</th></tr>
 <tr><th></th><th>sg</th><th>pl</th><th>sg</th><th>pl</th><th>sg</th><th>pl</th></tr>
@@ -1609,10 +1598,10 @@ Prezēnte particīpan: wirstants</p>
 <tr><td><b>Dat</b></td><td>skaitīmasma</td><td>skaitīmams</td><td>skaitīmai</td><td>skaitīmams</td><td>skaitīmasma</td><td>skaitīmams</td></tr>
 <tr><td><b>Akk</b></td><td>skaitīman</td><td>skaitīmans</td><td>skaitīman</td><td>skaitīmans</td><td>skaitīman</td><td>skaitīmans</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h4>«Прочитан» страдательное причастие (без подразделения на краткое или полное)</h4>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead>
 <tr><th></th><th colspan="2">masc</th><th colspan="2">fem</th><th colspan="2">neut</th></tr>
 <tr><th></th><th>sg</th><th>pl</th><th>sg</th><th>pl</th><th>sg</th><th>pl</th></tr>
@@ -1623,10 +1612,10 @@ Prezēnte particīpan: wirstants</p>
 <tr><td><b>Dat</b></td><td>skaitītasma</td><td>skaitītams</td><td>skaitītai</td><td>skaitītams</td><td>skaitītasma</td><td>skaitītams</td></tr>
 <tr><td><b>Akk</b></td><td>skaitītan</td><td>skaitītans</td><td>skaitītan</td><td>skaitītans</td><td>skaitītan</td><td>skaitītans</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h4>«моющий» Prezēnte (инфинитив mūt; для слов, где после -t гласный, слово из 3 букв)</h4>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead>
 <tr><th></th><th colspan="2">муж.р.</th><th colspan="2">жен.р.</th><th colspan="2">neut</th></tr>
 <tr><th></th><th>ед.ч.</th><th>мн.ч.</th><th>ед.ч.</th><th>мн.ч.</th><th>ед.ч.</th><th>мн.ч.</th></tr>
@@ -1637,10 +1626,10 @@ Prezēnte particīpan: wirstants</p>
 <tr><td><b>Дат.п.</b></td><td>mūjantisma</td><td>mujantims</td><td>mūjantjai</td><td>Mujantjoms</td><td>mūjantisma</td><td>mujantims</td></tr>
 <tr><td><b>Вин.п.</b></td><td>mūjantin</td><td>mūjantins</td><td>mūjantjan</td><td>mūjantjans</td><td>mūjantin</td><td>mūjantins</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h4>«Унифицирующий» Prezēnte (для глаголов на -int и согласный до -t)</h4>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead>
 <tr><th></th><th colspan="2">муж.р.</th><th colspan="2">жен.р.</th><th colspan="2">neut</th></tr>
 <tr><th></th><th>ед.ч.</th><th>мн.ч.</th><th>ед.ч.</th><th>мн.ч.</th><th>ед.ч.</th><th>мн.ч.</th></tr>
@@ -1651,10 +1640,10 @@ Prezēnte particīpan: wirstants</p>
 <tr><td><b>Дат.п.</b></td><td>ainawīdinantisma</td><td>ainawidinantims</td><td>ainawīdinantjai</td><td>ainawīdinantjoms</td><td>ainawīdinantisma</td><td>ainawīdinantims</td></tr>
 <tr><td><b>Вин.п.</b></td><td>ainawīdinantin</td><td>ainawīdinantins</td><td>ainawīdinantjan</td><td>ainawīdinantjans</td><td>ainawīdinantin</td><td>ainawīdinantins</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h4>Получающий в долг / стандарт для глаголов на -au-</h4>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead>
 <tr><th></th><th colspan="2">муж.р.</th><th colspan="2">жен.р.</th><th colspan="2">neut</th></tr>
 <tr><th></th><th>ед.ч.</th><th>мн.ч.</th><th>ед.ч.</th><th>мн.ч.</th><th>ед.ч.</th><th>мн.ч.</th></tr>
@@ -1665,10 +1654,10 @@ Prezēnte particīpan: wirstants</p>
 <tr><td><b>Дат.п.</b></td><td>aušaūjantisma</td><td>aušaujantims</td><td>aušaūjantjai</td><td>aušaujantjoms</td><td>aušaūjantisma</td><td>aušaujantims</td></tr>
 <tr><td><b>Вин.п.</b></td><td>aušaūjantin</td><td>aušaūjantins</td><td>aušaūjantjan</td><td>aušaūjantjans</td><td>aušaūjantin</td><td>aušaūjantins</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h4>Основа на согласный до -t (Pretēritan)</h4>
-<table class="gram-table">
+<div class="table-wrap"><table class="gram-table">
 <thead>
 <tr><th></th><th colspan="2">муж.р.</th><th colspan="2">жен.р.</th><th colspan="2">neut</th></tr>
 <tr><th></th><th>ед.ч.</th><th>мн.ч.</th><th>ед.ч.</th><th>мн.ч.</th><th>ед.ч.</th><th>мн.ч.</th></tr>
@@ -1679,7 +1668,7 @@ Prezēnte particīpan: wirstants</p>
 <tr><td><b>Дат.п.</b></td><td>antrinusjasma</td><td>antrinusims</td><td>antrinusjai</td><td>antrinusjoms</td><td>antrinusjasma</td><td>antrinusims</td></tr>
 <tr><td><b>Вин.п.</b></td><td>antrinusin</td><td>antrinusins</td><td>antrinusjan</td><td>antrinusjans</td><td>antrinus</td><td>antrinus</td></tr>
 </tbody>
-</table>
+</table></div>
 
 <h3 id="p-mood">2. Наклонения</h3>
 
@@ -1708,6 +1697,172 @@ Prezēnte particīpan: wirstants</p>
 <p>Желательное: Saisai</p>
 <p>Сослагательное:</p>
 <p>as būlai<br>tū būlai<br>tāns/tenā/tennan būlai<br>mes būlime<br>jūs būlite<br>tenēi/tennas būlai</p>
+</section>
+
+
+<section id="p-prep">
+<h2>Предлоги и союзы</h2>
+
+<h3>Фундаментальное правило балтского управления</h3>
+<p>В новопрусском/новосудавском языках выбор падежа после большинства базовых предлогов зависит исключительно от типа логической связи:</p>
+<ol>
+<li><b>Винительный падеж (Accusative / Acc.)</b> — выражает динамику: движение, направление, цель, преодоление препятствия или временную протяженность («Куда?», «Сквозь что?»).</li>
+<li><b>Дательный падеж (Dative / Dat.)</b> — выражает статику: фиксированное местоположение, нахождение внутри/около объекта, состояние или точку во времени («Где?», «Когда?»).</li>
+<li><b>Родительный падеж (Genitive / Gen.)</b> — выражает причину или принадлежность («Из-за чего?»).</li>
+</ol>
+
+<h3 id="p-prep-group1">Группа 1. Двухпадежные пространственные предлоги (Acc. / Dat.)</h3>
+<p>Самая используемая группа. Падеж существительного полностью меняет смысл фразы.</p>
+<ul>
+<li><b>en / an</b> — в, на, внутрь.
+  <ul>
+  <li>С Винительным (Acc.): направление движения куда-то внутри объекта (например, <i>en butan</i> — «в дом [войти]»).</li>
+  <li>С Дательным (Dat.): статичное нахождение где-то (например, <i>en baltiskasmu wipei</i> — «в балтской ветви»).</li>
+  </ul>
+</li>
+<li><b>pa / po-</b> — под, после, согласно.
+  <ul>
+  <li>С Винительным (Acc.): движение куда? под что-то (например, под стол, под навес).</li>
+  <li>С Дательным (Dat.): нахождение где? под чем-то, а также абстрактное следование источнику и по (поверхности) (<i>Pa Sudāwisku laisku</i> — «Согласно Судавской книжице»).</li>
+  <li>С Генитивом (Gen.): в значении «после» (во времени) или «по» (в значении распределения).</li>
+  </ul>
+</li>
+<li><b>prei</b> — к, у, при, перед.
+  <ul>
+  <li>С Винительным (Acc.): приближение к объекту куда? к кому/чему? (<i>prei dūsjen</i> — «к душе»).</li>
+  <li>С Дательным (Dat.): нахождение вплотную где? у чего-то, при чём-то (<i>prei preikalei</i> — «у наковальни»).</li>
+  </ul>
+</li>
+<li><b>iz</b> — из, от.
+  <ul>
+  <li>С Винительным (Acc.): активное исторжение, выход откуда? наружу из чего-то.</li>
+  <li>С Дательным (Dat.): указание на статичное происхождение или материал, из которого сделан предмет.</li>
+  </ul>
+</li>
+<li><b>aza / aze / eza / ezze</b> — из, от, о, касательно.
+  <ul>
+  <li>С Винительным (Acc.): о ком-то, разговор или мысль о предмете (<i>ezze prūsiskan kultūrin</i> — «о прусской культуре»).</li>
+  <li>С Дательным (Dat.): от кого-то, из (<i>ezze mēstu</i> — из города).</li>
+  </ul>
+</li>
+</ul>
+
+<h3 id="p-prep-group2">Группа 2. Предлоги СТРОГО Винительного падежа (Только Acc.)</h3>
+<p>После этих слов существительное ВСЕГДА стоит в форме Acc. без исключений.</p>
+<ul>
+<li><b>per</b> — важнейший многозначный предлог, выступающий аналогом русского «за», «через», «ради».
+  <ul>
+  <li>Значение «ЗА / РАДИ» (цель, бенефициар): <i>per stan denkauja</i> — «за это благодарю», <i>per prūsiskans wirdans</i> — «ради / для прусских слов».</li>
+  <li>Значение «СЗАДИ»: <i>per persan</i> (за ямой), но есть <i>rīksnai</i>.</li>
+  </ul>
+</li>
+<li><b>be</b> — без (выражает полное отсутствие или лишение чего-либо).</li>
+<li><b>pra / pro</b> — сквозь, мимо, через (направленное сквозное движение).</li>
+<li><b>pogar</b> — возле, около, подле (нахождение на внешней границе объекта).</li>
+<li><b>sklaits</b> — без, кроме, за исключением.</li>
+<li><b>zūrgi</b> — вокруг, около (территориальный охват по периметру).</li>
+<li><b>kirša</b> — через, поверх, над (движение над препятствием).</li>
+<li><b>san</b> — с, со.
+  <ul>
+  <li>С Винительным (Acc.): с кем-то быть, также и является конструкцией для кем/чем вместо творительного падежа, <i>san ginin</i> (с другом).</li>
+  <li>Горжусь (кем?) сыном — <i>prankina si san sūnun</i>.</li>
+  <li>Гуляю(иду) (с кем?) с сыном — <i>Eima san sūnun</i>.</li>
+  <li>Пишу (чем?) ручкой — <i>peiso san peisolien</i>.</li>
+  <li>Чай (с чем?) с лимоном — <i>Tējs san citronien</i>.</li>
+  </ul>
+</li>
+<li><b>pirzdau</b> — перед, впереди.
+  <ul>
+  <li>С Винительным (Acc.): движение на позицию перед кем-то (встать перед строем), перед, до (перед), назад (тому назад), перед, против (перед).</li>
+  </ul>
+</li>
+<li><b>sirzdau</b> — между, среди.
+  <ul>
+  <li>С Винительным (Acc.): перемещение внутрь группы объектов (сесть между деревьями), <i>sirzdau amzjans</i> — «международный / среди людей».</li>
+  </ul>
+</li>
+<li><b>na / nō</b> — на, поверх.
+  <ul>
+  <li>С Винительным (Acc.): перемещение на поверхность чего-то или против чего-то (<i>na stan Garban</i> — «на эту Гору»).</li>
+  </ul>
+</li>
+</ul>
+
+<h3 id="p-prep-group3">Группа 3. Предлоги СТРОГО Дательного падежа (Только Dat.)</h3>
+<p>Обозначают строгую фиксацию следствия или отправной точки во времени.</p>
+<ul>
+<li><b>izstendau</b> — оттуда, из того места.</li>
+<li><b>panzdau</b> — после того, затем (употребляется для хронологического связывания событий).</li>
+</ul>
+
+<h3 id="p-prep-group4">Группа 4. Предлог СТРОГО Родительного падежа (Только Gen.)</h3>
+<ul>
+<li><b>pagan</b> — из-за, по причине, ради (выступает классическим каузальным предлогом, требующим Genitive).</li>
+<li><b>rīkisnai</b> «сзади»: <i>rīksnai persos</i> (за ямой, сзади ямы), <i>rīksnai šappas</i> (за шкафом, сзади шкафа).</li>
+</ul>
+
+<h3 id="p-prep-group5">Группа 5. Полезные союзы</h3>
+<ul>
+<li><b>san-ku</b> — как, каким образом, с помощью чего (вопрос/союз). Сложная конструкция из предлога san/san- («с») и местоименной основы ku. Когда «как» означает инструмент или способ действия.</li>
+<li><b>kai</b> — как, в качестве, когда (союз сравнения и времени). Самый универсальный союз: сравнение, «в качестве / будучи», временные придаточные.</li>
+<li><b>kaigi</b> — как именно (уточняющий союз). Усиленная форма kai с частицей -gi.</li>
+</ul>
+</section>
+
+<section id="p-conj">
+<h2>Союзы (Conjunctions)</h2>
+<p>Союзы делятся на сочинительные (соединяют равноправные слова и фразы) и подчинительные (вводят зависимые придаточные предложения).</p>
+
+<h3>Соединительные союзы («и», «также»)</h3>
+<ul>
+<li><b>ir</b> — и, также. Универсальный базовый союз (vīras ir vīrina — мужчина и женщина).</li>
+<li><b>er</b> — и, также, даже. Соединительный союз с оттенком усиления.</li>
+</ul>
+
+<h3>Разделительные и противительные союзы («но», «или»)</h3>
+<ul>
+<li><b>ader</b> — или. Выбор между двумя альтернативами (brāte ader sese — брат или сестра).</li>
+<li><b>anga</b> — или… или…, либо… либо…. Повторяющийся разделительный союз (anga šis anga stas — либо этот, либо тот).</li>
+<li><b>sklait</b> — но, однако. Противопоставление.</li>
+<li><b>negi</b> — ни, так же не. Отрицательный разделительный союз (negi šis, negi stas — ни этот, ни тот).</li>
+</ul>
+
+<h3>Подчинительные союзы (причина, условие, цель, время)</h3>
+<ul>
+<li><b>beggi</b> — ибо, так как, потому что, поскольку.</li>
+<li><b>kadangi</b> — так как, поскольку, ввиду того что. Более официальный причинный союз.</li>
+<li><b>kadan</b> — когда. Временные придаточные (kadan as aueima… — когда я ухожу…).</li>
+<li><b>ikai</b> — если. Условные придаточные (ikai tū kaitī… — если ты хочешь…).</li>
+<li><b>kai / kai si</b> — чтобы, дабы. Целевые предложения (часто с сослагательным / оптативом).</li>
+<li><b>nekai</b> — чем. Строго при сравнении после прилагательных в сравнительной степени (walnjai nekai stan — лучше, чем то).</li>
+<li><b>enilgan</b> — вдоль. Используется с генитивом.</li>
+</ul>
+</section>
+
+<section id="p-part">
+<h2>Частицы (Particles)</h2>
+<p>Частицы не соединяют предложения, а придают отдельным словам или всей фразе различные смысловые, вопросительные или эмоциональные оттенки.</p>
+
+<h3>Вопросительные и побудительные частицы</h3>
+<ul>
+<li><b>anga</b> — разве, ли. В начале вопросительного предложения, требующего ответа «да» или «нет» (Anga tū waisja? — Разве ты знаешь?).</li>
+<li><b>-gi</b> — же, ведь, точно (энклитика). Прирастает к союзам или местоимениям для усиления (kas-gi — кто же?, kaigi — как ведь).</li>
+<li><b>-lai</b> — пусть, да. Образует повелительное наклонение (оптатив) для 3-го лица (pastonai-lai — пусть станет).</li>
+<li><b>na !</b> — на!, возьми!, ну!. Побудительное восклицание.</li>
+<li><b>wa !</b> — вот!, гляди!. Указательная побудительная частица (wa zukautojs! — вот рыбак!).</li>
+</ul>
+
+<h3>Отрицательные частицы</h3>
+<ul>
+<li><b>ne / ni</b> — не, нет. Классическое отрицание перед глаголами, существительными или прилагательными (as ne waisja — я не знаю).</li>
+<li><b>jo</b> — да. Слово утверждения, согласия (заимствовано из древнескандинавского/готского субстрата).</li>
+</ul>
+
+<h3>Усилительные и выделительные частицы</h3>
+<ul>
+<li><b>pēr / per</b> — слишком, чересчур. Перед прилагательными и наречиями для избыточности признака (pēr ankstai — слишком рано).</li>
+<li><b>ter</b> — только, лишь. Ограничительная частица (terains — только один / одинокий).</li>
+</ul>
 </section>
 
 <section id="agreement" class="grammar-section">
