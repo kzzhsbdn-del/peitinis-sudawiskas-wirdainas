@@ -653,8 +653,8 @@ a:hover { color: #000; border-bottom-color: #000; }
 <div class="table-wrap"><table class="gram-table">
 <thead><tr><th>жен.р.</th><th>ед.ч.</th><th>мн.ч.</th></tr></thead>
 <tbody>
-<tr><td>Им.п.</td><td>partīkeli</td><td>partīkelis</td></tr>
-<tr><td>Род.п.</td><td>partīkelis</td><td>partīkelin</td></tr>
+<tr><td>Им.п.</td><td>partīkeli</td><td>partīkeles</td></tr>
+<tr><td>Род.п.</td><td>partīkeles</td><td>partīkeliun</td></tr>
 <tr><td>Дат.п.</td><td>partīkelei</td><td>partīkelims</td></tr>
 <tr><td>Вин.п.</td><td>partīkelin</td><td>partīkelins</td></tr>
 </tbody></table></div>
@@ -1748,16 +1748,16 @@ Prezēnte particīpan: wirstants</p>
 <h3 id="p-prep-group1">Группа 1. Двухпадежные пространственные предлоги (Acc. / Dat.)</h3>
 <p>Самая используемая группа. Падеж существительного полностью меняет смысл фразы.</p>
 <ul>
-<li><b>en / an</b> — в, на, внутрь.
+<li><b>en/na</b> — в, на, внутрь.
   <ul>
   <li>С Винительным (Acc.): направление движения куда-то внутри объекта (например, <i>en butan</i> — «в дом [войти]»).</li>
   <li>С Дательным (Dat.): статичное нахождение где-то (например, <i>en baltiskasmu wipei</i> — «в балтской ветви»).</li>
   </ul>
 </li>
-<li><b>pa / po-</b> — под, после, согласно.
+<li><b>pa</b> — под, после, согласно, по.
   <ul>
   <li>С Винительным (Acc.): движение куда? под что-то (например, под стол, под навес).</li>
-  <li>С Дательным (Dat.): нахождение где? под чем-то, а также абстрактное следование источнику и по (поверхности) (<i>Pa Sudāwisku laisku</i> — «Согласно Судавской книжице»).</li>
+  <li>С Дательным (Dat.): нахождение где? под чем-то, а также абстрактное следование источнику и по (поверхности) (<i>Pa Sudāwisku laisku</i> — «Согласно Судавской книжице» / <i>as teinū eima pa tiltu</i> — «я иду по мосту»).</li>
   <li>С Генитивом (Gen.): в значении «после» (во времени) или «по» (в значении распределения).</li>
   </ul>
 </li>
@@ -1773,10 +1773,10 @@ Prezēnte particīpan: wirstants</p>
   <li>С Дательным (Dat.): указание на статичное происхождение или материал, из которого сделан предмет.</li>
   </ul>
 </li>
-<li><b>aza / aze / eza / ezze</b> — из, от, о, касательно.
+<li><b>eza</b> — из, от, о, касательно.
   <ul>
-  <li>С Винительным (Acc.): о ком-то, разговор или мысль о предмете (<i>ezze prūsiskan kultūrin</i> — «о прусской культуре»).</li>
-  <li>С Дательным (Dat.): от кого-то, из (<i>ezze mēstu</i> — из города).</li>
+  <li>С Винительным (Acc.): о ком-то, разговор или мысль о предмете (<i>eza sūdawiskan kultūrien</i> — «о прусской культуре»).</li>
+  <li>С Дательным (Dat.): от кого-то, из (<i>eza mēstu</i> — из города).</li>
   </ul>
 </li>
 </ul>
@@ -1896,6 +1896,9 @@ Prezēnte particīpan: wirstants</p>
 <ul>
 <li><b>pēr / per</b> — слишком, чересчур. Перед прилагательными и наречиями для избыточности признака (pēr ankstai — слишком рано).</li>
 <li><b>ter</b> — только, лишь. Ограничительная частица (terains — только один / одинокий).</li>
+<li><b>enstwendau</b> — туда (согласование по ситуации).</li>
+<li><b>šandau / eršandau / izšendau</b> — сюда, досюда (до сих пор), отсюда.</li>
+<li><b>prei kitan</b> — к тому же, кстати, между прочим, впрочем.</li>
 </ul>
 </section>
 
@@ -3179,7 +3182,7 @@ const DICT = [
 {"w":"just","e":"to notice, sense (Inf)","r":"замечать, чувствовать (Inf)","src":"main"},
 {"w":"jūtis","e":"crossroad","r":"перекрёсток","src":"main"},
 {"w":"juvas","e":"yew-tree (Gothic loan-term)","r":"тис (готское заимствование)","src":"main"},
-{"w":"ka","e":"what ( neuter gender )","r":"что (ср. род)","src":"main"},
+{"w":"ka","e":"what ( neuter gender ); (prg ka nika)","r":"что (ср. род); nika что-то","src":"main"},
 {"w":"kabe","e":"hook, clasp","r":"крюк, застёжка","src":"main"},
 {"w":"kabīt","e":"to hang (Inf)","r":"висеть (Inf)","src":"main"},
 {"w":"kadan","e":"when (conj)","r":"когда (союз)","src":"main"},
@@ -4233,7 +4236,7 @@ const DICT = [
 {"w":"penkei / penkis","e":"five ( PIE *(s)pen- extend, Ru. \" pjat', pnu \" )","r":"пять (ПИЕ *(s)pen- «простирать», рус. «пять, пнуть»)","src":"main"},
 {"w":"penktas","e":"fifth","r":"пятый","src":"main"},
 {"w":"penpala","e":"quail (coturnix coturnix)","r":"перепёлка (coturnix coturnix)","src":"main"},
-{"w":"pentas","e":"road, path, link to a destination ( Skt. panthās, PIE *(s)pen- extend )","r":"дорога, путь, связь с пунктом назначения (санскр. panthās, ПИЕ *(s)pen- «простирать»)","src":"main"},
+{"w":"pentas","e":"road, path, link to a destination (Skt. panthās, PIE *(s)pen- extend )","r":"дорога, путь, связь с пунктом назначения (санскр. panthās, ПИЕ *(s)pen- «простирать»)","src":"main"},
 {"w":"pentausna","e":"a journey","r":"путешествие","src":"main"},
 {"w":"pentaut","e":"to travel","r":"путешествовать","src":"main"},
 {"w":"pentautojas","e":"traveler","r":"путешественник","src":"main"},
@@ -4250,7 +4253,7 @@ const DICT = [
 {"w":"perbilīt","e":"to deny (Inf)","r":"отрицать (инфинитив)","src":"main"},
 {"w":"perdis","e":"fart","r":"пердёж","src":"main"},
 {"w":"pergas","e":"hewn log","r":"тёсаное бревно","src":"main"},
-{"w":"pergimine","e":"nature, orientation","r":"природа, ориентация","src":"main"},
+{"w":"pergimine","e":"nature, orientation","r":"природа, вид, ориентация","src":"main"},
 {"w":"pergubot","e":"to come (Inf)","r":"приходить (инфинитив)","src":"main"},
 {"w":"perklantīsna","e":"damnation, ruin","r":"проклятие, гибель","src":"main"},
 {"w":"perklantīt","e":"to damn (Inf)","r":"проклинать (инфинитив)","src":"main"},
@@ -4259,7 +4262,7 @@ const DICT = [
 {"w":"perkūnausna","e":"oath","r":"клятва","src":"main"},
 {"w":"perkūnaut","e":"to swear by oath (Inf)","r":"клясться клятвой (инфинитив)","src":"main"},
 {"w":"perlankīt","e":"to belong to (Inf)","r":"принадлежать (инфинитив)","src":"main"},
-{"w":"pērnai","e":"last year","r":"в прошлом году","src":"main"},
+{"w":"pērnai","e":"last year","r":"в прошлом году, прошлый год","src":"main"},
 {"w":"perōne","e":"cluster, group [ PIE *per- to bear > cluster, Lith. \" peruotas \" brood cluster, Pashto \" perūne \" Pleiades cluster ]; (prg perōni)","r":"скопление, группа [ПИЕ *per- «нести» > скопление, лит. «peruotas» — выводок, пушту «perūne» — скопление Плеяд]; общество, сообщество","src":"main"},
 {"w":"perōniskas","e":"communal","r":"общинный","src":"main"},
 {"w":"perpēst","e":"to deliver (Inf)","r":"доставлять (инфинитив)","src":"main"},
@@ -4377,7 +4380,7 @@ const DICT = [
 {"w":"prabūtiskai","e":"eternally","r":"вечно, навечно","src":"main"},
 {"w":"prabūtiskas","e":"eternal","r":"вечный","src":"main"},
 {"w":"praeivingiska","e":"transient","r":"временный, преходящий","src":"main"},
-{"w":"prakaisna","e":"perspiration","r":"пот, испарина","src":"main"},
+{"w":"prakaisna","e":"perspiration; (prg prakāisnā)","r":"пот, испарина","src":"main"},
 {"w":"prakaist","e":"to sweat (Inf)","r":"потеть (инфинитив)","src":"main"},
 {"w":"prakartas","e":"manger","r":"ясли, кормушка","src":"main"},
 {"w":"praklantīt","e":"to damn, curse (Inf)","r":"проклинать, проклясть (инфинитив)","src":"main"},
@@ -4395,7 +4398,7 @@ const DICT = [
 {"w":"preartoja","e":"raker, for plow","r":"грабли, для плуга","src":"main"},
 {"w":"predikausna","e":"sermon","r":"проповедь","src":"main"},
 {"w":"predikeris","e":"preacher","r":"проповедник","src":"main"},
-{"w":"prei","e":"at, to, before (w/ Dat. or Acc.); (prg prēi pagaūsenjan)","r":"у, к, перед (с дат. или вин.); pagausenjun сначала","src":"main"},
+{"w":"prei","e":"at, to, before (w/ Dat. or Acc.); (prg prēi pagaūsenjan); (prg prēi kitan)","r":"у, к, перед (с дат. или вин.); pagausenjun сначала; kitan 1 к тому же2 кстати3 между прочим4 впрочем","src":"main"},
 {"w":"preibilēsna","e":"promise,assurance","r":"обещание, заверение","src":"main"},
 {"w":"preidan","e":"fodder, supplement","r":"корм, добавка","src":"main"},
 {"w":"prei-din","e":"to him","r":"к нему","src":"main"},
@@ -7453,7 +7456,7 @@ const DICT = [
 {"w":"Gadāsna","e":"(prg gadāsnā)","r":"1 предположение2 домысел","src":"extra"},
 {"w":"Sawaitis","e":"(prg sawaītis)","r":"договор","src":"extra"},
 {"w":"Autentike","e":"(prg autēntiki)","r":"аутентика","src":"extra"},
-{"w":"Autentisks","e":"","r":"аутентичный","src":"extra"},
+{"w":"Autentisks","e":"(prg autēntisks)","r":"аутентичный; аутентичный, подлинный, достоверный","src":"extra"},
 {"w":"Morfeman","e":"(prg mōrfeman)","r":"морфема","src":"extra"},
 {"w":"Morfologija","e":"(prg morfōlogija)","r":"морфология","src":"extra"},
 {"w":"Regeneracija","e":"","r":"регенерация","src":"extra"},
@@ -7650,7 +7653,7 @@ const DICT = [
 {"w":"Chlors","e":"(lit chloras)","r":"хлор","src":"extra"},
 {"w":"Argons","e":"(lit argonas)","r":"аргон","src":"extra"},
 {"w":"Kalis","e":"(lit kalis)","r":"калий","src":"extra"},
-{"w":"Kalcis","e":"(lit kalcis)","r":"кальций","src":"extra"},
+{"w":"Kalcjan","e":"(prg kālcjan)","r":"кальций","src":"extra"},
 {"w":"Skandis","e":"(lit skandis)","r":"скандий","src":"extra"},
 {"w":"Titans","e":"(lit titanas)","r":"титан","src":"extra"},
 {"w":"Wanadis","e":"(lit vanadis)","r":"ванадий","src":"extra"},
@@ -8099,9 +8102,40 @@ const DICT = [
 {"w":"Pamitīsna","e":"(lit pamaina)","r":"смена","src":"extra"},
 {"w":"Kosmetikerine","e":"(prg kōsmetikerini)","r":"косметолог женщина","src":"extra"},
 {"w":"Kosmetike","e":"(prg kōsmetiki)","r":"косметика","src":"extra"},
-{"w":"Kōsms","e":"(prg kōsms)","r":"космос","src":"extra"}
+{"w":"Kōsms","e":"(prg kōsms)","r":"космос","src":"extra"},
+{"w":"Kalkulators","e":"(prg kalkulatōrs)","r":"калькулятор","src":"extra"},
+{"w":"Wertikale","e":"(prg wertikāli)","r":"вертикаль","src":"extra"},
+{"w":"Wertikals","e":"(prg wertikāls)","r":"вертикальный","src":"extra"},
+{"w":"Paskals","e":"(prg paskāls)","r":"паскаль","src":"extra"},
+{"w":"Dīt","e":"(prg dītun)","r":"сосать","src":"extra"},
+{"w":"Endīt","e":"(prg endītun)","r":"1 всосать2 всасывать3 засосать","src":"extra"},
+{"w":"Tuldīt","e":"(prg tuldītun si)","r":"si радоваться","src":"extra"},
+{"w":"Aptuldīt","e":"(prg ebtuldītun)","r":"обрадовать","src":"extra"},
+{"w":"Tuldīsna","e":"(prg tuldīsnā)","r":"радость","src":"extra"},
+{"w":"Tuldewīngis","e":"(prg tuldewīngis)","r":"1 радующийся2 радостный3 рад","src":"extra"},
+{"w":"unikals","e":"(prg unikāls)","r":"уникальный","src":"extra"},
+{"w":"Enwaldīt","e":"(prg enwaldītun)","r":"1 завладеть2 овладеть","src":"extra"},
+{"w":"cilīndrisks","e":"(prg cilīndrisks)","r":"цилиндрический","src":"extra"},
+{"w":"Cilīnderis","e":"(prg cilīnderis)","r":"цилиндр","src":"extra"},
+{"w":"Papērgimine","e":"(prg papērgimi)","r":"подвид","src":"extra"},
+{"w":"ainuntapērgimis","e":"(prg ainuntapērgimis)","r":"1 неповторимый2 уникальный","src":"extra"},
+{"w":"Pērgims","e":"(prg pērgims)","r":"создание (существо)","src":"extra"},
+{"w":"Rindewīngi","e":"(prg rindewīngi)","r":"1 поочередно2 по очереди3 по порядку","src":"extra"},
+{"w":"Rindewīngis","e":"(prg rindewīngis)","r":"1 очередной2 рядовой","src":"extra"},
+{"w":"Autentiskan","e":"(prg autēntiskan)","r":"подлинность","src":"extra"},
+{"w":"Gintaws","e":"(prg gintaws)","r":"1 родственный2 породнившийся","src":"extra"},
+{"w":"Gints","e":"(prg gints)","r":"родственник","src":"extra"},
+{"w":"Taweins","e":"(prg taweīns)","r":"Родина, Отчизна","src":"extra"},
+{"w":"Ainagimuns","e":"(prg ainagimmuns)","r":"единородный","src":"extra"},
+{"w":"Auktums","e":"(prg auktums)","r":"1 выдающийся2 благородный","src":"extra"},
+{"w":"Austewingis","e":"(prg āustewingis)","r":"1 плодородный2 урожайный","src":"extra"},
+{"w":"auktumiskan","e":"(prg auktummiskan)","r":"благородство","src":"extra"},
+{"w":"Waraisjai","e":"(prg wāraisjai)","r":"родители","src":"extra"},
+{"w":"kudkudakšint","e":"(prg kudkudakšintwei)","r":"кудахтать","src":"extra"},
+{"w":"kut","e":"(prg kut kudakš)","r":"kudakš кудах кудах","src":"extra"},
+{"w":"infektīt","e":"(prg infektītun); (prg infektītun si)","r":"заразить, заражать; si заразиться","src":"extra"},
+{"w":"infekcija","e":"(prg infekcija)","r":"инфекция, зараза","src":"extra"}
 ];
-
 
 const I18N = {
   en: {
